@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!-- Copyright (C) 2020 ZenX-OS
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  <!-- UV Curved Background Design By MrSluffy
+  
+  // Support Shadow for both Dark and Light Mode //
+  
+-->
+  
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/uv_background1" />
+        </shape>
+    </item>
+      <!-- 
+  Start Here 
+-->
+    <item>
+        <shape>
+            <padding android:left="0.0dip" android:top="0.0dip" android:right="0.0dip" android:bottom="0.65dip" />
+            <solid android:color="#00cccccc" />
+            <corners android:topLeftRadius="0.0dip" android:topRightRadius="0.0dip" android:bottomLeftRadius="25.0dip" android:bottomRightRadius="0.0dip" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:left="0.0dip" android:top="0.0dip" android:right="0.0dip" android:bottom="0.65dip" />
+            <solid android:color="#10cccccc" />
+            <corners android:topLeftRadius="0.0dip" android:topRightRadius="0.0dip" android:bottomLeftRadius="25.0dip" android:bottomRightRadius="0.0dip" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:left="0.0dip" android:top="0.0dip" android:right="0.0dip" android:bottom="0.65dip" />
+            <solid android:color="#20cccccc" />
+            <corners android:topLeftRadius="0.0dip" android:topRightRadius="0.0dip" android:bottomLeftRadius="25.0dip" android:bottomRightRadius="0.0dip" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:left="0.0dip" android:top="0.0dip" android:right="0.0dip" android:bottom="0.65dip" />
+            <solid android:color="#30cccccc" />
+            <corners android:topLeftRadius="0.0dip" android:topRightRadius="0.0dip" android:bottomLeftRadius="25.0dip" android:bottomRightRadius="0.0dip" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:left="0.0dip" android:top="0.0dip" android:right="0.0dip" android:bottom="0.65dip" />
+            <solid android:color="#50cccccc" />
+            <corners android:topLeftRadius="0.0dip" android:topRightRadius="0.0dip" android:bottomLeftRadius="25.0dip" android:bottomRightRadius="0.0dip" />
+        </shape>
+    </item>
+          <!-- 
+  End Here 
+-->
+    
+    <item android:left="0.0dip" android:top="0.0dip" android:right="0.0dip" android:bottom="0.65dip">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/card_1_color" />
+            <corners android:topLeftRadius="0.0dip" android:topRightRadius="0.0dip" android:bottomLeftRadius="25.0dip" android:bottomRightRadius="0.0dip" />
+        </shape>
+    </item>
+</layer-list>

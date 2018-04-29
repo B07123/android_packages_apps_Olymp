@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2020 ZenX-OS
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- App Title -->
+    <string name="zen_hub_title">Zen Hub</string>
+
+    <!-- Main Zenhub Cards -->
+    <string name="statusbar_title">Status bar</string>
+    <string name="statusbar_summary">Clock, network traffic, system icons..</string>
+    <string name="quicksettings_title">Quick settings</string>
+    <string name="quicksettings_summary">Styling, qs icons, footer options.. </string>
+    <string name="notifications_title">Notifications</string>
+    <string name="notifications_summary">Flashlight, battery light, ticker, headsup..</string>
+    <string name="lockscreen_title">Lock screen</string>
+    <string name="lockscreen_summary">Gestures, visualizer, fod, ambient options.. </string>
+    <string name="userinterface_title">Userinterface</string>
+    <string name="userinterface_summary">Theming, dual statusbar, animations, notch.. </string>
+    <string name="gestures_title">Gestures</string>
+    <string name="gestures_summary">Swipe gesture options, nav bar, buttons.. </string>
+    <string name="hardwarebutton_title">Hardware buttons</string>
+    <string name="hardwarebutton_summary">Power menu and volume button options..</string>
+    <string name="misc_title">Miscellaneous</string>
+    <string name="misc_summary">Gaming mode, adaptive playback, battery saving..</string>
+
+
+    <!-- General strings -->
+    <string name="ok">OK</string>
+    <string name="reset">Reset</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+
+</resources>
