@@ -31,5 +31,17 @@
 
      </PreferenceCategory>
 
+     <PreferenceCategory
+        android:key="qs_brightness_slider_category_key"
+        android:title="@string/qs_brightness_slider_category_title">
+
+     <PreferenceScreen
+        android:key="qs_footer_items"
+        android:title="@string/qs_footer_items"
+        android:summary="@string/qs_footer_items_summary"
+        android:fragment="com.zen.hub.fragments.subs.QsFooterItems" />
+
+     </PreferenceCategory>
+
 
 </PreferenceScreen>
