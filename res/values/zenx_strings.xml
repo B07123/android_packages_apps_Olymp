@@ -90,6 +90,7 @@
 
      <!-- QS tile styles -->
     <string name="qs_tile_title">QS tile</string>
+    <string name="qs_tile_title">QS tile</string>
     <string name="qs_tile_style_title">QS tile style</string>
     <string name="qs_tile_style_default">Default</string>
     <string name="qs_tile_style_square">Square</string>
@@ -113,4 +114,20 @@
     <string name="qs_tile_style_just_icon">Just Icons</string>
     <string name="qs_tile_style_mallow">Mallow</string>
     <string name="qstile_oos">OOS</string>
+
+    <string name="animation_settings_title">Animations</string>
+    <string name="animation_settings_summary">System, List, Tile and Toast</string>
+
+     <!-- Tiles animation style  -->
+    <string name="qs_tile_animation_category">Tiles animations</string>
+    <string name="qs_tile_animation_style_title">QS tiles animation style</string>
+    <string name="qs_tile_animation_duration_title">QS tiles animation duration</string>
+    <string name="qs_tile_animation_style_off">no animation</string>
+    <string name="qs_tile_animation_style_flip">flip</string>
+    <string name="qs_tile_animation_style_rotate">rotate</string>
+    <string name="qs_tile_animation_duration_low">low</string>
+    <string name="qs_tile_animation_duration_default">default</string>
+    <string name="qs_tile_animation_duration_fast">fast</string>
+    <string name="qs_set_animation_style">Animation is set to %1$s</string>
+    <string name="qs_set_animation_duration">Animation duration is set to %1$s</string>
 </resources>
