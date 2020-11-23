@@ -18,6 +18,28 @@
     android:title="@string/animation_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <PreferenceCategory
+        android:title="@string/listview_animation_title"
+        android:key="list_animation"  >
+
+        <ListPreference
+            android:key="listview_animation"
+            android:dialogTitle="@string/listview_animation_title"
+            android:title="@string/listview_animation_title"
+            android:entries="@array/listview_animation_entries"
+            android:entryValues="@array/listview_animation_values"
+            android:defaultValue="0" />
+
+        <ListPreference
+            android:key="listview_interpolator"
+            android:dialogTitle="@string/listview_interpolator_title"
+            android:title="@string/listview_interpolator_title"
+            android:entries="@array/listview_interpolator_entries"
+            android:entryValues="@array/listview_interpolator_values"
+            android:defaultValue="0" />
+
+    </PreferenceCategory>
+
      <PreferenceCategory
          android:title="@string/qs_tile_animation_category"
          android:key="tile_animation">
@@ -70,7 +92,7 @@
             android:entryValues="@array/screen_off_animation_values"
             android:persistent="false"
             android:defaultValue="0" />
-            
+
          <Preference
             android:key="system_animation_preference"
             android:title="@string/system_animation_title"
