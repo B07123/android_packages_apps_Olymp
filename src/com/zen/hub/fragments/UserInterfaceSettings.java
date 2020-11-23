@@ -35,10 +35,46 @@ import com.android.settings.R;
 
 public class UserInterfaceSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
+    private static final String UI_STYLE = "ui_style";
+
+    private IOverlayManager mOverlayManager;
+    private SharedPreferences mSharedPreferences;
+    private ListPreference mUIStyle;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.zen_hub_userinterface);
+
+        mUIStyle = (ListPreference) findPreference(UI_STYLE);
+        int UIStyle = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.UI_STYLE, 0);
+        int UIStyleValue = getOverlayPosition(ThemesUtils.UI_THEMES);
+        if (UIStyleValue != 0) {
+            mUIStyle.setValue(String.valueOf(UIStyle));
+        }
+        mUIStyle.setSummary(mUIStyle.getEntry());
+        mUIStyle.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                if (preference == mUIStyle) {
+                    String value = (String) newValue;
+                    Settings.System.putInt(getActivity().getContentResolver(), Settings.System.UI_STYLE, Integer.valueOf(value));
+                    int valueIndex = mUIStyle.findIndexOfValue(value);
+                    mUIStyle.setSummary(mUIStyle.getEntries()[valueIndex]);
+                    String overlayName = getOverlayName(ThemesUtils.UI_THEMES);
+                    if (overlayName != null) {
+                    handleOverlays(overlayName, false, mOverlayManager);
+                    }
+                    if (valueIndex > 0) {
+                        handleOverlays(ThemesUtils.UI_THEMES[valueIndex],
+                                true, mOverlayManager);
+                    }
+                    return true;
+                }
+                return false;
+            }
+       });
 
     }
 
@@ -46,6 +82,29 @@ public class UserInterfaceSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 
         return false;
+    }
+
+
+    private String getOverlayName(String[] overlays) {
+            String overlayName = null;
+            for (int i = 0; i < overlays.length; i++) {
+                String overlay = overlays[i];
+                if (ZenxUtils.isThemeEnabled(overlay)) {
+                    overlayName = overlay;
+                }
+            }
+            return overlayName;
+        }
+
+    private int getOverlayPosition(String[] overlays) {
+            int position = -1;
+            for (int i = 0; i < overlays.length; i++) {
+                String overlay = overlays[i];
+                if (ZenxUtils.isThemeEnabled(overlay)) {
+                    position = i;
+                }
+            }
+        return position;
     }
 
     @Override
