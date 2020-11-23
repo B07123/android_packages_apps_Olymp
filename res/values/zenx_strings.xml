@@ -59,4 +59,11 @@
     <string name="navbar_oneui">One UI</string>
     <string name="navbar_tecno">Tecno Camon</string>
 
+    <string name="switch_style_title">Switch Styles</string>
+    <string name="switch_default">Default</string>
+    <string name="switch_narrow">Narrow</string>
+    <string name="switch_contained">Contained</string>
+    <string name="switch_telegram">Telegram</string>
+    <string name="switch_md2">MD2</string>
+    <string name="switch_retro">Retro</string>
 </resources>
