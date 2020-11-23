@@ -18,6 +18,9 @@
 package com.zen.hub.fragments;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -30,6 +33,8 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 import android.content.ContentResolver;
 
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import com.android.internal.util.zenx.ThemesUtils;
 import android.content.om.IOverlayManager;
 import android.content.SharedPreferences;
@@ -47,14 +52,18 @@ import com.android.settings.R;
 
 import static com.zen.hub.utils.Utils.handleOverlays;
 import com.zenx.support.preferences.SystemSettingListPreference;
+import com.zenx.support.colorpicker.ColorPickerPreference;
+import com.android.internal.util.zenx.ZenxUtils;
 
 public class QuickSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String BRIGHTNESS_SLIDER_STYLE = "brightness_slider_style";
+    private static final String PREF_TILE_STYLE = "qs_tile_style";
 
     private IOverlayManager mOverlayManager;
     private ListPreference mBrightnessSliderStyle;
+    private ListPreference mQsTileStyle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -96,6 +105,36 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 }
                 return false;
             }});
+
+        mQsTileStyle = (ListPreference) findPreference(PREF_TILE_STYLE);
+        int qsTileStyle = Settings.System.getInt(resolver,
+                Settings.System.QS_TILE_STYLE, 0);
+        int qsTileStyleValue = getOverlayPosition(ThemesUtils.QS_TILE_THEMES);
+        if (qsTileStyleValue != 0) {
+            mQsTileStyle.setValue(String.valueOf(qsTileStyle));
+        }
+        mQsTileStyle.setSummary(mQsTileStyle.getEntry());
+        mQsTileStyle.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                if (preference == mQsTileStyle) {
+                    String value = (String) newValue;
+                    Settings.System.putInt(resolver, Settings.System.QS_TILE_STYLE, Integer.valueOf(value));
+                    int valueIndex = mQsTileStyle.findIndexOfValue(value);
+                    mQsTileStyle.setSummary(mQsTileStyle.getEntries()[valueIndex]);
+                    String overlayName = getOverlayName(ThemesUtils.QS_TILE_THEMES);
+                    if (overlayName != null) {
+                    handleOverlays(overlayName, false, mOverlayManager);
+                    }
+                    if (valueIndex > 0) {
+                        handleOverlays(ThemesUtils.QS_TILE_THEMES[valueIndex],
+                                true, mOverlayManager);
+                    }
+                    return true;
+                }
+                return false;
+            }
+       });
 
     }
 

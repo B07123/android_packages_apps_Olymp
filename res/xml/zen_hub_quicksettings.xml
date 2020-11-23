@@ -19,6 +19,19 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
      <PreferenceCategory
+        android:key="qs_tile_key"
+        android:title="@string/qs_tile_title">
+
+        <ListPreference
+            android:key="qs_tile_style"
+            android:title="@string/qs_tile_style_title"
+            android:entries="@array/qs_tile_style_selector_entries"
+            android:entryValues="@array/qs_tile_style_selector_values"
+            android:persistent="false" />
+
+     </PreferenceCategory>
+
+     <PreferenceCategory
         android:key="qs_brightness_slider_category_key"
         android:title="@string/qs_brightness_slider_category_title">
 

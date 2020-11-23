@@ -81,4 +81,55 @@
         <item>3</item>
     </string-array>
 
+     <!-- QS tile styles -->
+    <string-array name="qs_tile_style_selector_entries" translatable="false">
+        <item>@string/qs_tile_style_default</item>
+        <item>@string/qs_tile_style_square</item>
+        <item>@string/qs_tile_style_squircletrim</item>
+        <item>@string/qs_tile_style_diamond</item>
+        <item>@string/qs_tile_style_star</item>
+        <item>@string/qs_tile_style_gear</item>
+        <item>@string/qs_tile_style_badge</item>
+        <item>@string/qs_tile_style_badgetwo</item>
+        <item>@string/qs_tile_style_circletrim</item>
+        <item>@string/qs_tile_style_dualtonecircletrim</item>
+        <item>@string/qs_tile_style_cookie</item>
+        <item>@string/qs_tile_style_circleoutline</item>
+        <item>@string/qs_tile_style_wavey</item>
+        <item>@string/qs_tile_style_ninja</item>
+        <item>@string/qs_tile_style_dottedcircle</item>
+        <item>@string/qs_tile_style_attemptmountain</item>
+        <item>@string/qs_tile_style_inkdrop</item>
+        <item>@string/qs_tile_style_neonlike</item>
+        <item>@string/qs_tile_style_triangles</item>
+        <item>@string/qs_tile_style_just_icon</item>
+        <item>@string/qs_tile_style_mallow</item>
+        <item>@string/qstile_oos</item>
+    </string-array>
+
+    <string-array name="qs_tile_style_selector_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+    </string-array>
+
 </resources>
