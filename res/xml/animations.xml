@@ -45,4 +45,16 @@
 
     </PreferenceCategory>
 
+     <PreferenceCategory
+         android:title="@string/system_animation_title"
+         android:key="system_animation_key">
+
+         <Preference
+            android:key="system_animation_preference"
+            android:title="@string/system_animation_title"
+            android:summary="@string/system_animation_summary"
+            android:fragment="com.zen.hub.fragments.subs.Systemanimations" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
