@@ -18,4 +18,17 @@
 	android:title="@string/misc_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <PreferenceCategory
+        android:key="settings_category"
+        android:title="@string/dashboard_category">
+
+        <com.zenx.support.preferences.SystemSettingListPreference
+            android:key="theming_settings_dashboard_icons"
+            android:title="@string/theming_settings_dashboard_icons_title"
+            android:entries="@array/theming_settings_dashboard_icons_entries"
+            android:entryValues="@array/theming_settings_dashboard_icons_values"
+            android:defaultValue="0" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
