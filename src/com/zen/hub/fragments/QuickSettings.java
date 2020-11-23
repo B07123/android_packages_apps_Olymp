@@ -17,30 +17,44 @@
  */
 package com.zen.hub.fragments;
 
-import com.android.internal.logging.nano.MetricsProto;
+import java.util.ArrayList;
 
-import android.os.Bundle;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
+import android.os.Bundle;
 import android.os.UserHandle;
-import android.content.ContentResolver;
-import android.content.res.Resources;
 import androidx.preference.*;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
-import java.util.Locale;
-import android.text.TextUtils;
-import android.view.View;
+import android.content.ContentResolver;
 
-import java.util.List;
-import java.util.ArrayList;
+import com.android.internal.util.zenx.ThemesUtils;
+import android.content.om.IOverlayManager;
+import android.content.SharedPreferences;
+import android.os.ServiceManager;
+import android.content.om.OverlayInfo;
+import android.graphics.Color;
+import android.os.SystemProperties;
+import android.os.RemoteException;
+import android.content.Context;
+
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.MetricsLogger;
+import com.android.internal.logging.nano.MetricsProto;
+import com.android.settings.R;
+
+import static com.zen.hub.utils.Utils.handleOverlays;
+import com.zenx.support.preferences.SystemSettingListPreference;
 
 public class QuickSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String BRIGHTNESS_SLIDER_STYLE = "brightness_slider_style";
+
+    private IOverlayManager mOverlayManager;
+    private ListPreference mBrightnessSliderStyle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -51,7 +65,61 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
+        mOverlayManager = IOverlayManager.Stub.asInterface(
+            ServiceManager.getService(Context.OVERLAY_SERVICE));
+
+        mBrightnessSliderStyle = (ListPreference) findPreference(BRIGHTNESS_SLIDER_STYLE);
+        int BrightnessSliderStyle = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.BRIGHTNESS_SLIDER_STYLE, 0);
+        int BrightnessSliderStyleValue = getOverlayPosition(ThemesUtils.BRIGHTNESS_SLIDER_THEMES);
+        if (BrightnessSliderStyleValue != 0) {
+            mBrightnessSliderStyle.setValue(String.valueOf(BrightnessSliderStyle));
         }
+        mBrightnessSliderStyle.setSummary(mBrightnessSliderStyle.getEntry());
+        mBrightnessSliderStyle.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                if (preference == mBrightnessSliderStyle) {
+                    String value = (String) newValue;
+                    Settings.System.putInt(getActivity().getContentResolver(), Settings.System.BRIGHTNESS_SLIDER_STYLE, Integer.valueOf(value));
+                    int valueIndex = mBrightnessSliderStyle.findIndexOfValue(value);
+                    mBrightnessSliderStyle.setSummary(mBrightnessSliderStyle.getEntries()[valueIndex]);
+                    String overlayName = getOverlayName(ThemesUtils.BRIGHTNESS_SLIDER_THEMES);
+                    if (overlayName != null) {
+                    handleOverlays(overlayName, false, mOverlayManager);
+                    }
+                    if (valueIndex > 0) {
+                        handleOverlays(ThemesUtils.BRIGHTNESS_SLIDER_THEMES[valueIndex],
+                                true, mOverlayManager);
+                    }
+                    return true;
+                }
+                return false;
+            }});
+
+    }
+
+    private String getOverlayName(String[] overlays) {
+            String overlayName = null;
+            for (int i = 0; i < overlays.length; i++) {
+                String overlay = overlays[i];
+                if (ZenxUtils.isThemeEnabled(overlay)) {
+                    overlayName = overlay;
+                }
+            }
+            return overlayName;
+        }
+
+    private int getOverlayPosition(String[] overlays) {
+            int position = -1;
+            for (int i = 0; i < overlays.length; i++) {
+                String overlay = overlays[i];
+                if (ZenxUtils.isThemeEnabled(overlay)) {
+                    position = i;
+                }
+            }
+        return position;
+    }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {

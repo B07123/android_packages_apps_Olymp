@@ -18,4 +18,18 @@
     android:title="@string/quicksettings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+     <PreferenceCategory
+        android:key="qs_brightness_slider_category_key"
+        android:title="@string/qs_brightness_slider_category_title">
+
+     <ListPreference
+        android:key="brightness_slider_style"
+        android:title="@string/brightness_slider_style_title"
+        android:entries="@array/brightness_slider_style_selector_entries"
+        android:entryValues="@array/brightness_slider_style_selector_values"
+        android:persistent="false" />
+
+     </PreferenceCategory>
+
+
 </PreferenceScreen>
