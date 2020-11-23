@@ -17,24 +17,45 @@
  */
 package com.zen.hub.fragments;
 
-import android.content.ContentResolver;
-import android.content.res.Resources;
-import android.content.Context;
+import java.util.ArrayList;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.UserHandle;
-import android.os.Vibrator;
 import androidx.preference.*;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
+import android.content.ContentResolver;
 
-import com.android.settings.R;
+import com.android.internal.util.zenx.ThemesUtils;
+import android.content.om.IOverlayManager;
+import android.content.SharedPreferences;
+import android.os.ServiceManager;
+import android.content.om.OverlayInfo;
+import android.graphics.Color;
+import android.os.SystemProperties;
+import android.os.RemoteException;
+import android.content.Context;
 
 import com.android.settings.SettingsPreferenceFragment;
-
+import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.settings.R;
+import com.android.internal.util.zenx.ZenxUtils;
+
+import static com.zen.hub.utils.Utils.handleOverlays;
+import com.zenx.support.preferences.SystemSettingListPreference;
 
 public class HardwareButtonSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener{
+
+    private static final String NAVBAR_STYLE = "navbar_style";
+
+    private IOverlayManager mOverlayManager;
+    private SystemSettingListPreference mNavbarStyle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -42,12 +63,67 @@ public class HardwareButtonSettings extends SettingsPreferenceFragment implement
         addPreferencesFromResource(R.xml.zen_hub_hardwarebutton);
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mOverlayManager = IOverlayManager.Stub.asInterface(
+            ServiceManager.getService(Context.OVERLAY_SERVICE));
+
+        mNavbarStyle = (SystemSettingListPreference) findPreference(NAVBAR_STYLE);
+        int navbarStyle = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.NAVBAR_STYLE, 0);
+        int navbarStyleValue = getOverlayPosition(ThemesUtils.NAVBAR_STYLES);
+        if (navbarStyleValue != 0) {
+            mNavbarStyle.setValue(String.valueOf(navbarStyle));
+        }
+        mNavbarStyle.setSummary(mNavbarStyle.getEntry());
+        mNavbarStyle.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                if (preference == mNavbarStyle) {
+                    String value = (String) newValue;
+                    Settings.System.putInt(getActivity().getContentResolver(), Settings.System.NAVBAR_STYLE, Integer.valueOf(value));
+                    int valueIndex = mNavbarStyle.findIndexOfValue(value);
+                    mNavbarStyle.setSummary(mNavbarStyle.getEntries()[valueIndex]);
+                    String overlayName = getOverlayName(ThemesUtils.NAVBAR_STYLES);
+                    if (overlayName != null) {
+                    handleOverlays(overlayName, false, mOverlayManager);
+                    }
+                    if (valueIndex > 0) {
+                        handleOverlays(ThemesUtils.NAVBAR_STYLES[valueIndex],
+                                true, mOverlayManager);
+                    }
+                    return true;
+                }
+                return false;
+            }
+       });
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
 
         return false;
+    }
+
+    private String getOverlayName(String[] overlays) {
+            String overlayName = null;
+            for (int i = 0; i < overlays.length; i++) {
+                String overlay = overlays[i];
+                if (ZenxUtils.isThemeEnabled(overlay)) {
+                    overlayName = overlay;
+                }
+            }
+            return overlayName;
+        }
+
+    private int getOverlayPosition(String[] overlays) {
+            int position = -1;
+            for (int i = 0; i < overlays.length; i++) {
+                String overlay = overlays[i];
+                if (ZenxUtils.isThemeEnabled(overlay)) {
+                    position = i;
+                }
+            }
+        return position;
     }
 
     @Override

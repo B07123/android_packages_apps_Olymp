@@ -18,5 +18,18 @@
         android:title="@string/hardwarebutton_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+     <PreferenceCategory
+        android:key="navbar_themes_key"
+        android:title="@string/navbar_themes_title">
+
+      <com.zenx.support.preferences.SystemSettingListPreference
+        android:key="navbar_style"
+        android:title="@string/navbar_style_title"
+        android:dialogTitle="@string/navbar_style_title"
+        android:entries="@array/navbar_style_entries"
+        android:entryValues="@array/navbar_style_values"
+        android:defaultValue="0" />
+
+     </PreferenceCategory>
 
 </PreferenceScreen>
