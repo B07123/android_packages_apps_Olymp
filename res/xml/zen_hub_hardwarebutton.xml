@@ -22,11 +22,23 @@
         android:key="volume_buttons_key"
         android:title="@string/volume_buttons_cat_title">
 
-      <PreferenceScreen
-         android:key="volume_buttons"
-         android:title="@string/volume_buttons_title"
-         android:summary="@string/volume_buttons_summary"
-         android:fragment="com.zen.hub.fragments.subs.VolumeButtons" />
+         <PreferenceScreen
+            android:key="volume_buttons"
+            android:title="@string/volume_buttons_title"
+            android:summary="@string/volume_buttons_summary"
+            android:fragment="com.zen.hub.fragments.subs.VolumeButtons" />
+
+     </PreferenceCategory>
+
+      <PreferenceCategory
+        android:key="power_buttons_key"
+        android:title="@string/power_buttons_cat_title">
+
+         <PreferenceScreen
+            android:key="volume_buttons"
+            android:title="@string/power_buttons_title"
+            android:summary="@string/power_buttons_title"
+            android:fragment="com.zen.hub.fragments.subs.PowerButtons" />
 
      </PreferenceCategory>
 

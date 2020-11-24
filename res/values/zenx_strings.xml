@@ -268,8 +268,19 @@
     <!-- Navbar tuner -->
     <string name="navbar_tuner_title">Navbar Tuner</string>
 
-        <!-- Statusbar Tuner -->
+    <!-- Statusbar Tuner -->
     <string name="statusbar_tuner_cat_title">Tuner</string>
     <string name="statusbar_items_title">Statusbar items</string>
+
+    <!-- Power menu Animations  -->
+    <string name="power_buttons_cat_title">Power</string>
+    <string name="power_buttons_title">Power buttons</string>
+    <string name="power_buttons_summary">Animation, items, secure items</string>
+    <string name="power_menu_animation_title">Power menu animation</string>
+    <string name="power_menu_animation_summary">Change the enter/exit animation of the power menu</string>
+    <string name="power_menu_animation_dialog_title">Select power menu animation</string>
+    <string name="power_menu_animation_aosp">AOSP (default)</string>
+    <string name="power_menu_animation_bottom">Bottom</string>
+    <string name="power_menu_animation_top">Top</string>
 
 </resources>
