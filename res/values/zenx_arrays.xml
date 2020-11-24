@@ -299,4 +299,27 @@
         <item>4</item>
     </string-array>
 
+    <!-- Statusbar dual row -->
+    <string-array name="statusbar_dual_row_entries" translatable="false">
+        <item>@string/statusbar_dual_row_off</item>
+        <item>@string/statusbar_dual_row_notification</item>
+        <item>@string/statusbar_dual_row_network_speed</item>
+        <item>@string/statusbar_dual_row_used_data</item>
+    </string-array>
+    <string-array name="statusbar_dual_row_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <!-- Statusbar dual row Data Usage -->
+    <string-array name="dual_row_datausage_entries" translatable="false">
+        <item>@string/dual_row_datausage_daily</item>
+        <item>@string/dual_row_datausage_monthly</item>
+    </string-array>
+    <string-array name="dual_row_datausage_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
 </resources>

@@ -20,6 +20,27 @@
      xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
 
 
+    <PreferenceCategory
+        android:key="statusbar_category"
+        android:title="@string/statusbar_dual_row_category">
+
+        <com.zenx.support.preferences.SystemSettingListPreference
+            android:key="dual_statusbar_row_mode"
+            android:title="@string/statusbar_dual_row_title"
+            android:entries="@array/statusbar_dual_row_entries"
+            android:entryValues="@array/statusbar_dual_row_values"
+            android:defaultValue="0"
+            android:summary="%s" />
+
+        <com.zenx.support.preferences.SystemSettingListPreference
+            android:key="dual_row_datausage"
+            android:title="@string/dual_row_datausage_title"
+            android:entries="@array/dual_row_datausage_entries"
+            android:entryValues="@array/dual_row_datausage_values"
+            android:defaultValue="0" />
+
+    </PreferenceCategory>
+
      <ListPreference
         android:key="ui_style"
         android:title="@string/ui_style_title"

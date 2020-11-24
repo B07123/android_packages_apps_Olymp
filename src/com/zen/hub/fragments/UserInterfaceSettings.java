@@ -17,35 +17,64 @@ package com.zen.hub.fragments;
 
 import java.util.ArrayList;
 
+import android.os.Bundle;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.UserHandle;
 import androidx.preference.*;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 import android.content.ContentResolver;
+import android.content.Context;
+
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import com.android.internal.util.zenx.ThemesUtils;
+import android.content.om.IOverlayManager;
+import android.content.SharedPreferences;
+import android.os.ServiceManager;
+import android.content.om.OverlayInfo;
+import android.graphics.Color;
+import android.os.SystemProperties;
+import android.os.RemoteException;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 
+import static com.zen.hub.utils.Utils.handleOverlays;
+import com.zenx.support.preferences.SystemSettingListPreference;
+import com.zenx.support.colorpicker.ColorPickerPreference;
+import com.android.internal.util.zenx.ZenxUtils;
+
+import lineageos.hardware.LineageHardwareManager;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
+import java.util.Locale;
+
 public class UserInterfaceSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String UI_STYLE = "ui_style";
+    private static final String DUAL_STATUSBAR_ROW_MODE = "dual_statusbar_row_mode";
+    private static final String DUAL_ROW_DATAUSAGE = "dual_row_datausage";
 
     private IOverlayManager mOverlayManager;
     private SharedPreferences mSharedPreferences;
     private ListPreference mUIStyle;
+    private SystemSettingListPreference mStatusbarDualRowMode;
+    private SystemSettingListPreference mDualRowDataUsageMode;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.zen_hub_userinterface);
-
+        mOverlayManager = IOverlayManager.Stub.asInterface(
+                ServiceManager.getService(Context.OVERLAY_SERVICE));
         mUIStyle = (ListPreference) findPreference(UI_STYLE);
         int UIStyle = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.UI_STYLE, 0);
@@ -76,11 +105,58 @@ public class UserInterfaceSettings extends SettingsPreferenceFragment implements
             }
        });
 
+        mStatusbarDualRowMode = (SystemSettingListPreference) findPreference(DUAL_STATUSBAR_ROW_MODE);
+        int statusbarDualRowMode = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.DUAL_STATUSBAR_ROW_MODE, 0, UserHandle.USER_CURRENT);
+        mStatusbarDualRowMode.setValue(String.valueOf(statusbarDualRowMode));
+        mStatusbarDualRowMode.setSummary(mStatusbarDualRowMode.getEntry());
+        mStatusbarDualRowMode.setOnPreferenceChangeListener(this);
+
+        handleDataUsePreferences();
+
+    }
+
+    private void handleDataUsePreferences() {
+
+        int dualRowMode = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.DUAL_STATUSBAR_ROW_MODE, 0);
+
+        if(dualRowMode == 3) {
+            mDualRowDataUsageMode = (SystemSettingListPreference) findPreference(DUAL_ROW_DATAUSAGE);
+            int dualRowDataUsageMode = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                    Settings.System.DUAL_ROW_DATAUSAGE, 0, UserHandle.USER_CURRENT);
+            mDualRowDataUsageMode.setValue(String.valueOf(dualRowDataUsageMode));
+            mDualRowDataUsageMode.setSummary(mDualRowDataUsageMode.getEntry());
+            mDualRowDataUsageMode.setOnPreferenceChangeListener(this);
+            mDualRowDataUsageMode.setVisible(true);
+        } else {
+            mDualRowDataUsageMode = (SystemSettingListPreference) findPreference(DUAL_ROW_DATAUSAGE);
+            if(mDualRowDataUsageMode != null) {
+                mDualRowDataUsageMode.setVisible(false);
+            }
+        }
+
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-
+        if (preference == mStatusbarDualRowMode) {
+            int statusbarDualRowMode = Integer.parseInt((String) newValue);
+            int statusbarDualRowModeIndex = mStatusbarDualRowMode.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.DUAL_STATUSBAR_ROW_MODE, statusbarDualRowMode);
+            mStatusbarDualRowMode.setSummary(mStatusbarDualRowMode.getEntries()[statusbarDualRowModeIndex]);
+            ZenxUtils.showSystemUiRestartDialog(getContext());
+            handleDataUsePreferences();
+            return true;
+        } else if (preference == mDualRowDataUsageMode) {
+            int dualRowDataUsageMode = Integer.parseInt((String) newValue);
+            int dualRowDataUsageModeIndex = mDualRowDataUsageMode.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.DUAL_ROW_DATAUSAGE, dualRowDataUsageMode);
+            mDualRowDataUsageMode.setSummary(mDualRowDataUsageMode.getEntries()[dualRowDataUsageModeIndex]);
+            return true;
+        }
         return false;
     }
 

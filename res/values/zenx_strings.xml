@@ -221,4 +221,17 @@
     <string name="ui_style_rectangle">Rectangle</string>
     <string name="ui_style_round_large">Round Large</string>
     <string name="ui_style_round_medium">Round Medium</string>
+
+        <!-- Statusbar dual row -->
+    <string name="statusbar_dual_row_category">Dual row</string>
+    <string name="statusbar_dual_row_title">Dual statusbar row</string>
+    <string name="statusbar_dual_row_off">Off</string>
+    <string name="statusbar_dual_row_notification">Notification bar</string>
+    <string name="statusbar_dual_row_network_speed">Notification + System bar (Networktraffic)</string>
+    <string name="statusbar_dual_row_used_data">Notification + System bar (Used Data)</string>
+
+    <string name="dual_row_datausage_title">Dual row used data</string>
+    <string name="dual_row_datausage_monthly">Monthly usage</string>
+    <string name="dual_row_datausage_daily">Daily usage</string>
+
 </resources>
