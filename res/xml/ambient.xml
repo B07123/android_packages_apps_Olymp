@@ -18,6 +18,16 @@
     android:title="@string/ambient_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <PreferenceCategory
+        android:title="@string/ambient_display">
+
+    <com.msm.xtended.preferences.SystemSettingSwitchPreference 
+            android:key="ambient_battery_percent" 
+            android:title="@string/ambient_battery_percent_title" 
+            android:summary="@string/ambient_battery_percent_summary" 
+            android:defaultValue="true" />
+    </PreferenceCategory>
+    
     <Preference
         android:key="ambient_display_custom"
         android:title="@string/ambient_display_screen_title"

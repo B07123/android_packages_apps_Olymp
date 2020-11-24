@@ -487,4 +487,9 @@
     <string name="ambient_title">Doze settings</string>
     <string name="ambient_display_screen_title">Ambient Display</string>
     <string name="ambient_display_screen_summary">Doze options, pulse, edge notification</string>
+
+        <!-- Ambient display battery percentage -->
+    <string name="ambient_display">Ambient Display</string>
+    <string name="ambient_battery_percent_title">Battery level</string>
+    <string name="ambient_battery_percent_summary">Show battery percent on the bottom while dozing</string>
 </resources>
