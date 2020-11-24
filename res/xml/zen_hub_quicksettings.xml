@@ -46,13 +46,25 @@
 
      <PreferenceCategory
         android:key="qs_brightness_slider_category_key"
-        android:title="@string/qs_brightness_slider_category_title">
+        android:title="@string/qs_footer_items">
 
      <PreferenceScreen
         android:key="qs_footer_items"
         android:title="@string/qs_footer_items"
         android:summary="@string/qs_footer_items_summary"
         android:fragment="com.zen.hub.fragments.subs.QsFooterItems" />
+
+     </PreferenceCategory>
+
+     <PreferenceCategory
+        android:key="qs_misc_key"
+        android:title="@string/qs_misc">
+
+      <com.zenx.support.preferences.SystemSettingSwitchPreference
+         android:key="quick_settings_vibrate"
+         android:title="@string/quick_settings_vibrate_title"
+         android:summary="@string/quick_settings_vibrate_summary"
+         android:defaultValue="false"/>
 
      </PreferenceCategory>
 
