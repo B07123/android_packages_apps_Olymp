@@ -42,7 +42,11 @@
 
      </PreferenceCategory>
 
-
+      <com.zenx.support.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_battery_info"
+        android:title="@string/lockscreen_battery_info_title"
+        android:summary="@string/lockscreen_battery_info_summary"
+	     android:defaultValue="true" />
 
      <com.zenx.support.preferences.SecureSettingSwitchPreference
         android:key="hide_lock_shortcuts"
