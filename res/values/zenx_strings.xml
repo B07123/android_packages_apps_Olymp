@@ -350,4 +350,11 @@
     <string name="lock_clock_font_burnstown">Burnstown</string>
     <string name="lock_clock_font_dumbledor">Dumbledor</string>
     <string name="lock_clock_font_phantombold">PhantomBold</string>
+
+    <!-- Lock Date Fonts -->
+    <string name="default_date_style_title">Date style</string>
+    <string name="default_date_style_summary">Font, size, theme etc.</string>
+    <string name="lock_date_font_title">Date font options</string>
+    <string name="lock_date_font_summary">Change the default font of the lockscreen date widget</string>
+    <string name="lock_date_font_dialog_title">Select lock date font</string>
 </resources>

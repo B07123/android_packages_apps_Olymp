@@ -15,25 +15,16 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/lockscreen_title"
+    android:title="@string/qs_footer_items"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
-
-     <PreferenceCategory
-        android:key="items_style"
-        android:title="@string/items_style_title">
-
-         <PreferenceScreen
-            android:key="default_clock_styling"
-            android:title="@string/default_clock_style_title"
-            android:summary="@string/default_clock_style_summary"
-            android:fragment="com.zen.hub.fragments.subs.LsClock" />
-
-         <PreferenceScreen
-            android:key="date_styling"
-            android:title="@string/default_date_style_title"
-            android:summary="@string/default_date_style_summary"
-            android:fragment="com.zen.hub.fragments.subs.LsDate" />
-
-     </PreferenceCategory>
+    
+    <ListPreference
+        android:key="lock_date_fonts"
+        android:title="@string/lock_date_font_title"
+        android:dialogTitle="@string/lock_date_font_dialog_title"
+        android:entries="@array/lock_clock_fonts_entries"
+        android:entryValues="@array/lock_clock_fonts_values"
+        android:summary="@string/lock_date_font_summary"
+        android:persistent="false" />
 
 </PreferenceScreen>
