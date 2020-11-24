@@ -44,7 +44,10 @@ public class PowerButtons extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
+    private static final String KEY_TORCH_LONG_PRESS_POWER_TIMEOUT =
+            "torch_long_press_power_timeout";
 
+    private ListPreference mTorchLongPressPowerTimeout;
     private ListPreference mPowerMenuAnimations;
 
     @Override
@@ -58,6 +61,14 @@ public class PowerButtons extends SettingsPreferenceFragment implements
                 getContentResolver(), Settings.System.POWER_MENU_ANIMATIONS, 0)));
         mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
         mPowerMenuAnimations.setOnPreferenceChangeListener(this);
+
+        mTorchLongPressPowerTimeout =
+                    (ListPreference) findPreference(KEY_TORCH_LONG_PRESS_POWER_TIMEOUT);
+        mTorchLongPressPowerTimeout.setOnPreferenceChangeListener(this);
+        int TorchTimeout = Settings.System.getInt(getContentResolver(),
+                        Settings.System.TORCH_LONG_PRESS_POWER_TIMEOUT, 0);
+        mTorchLongPressPowerTimeout.setValue(Integer.toString(TorchTimeout));
+        mTorchLongPressPowerTimeout.setSummary(mTorchLongPressPowerTimeout.getEntry());
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -67,6 +78,16 @@ public class PowerButtons extends SettingsPreferenceFragment implements
                     Integer.valueOf((String) newValue));
             mPowerMenuAnimations.setValue(String.valueOf(newValue));
             mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
+            return true;
+        } else if (preference == mTorchLongPressPowerTimeout) {
+            String TorchTimeout = (String) newValue;
+            int TorchTimeoutValue = Integer.parseInt(TorchTimeout);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.TORCH_LONG_PRESS_POWER_TIMEOUT, TorchTimeoutValue);
+            int TorchTimeoutIndex = mTorchLongPressPowerTimeout
+                    .findIndexOfValue(TorchTimeout);
+            mTorchLongPressPowerTimeout
+                    .setSummary(mTorchLongPressPowerTimeout.getEntries()[TorchTimeoutIndex]);
             return true;
         }
         return false;
