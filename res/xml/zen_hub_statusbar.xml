@@ -30,6 +30,18 @@
      </PreferenceCategory>
 
      <PreferenceCategory
+        android:key="statusbar_icons"
+        android:title="@string/statusbar_icon_cat_title">
+
+          <com.zenx.support.preferences.SystemSettingSwitchPreference
+          android:key="show_fourg_icon"
+          android:title="@string/show_fourg_icon_title"
+          android:summary="@string/show_fourg_icon_summary"
+          android:defaultValue="false"/>
+
+     </PreferenceCategory>
+
+     <PreferenceCategory
         android:key="statusbar_tuner"
         android:title="@string/statusbar_tuner_cat_title">
 
