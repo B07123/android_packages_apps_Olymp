@@ -387,6 +387,7 @@
     <string name="yes">YES</string>
 
     <!-- LS OwnerInfo Font & Size -->
+    <string name="lock_ownerinfo_title">OwnerInfo options</string>
     <string name="lock_ownerinfo_font_title">OwnerInfo font options</string>
     <string name="lock_ownerinfo_font_summary">Change the default font of the lockscreen owner info</string>
     <string name="lock_ownerinfo_font_dialog_title">Select lock ownerinfo font</string>
@@ -481,4 +482,9 @@
         <!-- Allow fake signature -->
     <string name="allow_signature_fake">Allow signature spoofing</string>
     <string name="allow_signature_fake_summary">Allow apps to bypass security systems by pretending to be a different app.</string>
+
+    <!-- Custom Ambient Display Config -->
+    <string name="ambient_title">Doze settings</string>
+    <string name="ambient_display_screen_title">Ambient Display</string>
+    <string name="ambient_display_screen_summary">Doze options, pulse, edge notification</string>
 </resources>

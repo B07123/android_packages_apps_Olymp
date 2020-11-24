@@ -15,7 +15,7 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/qs_footer_items"
+    android:title="@string/volume_buttons_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
      <com.zenx.support.preferences.SystemSettingSwitchPreference

@@ -19,6 +19,18 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
      <PreferenceCategory
+        android:key="ambient_key"
+        android:title="@string/ambient_title">
+
+         <PreferenceScreen
+            android:key="ambient_pref_key"
+            android:title="@string/ambient_display_screen_title"
+            android:summary="@string/ambient_display_screen_summary"
+            android:fragment="com.zen.hub.fragments.subs.Ambient" />
+
+     </PreferenceCategory>
+
+     <PreferenceCategory
         android:key="items_style"
         android:title="@string/items_style_title">
 
