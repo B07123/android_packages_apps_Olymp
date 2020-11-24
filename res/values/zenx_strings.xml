@@ -268,4 +268,8 @@
     <!-- Navbar tuner -->
     <string name="navbar_tuner_title">Navbar Tuner</string>
 
+        <!-- Statusbar Tuner -->
+    <string name="statusbar_tuner_cat_title">Tuner</string>
+    <string name="statusbar_items_title">Statusbar items</string>
+
 </resources>
