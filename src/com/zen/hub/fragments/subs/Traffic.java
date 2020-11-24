@@ -48,10 +48,12 @@ import com.android.settings.Utils;
 
 import com.zenx.support.preferences.CustomSeekBarPreference;
 import com.zenx.support.preferences.SystemSettingSwitchPreference;
+import com.zenx.support.preferences.SystemSettingListPreference;
 
 public class Traffic extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String NETWORK_TRAFFIC_FONT_SIZE  = "network_traffic_font_size";
+    private static final String NETWORK_TRAFFIC_FONT_STYLE = "network_traffic_font_style";
 
     private CustomSeekBarPreference mThreshold;
     private SystemSettingSwitchPreference mShowArrows;
@@ -59,6 +61,7 @@ public class Traffic extends SettingsPreferenceFragment implements OnPreferenceC
     private ListPreference mNetTrafficLocation;
     private CustomSeekBarPreference mNetTrafficSize;
     private ListPreference mNetTrafficLayout;
+    private SystemSettingListPreference mNetTrafficFont;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,12 @@ public class Traffic extends SettingsPreferenceFragment implements OnPreferenceC
         mNetTrafficSize = (CustomSeekBarPreference) findPreference(NETWORK_TRAFFIC_FONT_SIZE);
         mNetTrafficSize.setValue(NetTrafficSize / 1);
         mNetTrafficSize.setOnPreferenceChangeListener(this);
+
+        mNetTrafficFont = (SystemSettingListPreference) findPreference(NETWORK_TRAFFIC_FONT_STYLE); int
+        netTrafFont = Settings.System.getInt(resolver,
+                Settings.System.NETWORK_TRAFFIC_FONT_STYLE, 0);
+        mNetTrafficFont.setValue(String.valueOf(netTrafFont));
+        mNetTrafficFont.setOnPreferenceChangeListener(this);
 
         int netlayout = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_LAYOUT, 0, UserHandle.USER_CURRENT);
@@ -168,6 +177,13 @@ public class Traffic extends SettingsPreferenceFragment implements OnPreferenceC
                     UserHandle.USER_CURRENT);
             int index = mNetTrafficLayout.findIndexOfValue((String) objValue);
             mNetTrafficLayout.setSummary(mNetTrafficLayout.getEntries()[index]);
+            return true;
+         }  else if (preference == mNetTrafficFont) {
+            int netTrafFont = Integer.valueOf((String) objValue);
+            int index = mNetTrafficFont.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.
+                NETWORK_TRAFFIC_FONT_STYLE, netTrafFont); 
+            mNetTrafficFont.setSummary(mNetTrafficFont.getEntries()[index]);
             return true;
         }
         return false;
