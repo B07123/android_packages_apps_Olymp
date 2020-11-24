@@ -36,4 +36,10 @@
 
      </PreferenceCategory>
 
+     <com.zenx.support.preferences.SecureSettingSwitchPreference
+        android:key="hide_lock_shortcuts"
+        android:title="@string/lockscreen_hide_shortcuts_title"
+        android:summary="@string/lockscreen_hide_shortcuts_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
