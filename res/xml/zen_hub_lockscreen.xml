@@ -34,7 +34,15 @@
             android:summary="@string/default_date_style_summary"
             android:fragment="com.zen.hub.fragments.subs.LsDate" />
 
+         <PreferenceScreen
+            android:key="color_styling"
+            android:title="@string/color_styling_title"
+            android:summary="@string/color_styling_summary"
+            android:fragment="com.zen.hub.fragments.subs.LsColor" />
+
      </PreferenceCategory>
+
+
 
      <com.zenx.support.preferences.SecureSettingSwitchPreference
         android:key="hide_lock_shortcuts"
