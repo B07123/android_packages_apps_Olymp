@@ -39,12 +39,15 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.android.settings.SettingsPreferenceFragment;
+import com.zenx.support.preferences.CustomSeekBarPreference;
 
 public class LsClock extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
+    private static final String CLOCK_FONT_SIZE  = "lockclock_font_size";
     private ListPreference mLockClockFonts;
+    private CustomSeekBarPreference mClockFontSize;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,12 @@ public class LsClock extends SettingsPreferenceFragment implements
                 getContentResolver(), Settings.System.LOCK_CLOCK_FONTS, 34)));
         mLockClockFonts.setSummary(mLockClockFonts.getEntry());
         mLockClockFonts.setOnPreferenceChangeListener(this);
+
+        // Lock Clock Size
+        mClockFontSize = (CustomSeekBarPreference) findPreference(CLOCK_FONT_SIZE);
+        mClockFontSize.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKCLOCK_FONT_SIZE, 78));
+        mClockFontSize.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -67,6 +76,11 @@ public class LsClock extends SettingsPreferenceFragment implements
                     Integer.valueOf((String) newValue));
             mLockClockFonts.setValue(String.valueOf(newValue));
             mLockClockFonts.setSummary(mLockClockFonts.getEntry());
+            return true;
+        } else if (preference == mClockFontSize) {
+            int top = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKCLOCK_FONT_SIZE, top*1);
             return true;
         }
         return false;

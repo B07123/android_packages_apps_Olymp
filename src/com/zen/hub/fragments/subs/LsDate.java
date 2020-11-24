@@ -39,12 +39,16 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.android.settings.SettingsPreferenceFragment;
+import com.zenx.support.preferences.CustomSeekBarPreference;
 
 public class LsDate extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String LOCK_DATE_FONTS = "lock_date_fonts";
+    private static final String DATE_FONT_SIZE  = "lockdate_font_size";
+
     private ListPreference mLockDateFonts;
+    private CustomSeekBarPreference mDateFontSize;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,12 @@ public class LsDate extends SettingsPreferenceFragment implements
                 getContentResolver(), Settings.System.LOCK_DATE_FONTS, 32)));
         mLockDateFonts.setSummary(mLockDateFonts.getEntry());
         mLockDateFonts.setOnPreferenceChangeListener(this);
+
+        // Lock Date Size
+        mDateFontSize = (CustomSeekBarPreference) findPreference(DATE_FONT_SIZE);
+        mDateFontSize.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKDATE_FONT_SIZE, 18));
+        mDateFontSize.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -67,6 +77,11 @@ public class LsDate extends SettingsPreferenceFragment implements
                     Integer.valueOf((String) newValue));
             mLockDateFonts.setValue(String.valueOf(newValue));
             mLockDateFonts.setSummary(mLockDateFonts.getEntry());
+            return true;
+        } else if (preference == mDateFontSize) {
+            int top = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKDATE_FONT_SIZE, top*1);
             return true;
         }
         return false;

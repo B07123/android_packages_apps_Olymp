@@ -17,7 +17,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/qs_footer_items"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
-    
+
     <ListPreference
         android:key="lock_clock_fonts"
         android:title="@string/lock_clock_font_title"
@@ -26,5 +26,15 @@
         android:entryValues="@array/lock_clock_fonts_values"
         android:summary="@string/lock_clock_font_summary"
         android:persistent="false" />
+
+     <com.zenx.support.preferences.CustomSeekBarPreference
+        android:key="lockclock_font_size"
+        android:title="@string/lockclock_font_size_title"
+        android:max="101"
+        settings:min="65"
+        settings:units="dp"
+        android:persistent="false"
+        android:defaultValue="78" />
+
 
 </PreferenceScreen>
