@@ -98,7 +98,13 @@
             android:title="@string/ambient_battery_percent_title" 
             android:summary="@string/ambient_battery_percent_summary"
             android:defaultValue="true" />
-    
+
+        <Preference
+            android:key="ambient_customization"
+            android:title="@string/ambient_text_category_title"
+            android:summary="@string/ambient_text_category_summary"
+            android:fragment="com.zen.hub.fragments.subs.AmbientCustomizations" />
+
         <Preference
             android:key="ambient_display_custom"
             android:title="@string/ambient_display_screen_title"
