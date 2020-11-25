@@ -25,6 +25,13 @@
         android:summary="@string/heads_up_summary"
         android:fragment="com.zen.hub.fragments.subs.HeadsUpSettings" />
 
+
+    <com.zenx.support.preferences.SystemSettingSwitchPreference
+        android:key="notification_sound_vib_screen_on" 
+        android:title="@string/notification_sound_vib_screen_on_title" 
+        android:summary="@string/notification_sound_vib_screen_on_summary"
+        android:defaultValue="true" />
+
         <PreferenceCategory
         android:key="incall_vib_options"
         android:title="@string/incall_vibration_category" >
