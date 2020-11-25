@@ -503,4 +503,8 @@
 
     <string name="qs_footer_text_string_title">Customize footer text</string>
     <string name="qs_footer_text_string_summary">Set to empty for default ZenX-OS</string>
+
+        <!-- Lock icon -->
+    <string name="hide_lockicon_title">Hide lock icon</string>
+    <string name="hide_lockicon_summary">Hide the lock icon on lockscreen</string>
 </resources>
