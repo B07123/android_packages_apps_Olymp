@@ -54,11 +54,12 @@
         android:key="qs_items_key"
         android:title="@string/qs_items">
 
-     <com.zenx.support.preferences.SystemSettingSwitchPreference
+     <com.zenx.support.preferences.SystemSettingListPreference
         android:key="qs_datausage"
         android:title="@string/qs_datausage_title" 
-        android:summary="@string/qs_datausage_subtitle"
-        android:defaultValue="false" />
+        android:entries="@array/qs_datausage_entries"
+        android:entryValues="@array/qs_datausage_values"
+        android:defaultValue="0" />
 
      <PreferenceScreen
         android:key="qs_footer_items"
