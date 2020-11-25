@@ -46,6 +46,12 @@
         android:key="navbar_themes_key"
         android:title="@string/navbar_themes_title">
 
+        <com.zenx.support.preferences.SystemSettingSwitchPreference
+          android:key="pixel_nav_animation"
+          android:title="@string/pixel_navbar_anim_title"
+          android:summary="@string/pixel_navbar_anim_summary"
+          android:defaultValue="true" />
+
       <com.zenx.support.preferences.SystemSettingListPreference
         android:key="navbar_style"
         android:title="@string/navbar_style_title"

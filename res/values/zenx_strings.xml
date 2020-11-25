@@ -578,4 +578,8 @@
     <string name="media_art_summary">Show media cover art as the lockscreen background</string>
     <string name="lockscreen_media_blur_title">Media artwork blur level</string>
 
+        <!-- Navbar Animation -->
+    <string name="pixel_navbar_anim_title">Pixel animation</string>
+    <string name="pixel_navbar_anim_summary">Toggle home button animation</string>
+
 </resources>
