@@ -51,8 +51,14 @@
      </PreferenceCategory>
 
      <PreferenceCategory
-        android:key="qs_brightness_slider_category_key"
-        android:title="@string/qs_footer_items">
+        android:key="qs_items_key"
+        android:title="@string/qs_items">
+
+     <com.zenx.support.preferences.SystemSettingSwitchPreference
+        android:key="qs_datausage"
+        android:title="@string/qs_datausage_title" 
+        android:summary="@string/qs_datausage_subtitle"
+        android:defaultValue="false" />
 
      <PreferenceScreen
         android:key="qs_footer_items"
