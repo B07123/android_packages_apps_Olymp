@@ -573,5 +573,8 @@
     <string name="file_header_select_summary">Select image from storage</string>
     <string name="ambient_notification_light_color_mode_random">Random color</string>
 
+    <string name="media_title">Media</string>
+    <string name="media_art_title">Media artwork</string>
+    <string name="media_art_summary">Show media cover art as the lockscreen background</string>
 
 </resources>
