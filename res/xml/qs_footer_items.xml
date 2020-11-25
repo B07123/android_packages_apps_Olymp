@@ -24,5 +24,10 @@
      android:summary="@string/qs_footer_security_information_summary"
      android:defaultValue="true" />
 
+    <com.zenx.support.preferences.SystemSettingSwitchPreference
+        android:key="omni_footer_text_show"
+        android:title="@string/qs_footer_text_title"
+        android:summary="@string/qs_footer_text_summary"
+        android:defaultValue="false"/>
 
 </PreferenceScreen>
