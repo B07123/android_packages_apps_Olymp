@@ -35,8 +35,14 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.zenx.support.preferences.CustomSeekBarPreference;
+
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+
+    private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
+
+    private CustomSeekBarPreference mMaxKeyguardNotifConfig;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -47,11 +53,22 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         final PreferenceScreen prefScreen = getPreferenceScreen();
         Resources resources = getResources();
 
+        mMaxKeyguardNotifConfig = (CustomSeekBarPreference) findPreference(LOCKSCREEN_MAX_NOTIF_CONFIG);
+        int kgconf = Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 3);
+        mMaxKeyguardNotifConfig.setValue(kgconf);
+        mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-
+        if (preference == mMaxKeyguardNotifConfig) {
+            int kgconf = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, kgconf);
+            return true;
+        }
         return false;
     }
 
