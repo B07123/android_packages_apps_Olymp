@@ -59,14 +59,14 @@ public class LsDate extends SettingsPreferenceFragment implements
         // Lockscren Date Fonts
         mLockDateFonts = (ListPreference) findPreference(LOCK_DATE_FONTS);
         mLockDateFonts.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.LOCK_DATE_FONTS, 32)));
+                getContentResolver(), Settings.System.LOCK_DATE_FONTS, 0)));
         mLockDateFonts.setSummary(mLockDateFonts.getEntry());
         mLockDateFonts.setOnPreferenceChangeListener(this);
 
         // Lock Date Size
         mDateFontSize = (CustomSeekBarPreference) findPreference(DATE_FONT_SIZE);
         mDateFontSize.setValue(Settings.System.getInt(getContentResolver(),
-                Settings.System.LOCKDATE_FONT_SIZE, 18));
+                Settings.System.LOCKDATE_FONT_SIZE, 21));
         mDateFontSize.setOnPreferenceChangeListener(this);
     }
 
