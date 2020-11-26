@@ -74,6 +74,15 @@
             android:summary="@string/color_styling_summary"
             android:fragment="com.zen.hub.fragments.subs.LsColor" />
 
+         <Preference
+            android:key="clock_style"
+            android:title="@string/clock_style_title"
+            android:summary="@string/clock_style_summary">
+            <intent
+                  android:action="android.intent.action.VIEW"
+                  android:targetPackage="com.android.customization"
+                  android:targetClass="com.android.customization.picker.LockClockPickerActivity" />
+         </Preference>
 
      </PreferenceCategory>
 
