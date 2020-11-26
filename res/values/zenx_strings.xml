@@ -47,7 +47,7 @@
     <string name="brightness_slider_style_memestroke">Meme stroke</string>
 
     <string name="qs_brightness_slider_category_title">Brightness slider</string>
-    <string name="navbar_themes_title">Navbar themes</string>
+    <string name="navbar_themes_title">Navigation bar</string>
 
      <!-- Navbar styles -->
     <string name="navbar_style_title">Navbar style</string>
@@ -610,5 +610,9 @@
     <string name="ls_misc_title">Misc</string>
     <string name="clock_style_title">Clock Picker</string>
     <string name="clock_style_summary">Choose color styles</string>
+
+    <string name="navbar_misc_title">Gestures Misc</string>
+    <string name="system_gesture_title">System Gestures</string>
+    <string name="system_gesture_summary">Choose navigation method</string>
 
 </resources>
