@@ -685,4 +685,7 @@
     <!-- Volume Panel on Left -->
     <string name="volume_panel_on_left_title">Volume Panel on Right</string>
     <string name="volume_panel_on_left_summary">Change volume panel from left side to right side</string>
+
+        <!-- Volume dialog timeout -->
+    <string name="volume_dialog_timeout_title">Volume dialog timeout</string>
 </resources>
