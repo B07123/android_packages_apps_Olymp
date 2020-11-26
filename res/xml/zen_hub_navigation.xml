@@ -74,13 +74,6 @@
         android:entryValues="@array/navbar_style_values"
         android:defaultValue="0" />
 
-      <Preference
-          android:title="@string/navbar_tuner_title" >
-          <intent android:action="android.intent.action.MAIN"
-             android:targetPackage="com.android.systemui"
-             android:targetClass="com.android.systemui.tuner.NavBarActivity" />
-      </Preference>
-
      </PreferenceCategory>
 
       <PreferenceCategory
