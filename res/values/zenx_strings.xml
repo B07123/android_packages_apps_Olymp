@@ -644,6 +644,7 @@
     <string name="volume_panel_compat_val">co.potatoproject.plugin.volume.compact</string>
     <string name="volume_panel_oreo_val">co.potatoproject.plugin.volume.oreo</string>
     <string name="volume_panel_tiled_val">co.potatoproject.plugin.volume.tiled</string>
+    <string name="volume_panel_stock_val">com.android.systemui.volume</string>
 
     <string name="system_wide_category">System wide</string>
 
