@@ -25,10 +25,8 @@
     <string name="lockscreen_summary">Gestures, visualizer, fod, ambient options.. </string>
     <string name="userinterface_title">Userinterface</string>
     <string name="userinterface_summary">Theming, dual statusbar, animations, notch.. </string>
-    <string name="gestures_title">Gestures</string>
-    <string name="gestures_summary">Swipe gesture options, nav bar, buttons.. </string>
-    <string name="hardwarebutton_title">Hardware buttons</string>
-    <string name="hardwarebutton_summary">Power menu and volume button options..</string>
+    <string name="navigation_title">Navigation</string>
+    <string name="navigation_summary">Gestures, Power menu and volume button options..</string>
     <string name="misc_title">Miscellaneous</string>
     <string name="misc_summary">Gaming mode, adaptive playback, battery saving..</string>
 

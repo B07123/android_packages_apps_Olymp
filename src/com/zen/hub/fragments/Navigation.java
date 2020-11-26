@@ -49,7 +49,7 @@ import com.android.internal.util.zenx.ZenxUtils;
 import static com.zen.hub.utils.Utils.handleOverlays;
 import com.zenx.support.preferences.SystemSettingListPreference;
 
-public class HardwareButtonSettings extends SettingsPreferenceFragment implements
+public class Navigation extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener{
 
     private static final String NAVBAR_STYLE = "navbar_style";
@@ -60,7 +60,7 @@ public class HardwareButtonSettings extends SettingsPreferenceFragment implement
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.zen_hub_hardwarebutton);
+        addPreferencesFromResource(R.xml.zen_hub_navigation);
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
