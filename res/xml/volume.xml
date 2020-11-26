@@ -18,6 +18,13 @@
     android:title="@string/volume_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+       <com.zenx.support.preferences.SystemSettingSwitchPreference
+         android:key="audio_panel_view_position"
+         android:title="@string/volume_panel_on_left_title"
+         android:summary="@string/volume_panel_on_left_summary"
+         android:defaultValue="false" />
+
+
         <com.zenx.support.preferences.SystemSettingSwitchPreference
             android:key="audio_panel_view_media"
             android:title="@string/audio_panel_view_media_title"
