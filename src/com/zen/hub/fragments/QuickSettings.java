@@ -53,6 +53,8 @@ import com.android.settings.R;
 import static com.zen.hub.utils.Utils.handleOverlays;
 import com.zenx.support.preferences.SystemSettingListPreference;
 import com.zenx.support.colorpicker.ColorPickerPreference;
+import com.zenx.support.preferences.CustomSeekBarPreference;
+import com.zenx.support.preferences.SystemSettingSwitchPreference;
 import com.android.internal.util.zenx.ZenxUtils;
 
 public class QuickSettings extends SettingsPreferenceFragment implements
@@ -60,10 +62,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     private static final String BRIGHTNESS_SLIDER_STYLE = "brightness_slider_style";
     private static final String PREF_TILE_STYLE = "qs_tile_style";
+    private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
 
     private IOverlayManager mOverlayManager;
     private ListPreference mBrightnessSliderStyle;
     private ListPreference mQsTileStyle;
+    private CustomSeekBarPreference mQsPanelAlpha;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -136,6 +140,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             }
        });
 
+       mQsPanelAlpha = (CustomSeekBarPreference) findPreference(KEY_QS_PANEL_ALPHA);
+       int qsPanelAlpha = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.QS_PANEL_BG_ALPHA, 255);
+        mQsPanelAlpha.setValue((int)(((double) qsPanelAlpha / 255) * 100));
+        mQsPanelAlpha.setOnPreferenceChangeListener(this);
+
     }
 
     private String getOverlayName(String[] overlays) {
@@ -162,7 +172,13 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-
+        if (preference == mQsPanelAlpha) {
+            int bgAlpha = (Integer) newValue;
+            int trueValue = (int) (((double) bgAlpha / 100) * 255);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.QS_PANEL_BG_ALPHA, trueValue);
+            return true;
+        }
         return false;
     }
 

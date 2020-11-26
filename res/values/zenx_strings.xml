@@ -648,4 +648,9 @@
 
     <string name="system_wide_category">System wide</string>
 
+        <!-- QuickSettings Panel Transparency -->
+    <string name="qs_panel_alpha_title">Quick Settings opacity</string>
+    <string name="qs_panel_alpha_summary">Configure opacity of background</string>
+    <string name="qs_panel_title">Panel</string>
+
 </resources>

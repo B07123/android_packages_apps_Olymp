@@ -19,6 +19,21 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
      <PreferenceCategory
+        android:key="qs_panel_key"
+        android:title="@string/qs_panel_title">
+
+        <com.zenx.support.preferenes.CustomSeekBarPreference
+            android:key="qs_panel_alpha"
+            android:title="@string/qs_panel_alpha_title"
+            android:summary="@string/qs_panel_alpha_summary"
+            android:max="100"
+            settings:min="0"
+            android:defaultValue="100"
+            android:persistent="false" />
+
+     </PreferenceCategory>
+
+     <PreferenceCategory
         android:key="qs_tile_key"
         android:title="@string/qs_tile_title">
 
@@ -44,12 +59,12 @@
         android:key="qs_brightness_slider_category_key"
         android:title="@string/qs_brightness_slider_category_title">
 
-     <ListPreference
-        android:key="brightness_slider_style"
-        android:title="@string/brightness_slider_style_title"
-        android:entries="@array/brightness_slider_style_selector_entries"
-        android:entryValues="@array/brightness_slider_style_selector_values"
-        android:persistent="false" />
+      <ListPreference
+         android:key="brightness_slider_style"
+         android:title="@string/brightness_slider_style_title"
+         android:entries="@array/brightness_slider_style_selector_entries"
+         android:entryValues="@array/brightness_slider_style_selector_values"
+         android:persistent="false" />
 
      </PreferenceCategory>
 
