@@ -33,7 +33,7 @@
             android:key="ambient_text_string"
             android:title="@string/ambient_text_string_title"
             android:dependency="ambient_text"
-            android:defaultValue="#Welcome To Xtended" />
+            android:defaultValue="ZenX - Feel the power" />
 
         <ListPreference
             android:key="ambient_text_font"

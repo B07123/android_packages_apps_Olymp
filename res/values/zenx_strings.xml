@@ -633,7 +633,7 @@
         <!-- Audio Panel Theme -->
     <string name="audio_panel_view_theme_title">Volume Panel Options</string>
     <string name="audio_panel_view_theme_summary">Choose which volume panel you want</string>
-    <string name="audio_panel_theme_default">Xtended Default</string>
+    <string name="audio_panel_theme_default">Default</string>
     <string name="volume_panel_aosp">AOSP</string>
     <string name="volume_panel_compat">Compat</string>
     <string name="volume_panel_oreo">Oreo</string>
@@ -658,7 +658,5 @@
     <string name="qs_bg_type_summary">Enable custom qs background</string>
     <string name="qs_bg_blur_image_title">Blur Image</string>
     <string name="qs_bg_blur_image_summary">Blur Custom Image</string>
-    <string name="file_header_select_title">Select local image</string>
-    <string name="file_header_select_summary">Select image from storage</string>
 
 </resources>
