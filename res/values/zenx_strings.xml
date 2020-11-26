@@ -308,7 +308,7 @@
     <string name="volume_rocker_wake_title">Volume rocker wake</string>
     <string name="volume_rocker_wake_summary">Pressing the volume keys will wake your device</string>
 
-    <string name="items_style_title">Clock and Date</string>
+    <string name="items_style_title">Widgets and theming</string>
     <string name="default_clock_style_title">Default clock style</string>
     <string name="default_clock_style_summary">Font, size etc.</string>
     <string name="lock_clock_font_title">Clock font options</string>
@@ -603,5 +603,11 @@
     <string name="qs_datausage_disabled">Disabled</string>
     <string name="qs_datausage_daily">Daily usage</string>
     <string name="qs_datausage_monthly">Monthly usage</string>
+
+    <!-- Transparent lockscreen notifications -->
+    <string name="transparent_lockscreen_notification_title">Transparent notifications</string>
+    <string name="transparent_lockscreen_notification_summary">Enable lockscreen notifications with semi-transparent backgrounds</string>
+    <string name="ls_notification_title">Notifications</string>
+    <string name="ls_misc_title">Misc</string>
 
 </resources>

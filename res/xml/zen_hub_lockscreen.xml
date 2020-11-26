@@ -74,21 +74,39 @@
             android:summary="@string/color_styling_summary"
             android:fragment="com.zen.hub.fragments.subs.LsColor" />
 
+
      </PreferenceCategory>
 
-      <com.zenx.support.preferences.SystemSettingSwitchPreference
-         android:key="lock_screen_custom_notif"
-         android:title="@string/lockscreen_maxnotif_title"
-         android:summary="@string/lockscreen_maxnotif_sumary"
-         android:defaultValue="false" />
+     <PreferenceCategory
+        android:key="ls_notification"
+        android:title="@string/ls_notification_title">
 
-    <com.zenx.support.preferences.CustomSeekBarPreference
-         android:key="lockscreen_max_notif_cofig"
-         android:title="@string/lockscreen_maxnotif_config"
-         android:max="6"
-         settings:min="1"
-         android:persistent="false"
-         android:dependency="lock_screen_custom_notif" />
+         <com.zenx.support.preferences.SecureSettingSwitchPreference
+            android:key="lock_screen_transparent_notifications_enabled"
+            android:title="@string/transparent_lockscreen_notification_title"
+            android:summary="@string/transparent_lockscreen_notification_summary"
+            android:defaultValue="false" />
+
+         <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="lock_screen_custom_notif"
+            android:title="@string/lockscreen_maxnotif_title"
+            android:summary="@string/lockscreen_maxnotif_sumary"
+            android:defaultValue="false" />
+
+         <com.zenx.support.preferences.CustomSeekBarPreference
+            android:key="lockscreen_max_notif_cofig"
+            android:title="@string/lockscreen_maxnotif_config"
+            android:max="6"
+            settings:min="1"
+            android:persistent="false"
+            android:dependency="lock_screen_custom_notif" />
+
+     </PreferenceCategory>
+
+
+     <PreferenceCategory
+        android:key="ls_misc"
+        android:title="@string/ls_misc_title">
 
       <com.zenx.support.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_battery_info"
@@ -114,5 +132,7 @@
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.tuner.LockscreenActivity" />
       </Preference>
+
+      </PreferenceCategory>
 
 </PreferenceScreen>
