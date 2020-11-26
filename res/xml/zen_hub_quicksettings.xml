@@ -80,6 +80,33 @@
         android:key="qs_brightness_slider_category_key"
         android:title="@string/qs_brightness_slider_category_title">
 
+         <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_brightness"
+            android:title="@string/qs_show_brightness_title"
+            android:summary="@string/qs_show_brightness_summary"
+            android:defaultValue="true" />
+
+        <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_brightness_position_bottom"
+            android:title="@string/qs_brightness_position_bottom_title"
+            android:summary="@string/qs_brightness_position_bottom_summary"
+            android:dependency="qs_show_brightness"
+            android:defaultValue="false" />
+
+        <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_auto_brightness"
+            android:title="@string/qs_show_auto_brightness_title"
+            android:summary="@string/qs_show_auto_brightness_summary"
+            android:dependency="qs_show_brightness"
+            android:defaultValue="true" />
+
+        <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_brightness_above_footer"
+            android:title="@string/qs_show_brightness_above_footer_title"
+            android:summary="@string/qs_show_brightness_above_footer_summary"
+            android:dependency="qs_show_brightness"
+            android:defaultValue="false" />
+
       <ListPreference
          android:key="brightness_slider_style"
          android:title="@string/brightness_slider_style_title"
