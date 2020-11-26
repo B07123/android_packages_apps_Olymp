@@ -22,6 +22,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -32,6 +33,7 @@ import androidx.preference.*;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 import android.content.ContentResolver;
+import android.net.Uri;
 
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -63,11 +65,14 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String BRIGHTNESS_SLIDER_STYLE = "brightness_slider_style";
     private static final String PREF_TILE_STYLE = "qs_tile_style";
     private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
+    private static final String FILE_QSPANEL_SELECT = "file_qspanel_select";
+    private static final int REQUEST_PICK_IMAGE = 0;
 
     private IOverlayManager mOverlayManager;
     private ListPreference mBrightnessSliderStyle;
     private ListPreference mQsTileStyle;
     private CustomSeekBarPreference mQsPanelAlpha;
+    private Preference mQsPanelImage;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -146,6 +151,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQsPanelAlpha.setValue((int)(((double) qsPanelAlpha / 255) * 100));
         mQsPanelAlpha.setOnPreferenceChangeListener(this);
 
+        mQsPanelImage = findPreference(FILE_QSPANEL_SELECT);
+
     }
 
     private String getOverlayName(String[] overlays) {
@@ -181,6 +188,29 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         }
         return false;
     }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mQsPanelImage) {
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType("image/*");
+            startActivityForResult(intent, REQUEST_PICK_IMAGE);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent result) {
+        if (requestCode == REQUEST_PICK_IMAGE) {
+            if (resultCode != Activity.RESULT_OK) {
+                return;
+            }
+            final Uri imageUri = result.getData();
+            Settings.System.putString(getContentResolver(), Settings.System.QS_PANEL_CUSTOM_IMAGE, imageUri.toString());
+        }
+    }
+
 
     @Override
     public int getMetricsCategory() {
