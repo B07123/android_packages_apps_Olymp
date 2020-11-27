@@ -67,6 +67,13 @@
          android:summary="@string/volume_summary"
          android:fragment="com.zen.hub.fragments.subs.Volume" />
 
+        <!-- Smart Pixels -->
+        <PreferenceScreen
+            android:key="smart_pixels"
+            android:title="@string/smart_pixels_title"
+            android:summary="@string/smart_pixels_summary"
+            android:fragment="com.zen.hub.fragments.subs.SmartPixels" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
