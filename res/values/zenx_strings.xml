@@ -716,4 +716,7 @@
     <string name="screenshot_type_partial">Drag selection on the area you want to take as a screenshot</string>
     <string name="screenshot_options_category">Screenshot options</string>
     <string name="screenshot_options_summary">Customize screenshot attributes like time, delay,type etc</string>
+
+    <string name="lockscreen_visualizer_title">Visualizer</string>
+    <string name="lockscreen_visualizer_summary">Enable or disable lockscreen visualizer</string>
 </resources>

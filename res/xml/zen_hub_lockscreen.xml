@@ -34,11 +34,11 @@
         android:key="media_key"
         android:title="@string/media_title">
 
-         <com.zenx.support.preferences.SystemSettingSwitchPreference
+        <lineageos.preference.LineageSecureSettingSwitchPreference
             android:key="lockscreen_media_metadata"
             android:title="@string/media_art_title"
             android:summary="@string/media_art_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
          <com.zenx.support.preferences.SystemSettingSeekBarPreference
             android:key="lockscreen_media_blur"
@@ -49,6 +49,12 @@
             settings:interval="1"
             android:defaultValue="25"
             android:dependency="lockscreen_media_metadata" />
+
+         <lineageos.preference.LineageSecureSettingSwitchPreference
+            android:key="lockscreen_visualizer"
+            android:title="@string/lockscreen_visualizer_title"
+            android:summary="@string/lockscreen_visualizer_summary"
+            android:defaultValue="true" />
 
      </PreferenceCategory>
 
