@@ -147,6 +147,18 @@
         android:key="qs_items_key"
         android:title="@string/qs_items">
 
+         <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="show_qs_clock"
+            android:title="@string/qs_clock_title"
+            android:summary="@string/qs_clock_summary"
+            android:defaultValue="true" />
+
+     <PreferenceScreen
+        android:key="qs_battery"
+        android:title="@string/qs_battery_title"
+        android:summary="@string/qs_battery_summary"
+        android:fragment="com.zen.hub.fragments.subs.QsBatteryModes" />
+
      <com.zenx.support.preferences.SystemSettingListPreference
         android:key="qs_datausage"
         android:title="@string/qs_datausage_title" 
