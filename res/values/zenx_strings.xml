@@ -267,7 +267,7 @@
     <string name="navbar_tuner_title">Navbar Tuner</string>
 
     <!-- Statusbar Tuner -->
-    <string name="statusbar_tuner_cat_title">Tuner</string>
+    <string name="statusbar_tuner_cat_title">Misc</string>
     <string name="statusbar_items_title">Statusbar items</string>
 
     <!-- Power menu Animations  -->
@@ -837,6 +837,9 @@
     <string name="battery_bar_blend_color_reverse_title">Reverse color direction</string>
     <string name="battery_bar_blend_color_reverse_summary_off">Full &#8594; empty: red &#8592; green &#8592; blue &#8592; red</string>
     <string name="battery_bar_blend_color_reverse_summary_on">Full &#8594; empty: red &#8594; green &#8594; blue &#8594; red</string>
+
+    <string name="status_bar_toggle_brightness">Brightness control</string>
+    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>
 
 
 </resources>
