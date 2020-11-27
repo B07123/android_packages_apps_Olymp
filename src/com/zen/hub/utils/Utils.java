@@ -230,4 +230,10 @@ public class Utils {
         }
     }
 
+    /* returns whether the device has a notch or not. */
+    public static boolean hasNotch(Context context) {
+        return context.getResources().getBoolean(
+                org.lineageos.platform.internal.R.bool.config_haveNotch);
+    }
+
 }

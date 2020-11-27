@@ -30,13 +30,15 @@ import androidx.preference.*;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 import com.android.settings.R;
+import androidx.preference.PreferenceScreen;
+import android.content.Context;
+import com.zen.hub.utils.Utils;
 
 import java.util.Locale;
 import android.text.TextUtils;
 import android.view.View;
 
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 import android.util.Log;
 
 import java.util.List;
@@ -45,8 +47,15 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
+import lineageos.preference.LineageSystemSettingListPreference;
+import lineageos.providers.LineageSettings;
+
 public class StatusBarSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
+
+    private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
+
+    private LineageSystemSettingListPreference mStatusBarClock;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -54,7 +63,27 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.zen_hub_statusbar);
 
-        PreferenceScreen prefSet = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
+        Context mContext = getActivity().getApplicationContext();
+
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mStatusBarClock =
+                (LineageSystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
+
+         // Adjust status bar preferences for RTL
+        if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+            if (Utils.hasNotch(mContext)) {
+                mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch_rtl);
+                mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch_rtl);
+            } else {
+                mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_rtl);
+                mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_rtl);
+            }
+        } else if (Utils.hasNotch(mContext)) {
+            mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch);
+            mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch);
+        }
 
     }
 
