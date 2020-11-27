@@ -58,6 +58,13 @@
            android:dependency="qs_panel_type_background"
            android:defaultValue="false" />
 
+              <!-- Custom header -->
+        <Preference
+            android:key="custom_header"
+            android:fragment="com.zen.hub.fragments.subs.CustomHeader"
+            android:title="@string/custom_header_title"
+            android:summary="@string/custom_header_summary" />
+
      </PreferenceCategory>
 
      <PreferenceCategory
