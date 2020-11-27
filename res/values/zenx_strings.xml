@@ -841,5 +841,14 @@
     <string name="status_bar_toggle_brightness">Brightness control</string>
     <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>
 
+    <string name="qs_column_row">Column and Rows</string>
+    <string name="qs_column_row_summary">Setup columns and row for qs</string>
+    
+    <!-- Quick settings tiles -->
+    <string name="sysui_qqs_count_title">Small QS tiles</string>
+    <string name="qs_rows_portrait_title">Rows (portrait)</string>
+    <string name="qs_rows_landscape_title">Rows (landscape)</string>
+    <string name="qs_columns_portrait_title">Columns (portrait)</string>
+    <string name="qs_columns_landscape_title">Columns (landscape)</string>
 
 </resources>
