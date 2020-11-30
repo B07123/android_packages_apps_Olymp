@@ -1013,4 +1013,9 @@
         <!-- Toast icon -->
     <string name="toast_icon_title">Toast icon</string>
     <string name="toast_icon_summary">Display icon of activity that generates toast message</string>
+
+    <!-- Bluetooth status -->
+    <string name="bluetooth_battery_title">Bluetooth battery status</string>
+    <string name="bluetooth_battery_summary">Display battery status for the connected bluetooth device, if available</string>
+
 </resources>
