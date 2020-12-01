@@ -26,8 +26,8 @@
         android:fragment="com.zen.hub.fragments.subs.HeadsUpSettings" />
 
     <com.zenx.support.preferences.SystemSettingSwitchPreference
-        android:key="notification_sound_vib_screen_on" 
-        android:title="@string/notification_sound_vib_screen_on_title" 
+        android:key="notification_sound_vib_screen_on"
+        android:title="@string/notification_sound_vib_screen_on_title"
         android:summary="@string/notification_sound_vib_screen_on_summary"
         android:defaultValue="true" />
 
@@ -49,6 +49,18 @@
             android:key="vibrate_on_disconnect"
             android:title="@string/incall_vibrate_disconnect_title"
             android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+     <PreferenceCategory
+        android:key="notification_misc"
+        android:title="@string/notification_misc_category" >
+
+     <com.zenx.support.preferences.SystemSettingSwitchPreference
+        android:key="disable_fc_notifications" 
+        android:title="@string/disable_fc_notifications_title" 
+        android:summary="@string/disable_fc_notifications_summary" 
+        android:defaultValue="false" />
 
     </PreferenceCategory>
 

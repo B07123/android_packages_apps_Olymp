@@ -1090,4 +1090,9 @@
     <string name="add_sensor_block_package_title">Add apps for Sensor block</string>
     <string name="add_sensor_block_package_summary">Significant motion, accelerometer, linear acceleration sensors will be blocked for these apps</string>
 
+          <!-- Disabling FC notifications -->
+    <string name="disable_fc_notifications_title">Diable FC Notifications</string> 
+    <string name="disable_fc_notifications_summary">This will hide all force close notificaitons</string>
+    <string name="notification_misc_category">Misc</string>
+
 </resources>
