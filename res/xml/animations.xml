@@ -71,6 +71,13 @@
         android:title="@string/toast_animation_title"
         android:key="toast_animation_cat" >
 
+        <!-- Toast Icon -->
+    <com.zenx.support.preferences.SystemSettingSwitchPreference
+        android:key="toast_icon"
+        android:title="@string/toast_icon_title"
+        android:summary="@string/toast_icon_summary"
+        android:defaultValue="true" />
+
     <ListPreference
         android:key="toast_animation"
         android:title="@string/toast_animation_title"
