@@ -44,6 +44,12 @@
         android:persistent="false" />
 
 
+      <com.zenx.support.preferences.SystemSettingSwitchPreference
+               android:key="lockscreen_enable_power_menu"
+               android:title="@string/lockscreen_enable_power_menu_title"
+               android:summary="@string/lockscreen_enable_power_menu_summary"
+               android:defaultValue="true" />
+
       <PreferenceCategory
         android:key="power_panel_key"
         android:title="@string/power_panel_title">

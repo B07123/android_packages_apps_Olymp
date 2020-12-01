@@ -59,13 +59,11 @@ import java.util.Locale;
 
 public class UserInterfaceSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String UI_STYLE = "ui_style";
     private static final String DUAL_STATUSBAR_ROW_MODE = "dual_statusbar_row_mode";
     private static final String DUAL_ROW_DATAUSAGE = "dual_row_datausage";
 
     private IOverlayManager mOverlayManager;
     private SharedPreferences mSharedPreferences;
-    private ListPreference mUIStyle;
     private SystemSettingListPreference mStatusbarDualRowMode;
     private SystemSettingListPreference mDualRowDataUsageMode;
 
@@ -75,35 +73,6 @@ public class UserInterfaceSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.zen_hub_userinterface);
         mOverlayManager = IOverlayManager.Stub.asInterface(
                 ServiceManager.getService(Context.OVERLAY_SERVICE));
-        mUIStyle = (ListPreference) findPreference(UI_STYLE);
-        int UIStyle = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.UI_STYLE, 0);
-        int UIStyleValue = getOverlayPosition(ThemesUtils.UI_THEMES);
-        if (UIStyleValue != 0) {
-            mUIStyle.setValue(String.valueOf(UIStyle));
-        }
-        mUIStyle.setSummary(mUIStyle.getEntry());
-        mUIStyle.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                if (preference == mUIStyle) {
-                    String value = (String) newValue;
-                    Settings.System.putInt(getActivity().getContentResolver(), Settings.System.UI_STYLE, Integer.valueOf(value));
-                    int valueIndex = mUIStyle.findIndexOfValue(value);
-                    mUIStyle.setSummary(mUIStyle.getEntries()[valueIndex]);
-                    String overlayName = getOverlayName(ThemesUtils.UI_THEMES);
-                    if (overlayName != null) {
-                    handleOverlays(overlayName, false, mOverlayManager);
-                    }
-                    if (valueIndex > 0) {
-                        handleOverlays(ThemesUtils.UI_THEMES[valueIndex],
-                                true, mOverlayManager);
-                    }
-                    return true;
-                }
-                return false;
-            }
-       });
 
         mStatusbarDualRowMode = (SystemSettingListPreference) findPreference(DUAL_STATUSBAR_ROW_MODE);
         int statusbarDualRowMode = Settings.System.getIntForUser(getActivity().getContentResolver(),
