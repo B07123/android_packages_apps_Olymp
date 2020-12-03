@@ -123,11 +123,12 @@
 
      </PreferenceCategory>
 
-     <PreferenceCategory
-        android:key="statusbar_tuner"
-        android:title="@string/statusbar_tuner_cat_title">
 
-        <lineageos.preference.LineageSystemSettingSwitchPreference
+     <PreferenceCategory
+        android:key="statusbar_gestures"
+        android:title="@string/statusbar_gestures_cat_title">
+
+          <lineageos.preference.LineageSystemSettingSwitchPreference
             android:key="double_tap_sleep_gesture"
             android:title="@string/statusbar_doubletap_sleep_title"
             android:summary="@string/statusbar_doubletap_sleep_summary"
@@ -145,6 +146,18 @@
             android:entries="@array/status_bar_quick_qs_pulldown_entries"
             android:entryValues="@array/status_bar_quick_qs_pulldown_values"
             android:defaultValue="0" />
+
+          <ListPreference
+             android:key="smart_pulldown"
+             android:title="@string/smart_pulldown_title"
+             android:entries="@array/smart_pulldown_entries"
+             android:entryValues="@array/smart_pulldown_values"
+             android:persistent="false" />
+   </PreferenceCategory>
+
+     <PreferenceCategory
+        android:key="statusbar_tuner"
+        android:title="@string/statusbar_tuner_cat_title">
 
            <Preference
             android:title="@string/statusbar_items_title" >

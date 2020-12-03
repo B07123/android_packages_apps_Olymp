@@ -54,8 +54,10 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
+     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
 
     private LineageSystemSettingListPreference mStatusBarClock;
+    private ListPreference mSmartPulldown;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -84,12 +86,39 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
             mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch);
             mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch);
         }
+        mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
+        mSmartPulldown.setOnPreferenceChangeListener(this);
+        int smartPulldown = Settings.System.getInt(resolver,
+                Settings.System.QS_SMART_PULLDOWN, 0); 
+        mSmartPulldown.setValue(String.valueOf(smartPulldown));
+        updateSmartPulldownSummary(smartPulldown);
 
+    }
+
+     private void updateSmartPulldownSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // Smart pulldown deactivated
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_off));
+        } else if (value == 3) {
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_none_summary));
+        } else {
+            String type = res.getString(value == 1
+                    ? R.string.smart_pulldown_dismissable
+                    : R.string.smart_pulldown_ongoing);
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
+        }
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-
+       if (preference == mSmartPulldown) {
+            int smartPulldown = Integer.valueOf((String) objValue);
+            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.QS_SMART_PULLDOWN, smartPulldown);
+            updateSmartPulldownSummary(smartPulldown);
+            return true;
+        }
         return false;
     }
 
