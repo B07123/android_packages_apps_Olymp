@@ -56,6 +56,13 @@
         android:key="notification_misc"
         android:title="@string/notification_misc_category" >
 
+    <com.zenx.support.preferences.SystemSettingSwitchPreference
+        android:key="hide_smart_replies"
+        android:title="@string/hide_smart_replies_title"
+        android:summary="@string/hide_smart_replies_summary"
+        android:defaultValue="false"/>
+
+
      <com.zenx.support.preferences.SystemSettingSwitchPreference
         android:key="disable_fc_notifications" 
         android:title="@string/disable_fc_notifications_title" 
