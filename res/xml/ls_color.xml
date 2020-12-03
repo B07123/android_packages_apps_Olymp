@@ -61,5 +61,5 @@
    <com.zenx.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_weather_icon_color"
         android:title="@string/lockscreen_weather_icon_color"
-        android:defaultValue="0xffffffff" />
+        android:defaultValue="0x99FFFFFF" />
 </PreferenceScreen>

@@ -583,7 +583,7 @@
 
         <!-- VoWiFi icon -->
     <string name="vowifi_icon_title">VoWiFi icon</string>
-    <string name="vowifi_icon_enabled">VoWiFi icon enabled</string> 
+    <string name="vowifi_icon_enabled">VoWiFi icon enabled</string>
     <string name="vowifi_icon_disabled">VoWiFi icon disabled</string>
     <string name="vowifi_icon_enabled_volte_disabled">VoWiFi instead of VoLTE icon</string>
     <string name="vowifi_icon_style_title">Select VoWiFi icon</string>
@@ -1195,5 +1195,10 @@
 
     <string name="qs_panel_bg">Background</string>
     <string name="qs_panel_bg_summary">opacity, background images</string>
+
+    <string name="ls_media_art_summary">Filter, blur radius and more</string>
+
+    <string name="weather_service_title">Service</string>
+    <string name="weather_style_title">Weather style</string>
 
 </resources>
