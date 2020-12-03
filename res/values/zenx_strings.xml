@@ -1155,4 +1155,32 @@
         <!-- Notification headers -->
     <string name="notification_headers_title">Notification Headers</string>
     <string name="notification_headers_summary">Show headers in the notification shade\nRequires a SystemUI restart</string>
+
+    <string name="charging_ls_category">Charging</string>
+    <string name="charging_ls_title">Charging options</string>
+    <string name="charging_ls_summary">Charging bar, animations, info</string>
+
+        <!-- Battery Bar -->
+    <string name="tuner_keyguard_show_battery_bar_title">Show battery bar</string>
+    <string name="tuner_keyguard_show_battery_bar_summary">Show battery bar on charging in always on display</string>
+    <string name="tuner_keyguard_show_battery_bar_always_title">Always show battery bar</string>
+    <string name="tuner_keyguard_show_battery_bar_always_summary">Always show battery bar on charging</string>
+    <string name="tuner_keyguard_battery_bar_color_title">Battery bar color</string>
+
+   <string name="lockscreen_animation_off">Off</string>
+    <string name="lockscreen_animation_siri">Siri</string>
+    <string name="lockscreen_animation_horizontal_load">horizontal load</string>
+    <string name="lockscreen_animation_loader">Loader</string>
+    <string name="lockscreen_animation_pulse">Pulse</string>
+    <string name="lockscreen_animation_ball">Ball</string>
+    <string name="lockscreen_animation_blueball">Blue balls</string>
+    <string name="lockscreen_animation_load_smile">Load smile</string>
+    <string name="lockscreen_animation_equalizer">Equalizer</string>
+    <string name="lockscreen_animation_on_doze_title">Show on AOD</string>
+    <string name="lockscreen_animation_on_doze_summary">Shows lockscreen animation on doze</string>
+
+    <string name="ls_animations_title">Animations</string>
+    <string name="lockscreen_animation_title">Lockscreen animation</string>
+    <string name="lockscreen_animation_summary">Display a Lottie animation on lockscreen</string>
+
 </resources>
