@@ -1217,4 +1217,21 @@
     <string name="hide_smart_replies_title">Hide smart replies</string>
     <string name="hide_smart_replies_summary">Hide smart replies to save screen space with peeking notifications</string>
 
+        <!-- Themes -->
+    <string name="theme_customization_font_title">Headline / Body font</string>
+    <string name="theme_customization_icon_shape_title">Icon shape</string>
+    <string name="theme_customization_sysui_icon_title">Statusbar Icon</string>
+    <string name="theme_type_title">System theme</string>
+    <string name="theme_type_summary">Select theme</string>
+    <string name="theme_type_light">Light</string>
+    <string name="theme_type_pitch_black">Google Dark</string>
+    <string name="theme_type_solarized_dark">Solarized dark</string>
+    <string name="theme_type_baked_green">Baked Green</string>
+    <string name="theme_type_choco_x">Choco X</string>
+    <string name="theme_type_du_pitchblack">Pitch black</string>
+    <string name="theme_type_dark_grey">Dark Grey</string>
+    <string name="theme_type_material_ocean">Material Ocean</string>
+    <string name="theme_type_xtended_clear">Xtended Clear</string>
+
+
 </resources>
