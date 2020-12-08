@@ -18,20 +18,40 @@
 	android:title="@string/notifications_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <!-- Heads up -->
-    <Preference
-        android:key="heads_up_notifications"
-        android:title="@string/heads_up_notifications"
-        android:summary="@string/heads_up_summary"
-        android:fragment="com.zen.hub.fragments.subs.HeadsUpSettings" />
+    <PreferenceCategory
+        android:key="light_brightness"
+        android:title="@string/light_brightness_category">
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
-        android:key="notification_sound_vib_screen_on"
-        android:title="@string/notification_sound_vib_screen_on_title"
-        android:summary="@string/notification_sound_vib_screen_on_summary"
-        android:defaultValue="true" />
+        <!-- Battery light -->
+        <PreferenceScreen
+            android:key="battery_lights"
+            android:title="@string/battery_light_title"
+            android:summary="@string/battery_light_summary"
+            android:fragment="com.zen.hub.fragments.subs.light.BatteryLightSettings" />
 
-        <PreferenceCategory
+        <!-- Notification lights -->
+        <PreferenceScreen
+            android:key="notification_lights"
+            android:title="@string/notification_light_title"
+            android:summary="@string/notification_light_summary"
+            android:fragment="com.zen.hub.fragments.subs.light.NotificationLightSettings" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="heads_up_cat"
+        android:title="@string/heads_up_notifications">
+
+        <!-- Heads up -->
+        <Preference
+            android:key="heads_up_notifications"
+            android:title="@string/heads_up_notifications"
+            android:summary="@string/heads_up_summary"
+            android:fragment="com.zen.hub.fragments.subs.HeadsUpSettings" />
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
         android:key="incall_vib_options"
         android:title="@string/incall_vibration_category" >
 
@@ -55,6 +75,12 @@
      <PreferenceCategory
         android:key="notification_misc"
         android:title="@string/notification_misc_category" >
+
+    <com.zenx.support.preferences.SystemSettingSwitchPreference
+        android:key="notification_sound_vib_screen_on"
+        android:title="@string/notification_sound_vib_screen_on_title"
+        android:summary="@string/notification_sound_vib_screen_on_summary"
+        android:defaultValue="true" />
 
     <com.zenx.support.preferences.SystemSettingSwitchPreference
         android:key="hide_smart_replies"

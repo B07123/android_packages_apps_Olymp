@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.zen.hub.preferences;
+package com.zen.hub.fragments.subs.light;
 
 import android.content.ContentResolver;
 import android.content.Context;

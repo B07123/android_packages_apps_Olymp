@@ -38,7 +38,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
-import com.zen.hub.preferences.ButtonBacklightBrightness;
+import com.zen.hub.fragments.subs.light.ButtonBacklightBrightness;
 import com.zen.hub.utils.Utils;
 import com.zen.hub.utils.TelephonyUtils;
 
