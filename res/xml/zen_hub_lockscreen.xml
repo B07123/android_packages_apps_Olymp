@@ -64,6 +64,12 @@
             android:summary="@string/default_date_style_summary"
             android:fragment="com.zen.hub.fragments.subs.LsDate" />
 
+         <PreferenceScreen
+            android:key="woner_styling"
+            android:title="@string/owner_style_title"
+            android:summary="@string/owner_style_summary"
+            android:fragment="com.zen.hub.fragments.subs.LsOwner" />
+
           <Preference
             android:key="omnijaws_settings"
             android:title="@string/weather_title"

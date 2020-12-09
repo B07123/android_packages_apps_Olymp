@@ -1407,4 +1407,7 @@
     <string name="add">Add</string>
     <string name="choose_app">Choose app</string>
 
+    <string name="owner_style_title">Owner</string>
+    <string name="owner_style_summary">Font style, size</string>
+
 </resources>
