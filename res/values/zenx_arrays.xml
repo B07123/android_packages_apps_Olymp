@@ -701,7 +701,7 @@
         <item>@string/audio_panel_theme_default</item>
         <item>@string/volume_panel_aosp</item>
         <item>@string/volume_panel_compat</item>
-        <item>@string/volume_panel_oreo</item>
+        <!-- <item>@string/volume_panel_oreo</item> -->
         <item>@string/volume_panel_tiled</item>
     </string-array>
 
@@ -709,7 +709,7 @@
         <item>@string/volume_panel_stock_val</item>
         <item>@string/volume_panel_aosp_val</item>
         <item>@string/volume_panel_compat_val</item>
-        <item>@string/volume_panel_oreo_val</item>
+        <!-- <item>@string/volume_panel_oreo_val</item> -->
         <item>@string/volume_panel_tiled_val</item>
     </string-array>
 
