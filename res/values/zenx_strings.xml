@@ -1430,4 +1430,15 @@
     <string name="qs_system_info_gpu_busy">GPU usage</string>
     <string name="qs_system_info_icon_title">Show icon</string>
     <string name="qs_system_info_icon_summary">Show or hide system info icon in qs header</string>
+
+    <string name="qs_datausage_title_mode">Usage type</string>
+
+    <string name="qs_footer_info_left">Left Footer info</string>
+    <string name="qs_footer_info_right">Right Footer info</string>
+    <string name="qs_footer_info_off">Off</string>
+    <string name="qs_footer_info_used_data">Used Data</string>
+    <string name="qs_footer_info_network_traffic">Network Traffic</string>
+    <string name="qs_footer_info_text">Text</string>
+
+
 </resources>

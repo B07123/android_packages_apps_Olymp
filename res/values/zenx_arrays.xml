@@ -658,7 +658,7 @@
 
         <!-- QS Header data uasge -->
     <string-array name="qs_datausage_entries" translatable="false">
-        <item>@string/qs_datausage_disabled</item> 
+        <item>@string/qs_datausage_disabled</item>
         <item>@string/qs_datausage_daily</item> 
         <item>@string/qs_datausage_monthly</item>
     </string-array>
@@ -1557,6 +1557,28 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+
+    <string-array name="qs_footer_datausage_type_entries" translatable="false">
+        <item>@string/qs_datausage_daily</item>
+        <item>@string/qs_datausage_monthly</item>
+    </string-array>
+    <string-array name="qs_footer_datausage_type_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="qs_footer_info_entrires" translatable="false">
+        <item>@string/qs_footer_info_off</item>
+        <item>@string/qs_footer_info_used_data</item>
+        <item>@string/qs_footer_info_network_traffic</item>
+        <item>@string/qs_footer_info_text</item>
+    </string-array>
+    <string-array name="qs_footer_info_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 
 </resources>

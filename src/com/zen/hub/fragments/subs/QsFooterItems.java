@@ -28,13 +28,23 @@ import com.zenx.support.preferences.SystemSettingEditTextPreference;
 import android.os.UserHandle;
 import android.provider.Settings;
 
+import com.zenx.support.preferences.SystemSettingSwitchPreference;
+import com.zenx.support.preferences.SystemSettingListPreference;
+
 import com.android.settings.SettingsPreferenceFragment;
 
 public class QsFooterItems extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String X_FOOTER_TEXT_STRING = "x_footer_text_string";
+    private static final String QS_FOOTER_INFO = "qs_footer_info";
+    private static final String QS_FOOTER_INFO_RIGHT = "qs_footer_info_right";
+    private static final String QS_FOOTER_DATAUSAGE = "qs_footer_datausage";
+
     private SystemSettingEditTextPreference mFooterString;
+    private SystemSettingListPreference mFooterInfo;
+    private SystemSettingListPreference mFooterInfoRight;
+    private SystemSettingListPreference mFooterDataUsage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +63,32 @@ public class QsFooterItems extends SettingsPreferenceFragment implements
             Settings.System.putString(getActivity().getContentResolver(),
                     Settings.System.X_FOOTER_TEXT_STRING, "ZenX -Feel the Power");
         }
+
+        mFooterInfo = (SystemSettingListPreference) findPreference(QS_FOOTER_INFO);
+        mFooterInfo.setOnPreferenceChangeListener(this);
+
+        mFooterInfoRight = (SystemSettingListPreference) findPreference(QS_FOOTER_INFO);
+        mFooterInfoRight.setOnPreferenceChangeListener(this);
+
+        mFooterDataUsage = (SystemSettingListPreference) findPreference(QS_FOOTER_DATAUSAGE);
+        mFooterDataUsage.setOnPreferenceChangeListener(this);
+        updateQsFooterInfo();
+    }
+
+    private void updateQsFooterInfo() {
+        int mode = Settings.System.getInt(getActivity().getContentResolver(),
+            Settings.System.QS_FOOTER_INFO, 0);
+        int modeRight = Settings.System.getInt(getActivity().getContentResolver(),
+            Settings.System.QS_FOOTER_INFO_RIGHT, 0);
+
+        if(mode == 1 || modeRight == 1) {
+            mFooterDataUsage.setVisible(true);
+        } else if (mode == 3 || modeRight == 3) {
+            mFooterString.setVisible(true);
+        } else {
+            mFooterString.setVisible(false);
+            mFooterDataUsage.setVisible(false);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -68,7 +104,23 @@ public class QsFooterItems extends SettingsPreferenceFragment implements
                             Settings.System.X_FOOTER_TEXT_STRING, "ZenX -Feel the Power");
                 }
                 return true;
-            }
+        } else if (preference == mFooterInfo) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mFooterInfo.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.QS_FOOTER_INFO, val);
+            mFooterInfo.setSummary(mFooterInfo.getEntries()[index]);
+            updateQsFooterInfo();
+            return true;
+        } else if (preference == mFooterInfoRight) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mFooterInfoRight.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.QS_FOOTER_INFO_RIGHT, val);
+            mFooterInfoRight.setSummary(mFooterInfoRight.getEntries()[index]);
+            updateQsFooterInfo();
+            return true;
+        }
         return false;
     }
 

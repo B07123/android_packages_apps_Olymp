@@ -42,24 +42,38 @@
             android:summary="@string/qs_user_summary"
             android:defaultValue="true" />
 
-   <com.zenx.support.preferences.SystemSettingSwitchPreference
-     android:key="qs_footer_security_information"
-     android:title="@string/qs_footer_security_information_title"
-     android:summary="@string/qs_footer_security_information_summary"
-     android:defaultValue="true" />
+      <com.zenx.support.preferences.SystemSettingSwitchPreference
+        android:key="qs_footer_security_information"
+        android:title="@string/qs_footer_security_information_title"
+        android:summary="@string/qs_footer_security_information_summary"
+        android:defaultValue="true" />
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
-        android:key="omni_footer_text_show"
-        android:title="@string/qs_footer_text_title"
-        android:summary="@string/qs_footer_text_summary"
-        android:defaultValue="false"/>
+    <com.zenx.support.preferences.SystemSettingListPreference
+        android:key="qs_footer_info"
+        android:title="@string/qs_footer_info_left"
+        android:entries="@array/qs_footer_info_entrires"
+        android:entryValues="@array/qs_footer_info_values"
+        android:defaultValue="0" />
+
+    <com.zenx.support.preferences.SystemSettingListPreference
+        android:key="qs_footer_info_right"
+        android:title="@string/qs_footer_info_right"
+        android:entries="@array/qs_footer_info_entrires"
+        android:entryValues="@array/qs_footer_info_values"
+        android:defaultValue="0" />
+
+    <com.zenx.support.preferences.SystemSettingListPreference
+        android:key="qs_footer_datausage"
+        android:title="@string/qs_datausage_title_mode"
+        android:entries="@array/qs_footer_datausage_type_entries"
+        android:entryValues="@array/qs_footer_datausage_type_values"
+        android:defaultValue="0" />
 
          <!-- QS footer text string -->
     <com.zenx.support.preferences.SystemSettingEditTextPreference
         android:key="x_footer_text_string"
         android:title="@string/qs_footer_text_string_title"
         android:summary="@string/qs_footer_text_string_summary"
-        android:dependency="omni_footer_text_show"
         android:defaultValue="ZenX - Feel the power" />
 
 </PreferenceScreen>
