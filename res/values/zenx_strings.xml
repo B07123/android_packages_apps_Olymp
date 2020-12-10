@@ -1410,4 +1410,16 @@
     <string name="owner_style_title">Owner</string>
     <string name="owner_style_summary">Font style, size</string>
 
+        <!-- QS header styles -->
+    <string name="qs_header_style_title">QS Header style</string>
+    <string name="qs_header_default">Default (Black)</string>
+    <string name="qs_header_accent">Accent Based</string>
+    <string name="qs_header_transparent">Transparent</string>
+    <string name="qs_header_custom_color">Custom color</string>
+    <string name="qs_header_style_color_title">Header color</string>
+    <string name="qs_header_style_color_summary">Choose QS Header color</string>
+
+    <string name="qs_header_style_gradient_title">Gradient Header</string>
+    <string name="qs_header_style_gradient_summary">Enable or disable gradient QS background</string>
+
 </resources>

@@ -40,6 +40,8 @@ import androidx.preference.SwitchPreference;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.zenx.support.colorpicker.ColorPickerPreference;
+import com.zenx.support.preferences.SystemSettingSwitchPreference;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -57,6 +59,9 @@ public class CustomHeader extends SettingsPreferenceFragment implements
     private static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
     private static final String CUSTOM_HEADER_ENABLED = "status_bar_custom_header";
     private static final String FILE_HEADER_SELECT = "file_header_select";
+    private static final String QS_HEADER_STYLE = "qs_header_style";
+    private static final String QS_HEADER_STYLE_COLOR = "qs_header_style_color";
+    private static final String QS_HEADER_STYLE_GRADIENT = "qs_header_style_gradient";
 
     private static final int REQUEST_PICK_IMAGE = 0;
 
@@ -64,9 +69,12 @@ public class CustomHeader extends SettingsPreferenceFragment implements
     private ListPreference mDaylightHeaderPack;
     private ListPreference mHeaderProvider;
     private String mDaylightHeaderProvider;
-    private SwitchPreference mHeaderEnabled;
+    private SystemSettingSwitchPreference mHeaderEnabled;
     private Preference mFileHeader;
     private String mFileHeaderProvider;
+    private ListPreference mQsHeaderStyle;
+    private ColorPickerPreference mQsHeaderStyleColor;
+    private SystemSettingSwitchPreference mQsHeaderStyleGradient;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,8 +86,13 @@ public class CustomHeader extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         mHeaderBrowse = findPreference(CUSTOM_HEADER_BROWSE);
 
-        mHeaderEnabled = (SwitchPreference) findPreference(CUSTOM_HEADER_ENABLED);
+        mHeaderEnabled = (SystemSettingSwitchPreference) findPreference(CUSTOM_HEADER_ENABLED);
         mHeaderEnabled.setOnPreferenceChangeListener(this);
+
+        mQsHeaderStyleGradient = (SystemSettingSwitchPreference) findPreference(QS_HEADER_STYLE_GRADIENT);
+        mQsHeaderStyleGradient.setChecked(Settings.System.getInt(getContentResolver(),
+            Settings.System.QS_HEADER_STYLE_GRADIENT, 0) == 1);
+        mQsHeaderStyleGradient.setOnPreferenceChangeListener(this);
 
         mDaylightHeaderPack = (ListPreference) findPreference(DAYLIGHT_HEADER_PACK);
 
@@ -112,6 +125,8 @@ public class CustomHeader extends SettingsPreferenceFragment implements
 
         mFileHeader = findPreference(FILE_HEADER_SELECT);
         mFileHeader.setEnabled(providerName.equals(mFileHeaderProvider));
+
+        getQsHeaderStylePref();
     }
 
     private void updateHeaderProviderSummary(boolean headerEnabled) {
@@ -155,10 +170,82 @@ public class CustomHeader extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mHeaderEnabled) {
             Boolean headerEnabled = (Boolean) newValue;
+            if(headerEnabled){
+                Settings.System.putIntForUser(resolver,
+                    Settings.System.QS_HEADER_STYLE_GRADIENT, 0, UserHandle.USER_CURRENT);
+                mQsHeaderStyleGradient.setChecked(false);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.QS_HEADER_STYLE, 2);
+                mQsHeaderStyle.setSummary(mQsHeaderStyle.getEntries()[2]);
+            }
             updateHeaderProviderSummary(headerEnabled);
+            return true;
+        } else if (preference == mQsHeaderStyle) {
+            String value = (String) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+			    Settings.System.QS_HEADER_STYLE, Integer.valueOf(value));
+            int newIndex = mQsHeaderStyle.findIndexOfValue(value);
+            mQsHeaderStyle.setSummary(mQsHeaderStyle.getEntries()[newIndex]);
+            updateQsHeaderStyleColor();
+            return true;
+        } else if (preference == mQsHeaderStyleColor) {
+                String hex = ColorPickerPreference.convertToARGB(
+                        Integer.valueOf(String.valueOf(newValue)));
+                preference.setSummary(hex);
+                int intHex = ColorPickerPreference.convertToColorInt(hex);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.QS_HEADER_STYLE_COLOR, intHex);
+            return true;
+        } else if (preference == mQsHeaderStyleGradient) {
+            int val = ((Boolean) newValue) ? 1 : 0;
+            Settings.System.putInt(getContentResolver(), Settings.System.QS_HEADER_STYLE_GRADIENT, val);
             return true;
         }
         return false;
+    }
+
+    private void getQsHeaderStylePref() {
+        mQsHeaderStyle = (ListPreference) findPreference(QS_HEADER_STYLE);
+        int qsHeaderStyle = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.QS_HEADER_STYLE, 0);
+        int valueIndex = mQsHeaderStyle.findIndexOfValue(String.valueOf(qsHeaderStyle));
+        mQsHeaderStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
+        mQsHeaderStyle.setSummary(mQsHeaderStyle.getEntry());
+        mQsHeaderStyle.setOnPreferenceChangeListener(this);
+        updateQsHeaderStyleColor();
+    }
+
+    private void updateQsHeaderStyleColor() {
+        int qsHeaderStyle = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.QS_HEADER_STYLE, 0);
+
+        if(qsHeaderStyle == 3) {
+                mQsHeaderStyleColor = (ColorPickerPreference) findPreference(QS_HEADER_STYLE_COLOR);
+                int qsHeaderStyleColor = Settings.System.getInt(getContentResolver(),
+                        Settings.System.QS_HEADER_STYLE_COLOR, 0x0000000);
+                mQsHeaderStyleColor.setNewPreviewColor(qsHeaderStyleColor);
+                String qsHeaderStyleColorHex = String.format("#%08x", (0x0000000 & qsHeaderStyleColor));
+                mQsHeaderStyleColor.setSummary(qsHeaderStyleColorHex);
+                mQsHeaderStyleColor.setOnPreferenceChangeListener(this);
+                mQsHeaderStyleColor.setVisible(true);
+        } else {
+                mQsHeaderStyleColor = (ColorPickerPreference) findPreference(QS_HEADER_STYLE_COLOR);
+                if(mQsHeaderStyleColor != null) {
+                        mQsHeaderStyleColor.setVisible(false);
+                }
+        }
+    }
+
+   @Override
+    public void onResume() {
+        super.onResume();
+        updateQsHeaderStyleColor();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        updateQsHeaderStyleColor();
     }
 
     @Override
