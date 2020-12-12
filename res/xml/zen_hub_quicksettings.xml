@@ -144,6 +144,12 @@
         android:fragment="com.zen.hub.fragments.subs.QsBatteryModes" />
 
      <PreferenceScreen
+        android:key="qs_privacy_chip"
+        android:title="@string/qs_privacy_chip_title"
+        android:summary="@string/qs_privacy_chip_summary"
+        android:fragment="com.zen.hub.fragments.subs.QsPrivacyChip" />
+
+     <PreferenceScreen
         android:key="qs_footer_items"
         android:title="@string/qs_footer_items"
         android:summary="@string/qs_footer_items_summary"

@@ -1440,5 +1440,17 @@
     <string name="qs_footer_info_network_traffic">Network Traffic</string>
     <string name="qs_footer_info_text">Text</string>
 
+    <string name="qs_privacy_chip_title">Privacy Indicator</string>
+    <string name="qs_privacy_chip_summary">Options for privacy chip</string>
+    <string name="qs_network_privacy_chip_title">Hide Network traffic</string>
+    <string name="qs_network_privacy_chip_summary">Show/Hide network traffic when privacy is active</string>
+    <string name="qs_useddata_privacy_chip_title">Hide Used Data</string>
+    <string name="qs_useddata_privacy_chip_summary">Show/Hide used data when privacy is active</string>
+    <string name="qs_systeminfo_privacy_chip_title">Hide System Info</string>
+    <string name="qs_systeminfo_privacy_chip_summary">Show/Hide System info when privacy is active</string>
+    <string name="qs_battery_icon_privacy_chip_title">Hide Battery Icon</string>
+    <string name="qs_battery_icon_privacy_chip_summary">Show/Hide Battery icon when privacy is active</string>
 
+    <string name="show_privacy_chip_title">Show Privacy chip</string>
+    <string name="show_privacy_chip_summary">Show/Hide Privacy indicator in quick settings</string>
 </resources>
