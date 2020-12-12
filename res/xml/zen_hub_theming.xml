@@ -42,6 +42,11 @@
         android:key="theme_customization_category"
         android:title="@string/theme_customization_category" >
 
+    <SwitchPreference
+            android:key="enable_blurs_on_windows"
+            android:title="@string/enable_blurs_on_windows_title"
+            android:summary="@string/enable_blurs_on_windows_summary" />
+
     <com.android.settings.display.darkmode.DarkModePreference
         android:key="dark_ui_mode"
         android:title="@string/dark_ui_mode"

@@ -58,6 +58,7 @@ import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.android.settings.display.NightModePreferenceController;
 import com.android.settings.display.ThemePreferenceController;
 import com.android.settings.development.OverlayCategoryPreferenceController;
+import com.android.settings.development.EnableBlursPreferenceController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,6 +110,7 @@ public class ThemingSettings extends DashboardFragment implements OnPreferenceCh
                 "android.theme.customization.adaptive_icon_shape"));
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.icon_pack.android"));
+        controllers.add(new EnableBlursPreferenceController(context));
         return controllers;
     }
 

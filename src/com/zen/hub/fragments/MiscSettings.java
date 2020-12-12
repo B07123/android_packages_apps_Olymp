@@ -35,12 +35,20 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 import com.android.settings.R;
 
+import com.android.settingslib.core.AbstractPreferenceController;
+import com.android.settingslib.core.lifecycle.Lifecycle;
+import com.android.settings.development.OverlayCategoryPreferenceController;
+import com.android.settings.development.DefaultLaunchPreferenceController;
+import com.android.settings.dashboard.DashboardFragment;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.HashSet;
 
 import com.android.settings.SettingsPreferenceFragment;
 
-public class MiscSettings extends SettingsPreferenceFragment implements
+public class MiscSettings extends DashboardFragment implements
         OnPreferenceChangeListener {
 
     private static final String RINGTONE_FOCUS_MODE = "ringtone_focus_mode";
@@ -52,14 +60,35 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         super.onCreate(icicle);
          final ContentResolver resolver = getActivity().getContentResolver();
 
-        addPreferencesFromResource(R.xml.zen_hub_misc);
-
         mHeadsetRingtoneFocus = (ListPreference) findPreference(RINGTONE_FOCUS_MODE);
         int mHeadsetRingtoneFocusValue = Settings.Global.getInt(resolver,
                 Settings.Global.RINGTONE_FOCUS_MODE, 0);
         mHeadsetRingtoneFocus.setValue(Integer.toString(mHeadsetRingtoneFocusValue));
         mHeadsetRingtoneFocus.setSummary(mHeadsetRingtoneFocus.getEntry());
         mHeadsetRingtoneFocus.setOnPreferenceChangeListener(this);
+    }
+
+    @Override
+    protected int getPreferenceScreenResId() {
+        return R.xml.zen_hub_misc;
+    }
+
+    @Override
+    protected List<AbstractPreferenceController> createPreferenceControllers(Context context) {
+        return buildPreferenceControllers(context, getSettingsLifecycle());
+    }
+
+    private static List<AbstractPreferenceController> buildPreferenceControllers(
+            Context context, Lifecycle lifecycle) {
+        final List<AbstractPreferenceController> controllers = new ArrayList<>();
+        controllers.add(
+            new DefaultLaunchPreferenceController(context, "default_usb_configuration"));
+        return controllers;
+    }
+
+    @Override
+    protected String getLogTag() {
+        return "MiscSettings";
     }
 
     @Override
