@@ -27,6 +27,12 @@
         android:summary="@string/power_menu_animation_summary"
         android:persistent="false" />
 
+    <SwitchPreference
+        android:key="power_end_call"
+        android:title="@string/power_end_call_title"
+        android:summary="@string/power_end_call_summary"
+        android:persistent="false"/>
+
     <com.zenx.support.preferences.SystemSettingSwitchPreference
         android:key="torch_long_press_power_gesture"
         android:title="@string/torch_long_press_power_gesture_title"
@@ -54,56 +60,56 @@
         android:key="power_panel_key"
         android:title="@string/power_panel_title">
 
-    <com.zenx.support.preferences.SecureSettingSwitchPreference
+    <!-- <com.zenx.support.preferences.SecureSettingSwitchPreference
         android:key="advanced_reboot"
         android:title="@string/global_actions_advanced_reboot_title"
         android:summary="@string/global_actions_advanced_reboot_summary"
-        android:defaultValue="true" />
+        android:defaultValue="true" /> -->
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zenx.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_screenshot"
         android:title="@string/global_actions_screenshot"
         android:defaultValue="false" />
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zenx.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_screenrecord"
         android:title="@string/global_actions_screenrecord"
         android:defaultValue="false" />
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zenx.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_airplane"
         android:title="@string/global_actions_airplane"
         android:defaultValue="false" />
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zenx.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_settings"
         android:title="@string/global_actions_settings"
         android:defaultValue="false" />
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zenx.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_lockdown"
         android:title="@string/global_actions_lockdown"
         android:defaultValue="false" />
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zenx.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_flashlight"
         android:title="@string/global_actions_flashlight"
         android:defaultValue="false" />
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <!-- <com.zenx.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_users"
         android:title="@string/global_actions_users"
-        android:defaultValue="false" />
+        android:defaultValue="false" /> -->
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zenx.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_emergency"
         android:title="@string/global_actions_emergency"
         android:defaultValue="false" />
 
-    <!--com.zenx.support.preferences.SystemSettingSwitchPreference
+    <!-- <com.zenx.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_soundpanel"
         android:title="@string/global_actions_soundpanel"
-        android:defaultValue="false" /-->
+        android:defaultValue="false" /> -->
 
     <com.zenx.support.preferences.SystemSettingSwitchPreference
         android:key="global_actions_onthego"
@@ -111,7 +117,7 @@
         android:defaultValue="false" />
 
 
-    <com.zenx.support.preferences.SystemSettingSeekBarPreference
+    <com.zenx.support.preferences.SecureSettingSeekBarPreference
         android:key="global_actions_max_columns"
         android:title="@string/global_actions_max_columns_title"
         android:summary="@string/global_actions_max_columns_summary"

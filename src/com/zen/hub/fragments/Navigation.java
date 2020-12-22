@@ -39,12 +39,15 @@ import android.graphics.Color;
 import android.os.SystemProperties;
 import android.os.RemoteException;
 import android.content.Context;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceScreen;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.internal.util.zenx.ZenxUtils;
+import com.zen.hub.utils.Utils;
 
 import static com.zen.hub.utils.Utils.handleOverlays;
 import com.zenx.support.preferences.SystemSettingListPreference;
@@ -53,6 +56,7 @@ public class Navigation extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener{
 
     private static final String NAVBAR_STYLE = "navbar_style";
+    private static final String CATEGORY_BOTTONS = "buttons_cat_key";
 
     private IOverlayManager mOverlayManager;
     private SystemSettingListPreference mNavbarStyle;
@@ -63,6 +67,19 @@ public class Navigation extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.zen_hub_navigation);
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        final PreferenceCategory batteryCategory = prefScreen.findPreference(CATEGORY_BOTTONS);
+
+        final boolean hasHomeKey = Utils.hasHomeKey(getActivity());
+        final boolean hasBackKey = Utils.hasBackKey(getActivity());
+        final boolean hasMenuKey = Utils.hasMenuKey(getActivity());
+        final boolean hasAssistKey = Utils.hasAssistKey(getActivity());
+        final boolean hasAppSwitchKey = Utils.hasAppSwitchKey(getActivity());
+        final boolean hasCameraKey = Utils.hasCameraKey(getActivity());
+
+        if (!hasHomeKey && !hasBackKey && !hasMenuKey && !hasAssistKey && !hasAppSwitchKey) {
+            prefScreen.removePreference(batteryCategory);
+        }
 
         mOverlayManager = IOverlayManager.Stub.asInterface(
             ServiceManager.getService(Context.OVERLAY_SERVICE));

@@ -16,7 +16,40 @@
 <PreferenceScreen
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/navigation_title"
+        xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+      <PreferenceCategory
+        android:key="system_gesture_key"
+        android:title="@string/system_gesture_title">
+
+          <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="three_finger_gesture"
+            android:title="@string/three_finger_gesture"
+            android:summary="@string/three_finger_gesture_summary"
+            android:defaultValue="false" />
+
+          <Preference
+            android:key="gesture_system_navigation_input_summary"
+            android:title="@string/system_gesture_title"
+            android:summary="@string/system_gesture_summary"
+            android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
+            settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController"
+            settings:keywords="@string/keywords_system_navigation" />
+
+     </PreferenceCategory>
+
+      <PreferenceCategory
+        android:key="buttons_cat_key"
+        android:title="@string/buttons_cat">
+
+         <PreferenceScreen
+            android:key="buttons_options"
+            android:title="@string/buttons_options"
+            android:summary="@string/buttons_options_summary"
+            android:fragment="com.zen.hub.fragments.subs.ButtonsOptions" />
+
+     </PreferenceCategory>
 
       <PreferenceCategory
         android:key="volume_buttons_key"
@@ -42,26 +75,6 @@
 
      </PreferenceCategory>
 
-      <PreferenceCategory
-        android:key="system_gesture_key"
-        android:title="@string/system_gesture_title">
-
-          <com.zenx.support.preferences.SystemSettingSwitchPreference
-            android:key="three_finger_gesture"
-            android:title="@string/three_finger_gesture"
-            android:summary="@string/three_finger_gesture_summary"
-            android:defaultValue="false" />
-
-          <Preference
-            android:key="gesture_system_navigation_input_summary"
-            android:title="@string/system_gesture_title"
-            android:summary="@string/system_gesture_summary"
-            android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
-            settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController"
-            settings:keywords="@string/keywords_system_navigation" />
-
-     </PreferenceCategory>
-
      <PreferenceCategory
         android:key="navbar_themes_key"
         android:title="@string/navbar_themes_title">
@@ -79,6 +92,26 @@
         android:entries="@array/navbar_style_entries"
         android:entryValues="@array/navbar_style_values"
         android:defaultValue="0" />
+
+          <PreferenceScreen
+            android:key="nav_bar_options"
+            android:title="@string/nav_bar_options"
+            android:summary="@string/nav_bar_options_summary"
+            android:fragment="com.zen.hub.fragments.subs.NavbarOptions" />
+
+          <org.lineageos.internal.lineageparts.LineagePartsPreference
+            android:key="touchscreen_gesture_settings"
+            lineage:requiresFeature="lineagehardware:FEATURE_TOUCHSCREEN_GESTURES" />
+
+        <lineageos.preference.RemotePreference
+            android:key="device_touchscreen_gesture_settings"
+            android:title="@string/touchscreen_gesture_settings_title"
+            android:summary="@string/touchscreen_gesture_settings_summary"
+            lineage:replacesKey="touchscreen_gesture_settings"
+            lineage:requiresFeature="lineagehardware:FEATURE_TOUCHSCREEN_GESTURES">
+                <intent android:action="org.lineageos.settings.device.GESTURE_SETTINGS" />
+        </lineageos.preference.RemotePreference>
+
 
      </PreferenceCategory>
 

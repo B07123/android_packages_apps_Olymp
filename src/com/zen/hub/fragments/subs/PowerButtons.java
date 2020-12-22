@@ -17,28 +17,38 @@
  */
 package com.zen.hub.fragments.subs;
 
-import com.android.internal.logging.nano.MetricsProto;
-
-import android.app.Activity;
-import android.content.Context;
 import android.content.ContentResolver;
-import android.content.res.Resources;
-import android.database.ContentObserver;
-import android.content.Intent;
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.RemoteException;
-import android.os.ServiceManager;
-import android.database.ContentObserver;
-import android.os.SystemProperties;
 import android.os.UserHandle;
-import androidx.preference.*;
 import android.provider.Settings;
-import android.view.View;
-import android.widget.Toast;
+import android.util.Log;
 
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
+
+import com.android.internal.logging.nano.MetricsProto;
+
+import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+
+import com.zen.hub.preferences.ButtonBacklightBrightness;
+import com.zen.hub.utils.Utils;
+import com.zen.hub.utils.TelephonyUtils;
+
+import static org.lineageos.internal.util.DeviceKeysConstants.*;
+
+import java.util.List;
+import java.util.Set;
+
+import lineageos.hardware.LineageHardwareManager;
+import lineageos.providers.LineageSettings;
 
 public class PowerButtons extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -46,15 +56,22 @@ public class PowerButtons extends SettingsPreferenceFragment implements
     private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
     private static final String KEY_TORCH_LONG_PRESS_POWER_TIMEOUT =
             "torch_long_press_power_timeout";
+    private static final String KEY_TORCH_LONG_PRESS_POWER_GESTURE =
+            "torch_long_press_power_gesture";
+    private static final String KEY_POWER_END_CALL = "power_end_call";
 
     private ListPreference mTorchLongPressPowerTimeout;
     private ListPreference mPowerMenuAnimations;
+    private SwitchPreference mTorchLongPressPowerGesture;
+    private SwitchPreference mPowerEndCall;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.power_buttons);
+
+        final boolean hasPowerKey = Utils.hasPowerKey();
 
         mPowerMenuAnimations = (ListPreference) findPreference(POWER_MENU_ANIMATIONS);
         mPowerMenuAnimations.setValue(String.valueOf(Settings.System.getInt(
@@ -65,10 +82,46 @@ public class PowerButtons extends SettingsPreferenceFragment implements
         mTorchLongPressPowerTimeout =
                     (ListPreference) findPreference(KEY_TORCH_LONG_PRESS_POWER_TIMEOUT);
         mTorchLongPressPowerTimeout.setOnPreferenceChangeListener(this);
-        int TorchTimeout = Settings.System.getInt(getContentResolver(),
-                        Settings.System.TORCH_LONG_PRESS_POWER_TIMEOUT, 0);
+        int TorchTimeout = LineageSettings.System.getInt(getContentResolver(),
+                        LineageSettings.System.TORCH_LONG_PRESS_POWER_TIMEOUT, 0);
         mTorchLongPressPowerTimeout.setValue(Integer.toString(TorchTimeout));
         mTorchLongPressPowerTimeout.setSummary(mTorchLongPressPowerTimeout.getEntry());
+
+        mPowerEndCall = findPreference(KEY_POWER_END_CALL);
+        mTorchLongPressPowerTimeout = findPreference(KEY_TORCH_LONG_PRESS_POWER_TIMEOUT);
+        mTorchLongPressPowerGesture = findPreference(KEY_TORCH_LONG_PRESS_POWER_GESTURE);
+
+        if (hasPowerKey) {
+            if (!TelephonyUtils.isVoiceCapable(getActivity())) {
+                mPowerEndCall.setVisible(false);
+            }
+            if (!Utils.deviceSupportsFlashLight(getActivity())) {
+                mTorchLongPressPowerTimeout.setVisible(false);
+                mTorchLongPressPowerGesture.setVisible(false);
+            }
+        } else {
+             mPowerEndCall.setVisible(false);
+             mTorchLongPressPowerTimeout.setVisible(false);
+             mTorchLongPressPowerGesture.setVisible(false);
+        }
+
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mPowerEndCall) {
+            handleTogglePowerButtonEndsCallPreferenceClick();
+            return true;
+        }
+
+        return super.onPreferenceTreeClick(preference);
+    }
+
+   private void handleListChange(ListPreference pref, Object newValue, String setting) {
+        String value = (String) newValue;
+        int index = pref.findIndexOfValue(value);
+        pref.setSummary(pref.getEntries()[index]);
+        LineageSettings.System.putInt(getContentResolver(), setting, Integer.valueOf(value));
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -80,17 +133,18 @@ public class PowerButtons extends SettingsPreferenceFragment implements
             mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
             return true;
         } else if (preference == mTorchLongPressPowerTimeout) {
-            String TorchTimeout = (String) newValue;
-            int TorchTimeoutValue = Integer.parseInt(TorchTimeout);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.TORCH_LONG_PRESS_POWER_TIMEOUT, TorchTimeoutValue);
-            int TorchTimeoutIndex = mTorchLongPressPowerTimeout
-                    .findIndexOfValue(TorchTimeout);
-            mTorchLongPressPowerTimeout
-                    .setSummary(mTorchLongPressPowerTimeout.getEntries()[TorchTimeoutIndex]);
+            handleListChange(mTorchLongPressPowerTimeout, newValue,
+                    LineageSettings.System.TORCH_LONG_PRESS_POWER_TIMEOUT);
             return true;
         }
         return false;
+    }
+    
+    private void handleTogglePowerButtonEndsCallPreferenceClick() {
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR, (mPowerEndCall.isChecked()
+                        ? Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP
+                        : Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_SCREEN_OFF));
     }
 
     @Override

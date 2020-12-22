@@ -27,7 +27,7 @@
         android:summary="%s"
         android:defaultValue="0"
         android:persistent="false" />
-    
+
     <com.zenx.support.preferences.CustomSeekBarPreference
         android:key="lockowner_font_size"
         android:title="@string/lockowner_font_size_title"

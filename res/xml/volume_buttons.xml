@@ -24,11 +24,11 @@
         android:title="@string/volume_rocker_music_controls_title"
         android:defaultValue="false" />
 
-     <com.zenx.support.preferences.SystemSettingSwitchPreference
+     <!-- <com.zenx.support.preferences.SystemSettingSwitchPreference
         android:key="volume_rocker_wake"
         android:summary="@string/volume_rocker_wake_summary"
         android:title="@string/volume_rocker_wake_title"
-        android:defaultValue="false" />
+        android:defaultValue="false" /> -->
 
     <ListPreference
         android:dialogTitle="@string/volume_key_cursor_control_title"
@@ -37,7 +37,28 @@
         android:key="volume_key_cursor_control"
         android:title="@string/volume_key_cursor_control_title" />
 
+          <SwitchPreference
+            android:key="swap_volume_buttons"
+            android:title="@string/swap_volume_buttons_title"
+            android:summary="@string/swap_volume_buttons_summary" />
 
+        <lineageos.preference.LineageSystemSettingSwitchPreference
+            android:key="volume_wake_screen"
+            android:title="@string/button_wake_title"
+            android:summary="@string/button_wake_summary"
+            android:defaultValue="false" />
+
+        <lineageos.preference.LineageSystemSettingSwitchPreference
+            android:key="volume_answer_call"
+            android:title="@string/volume_answer_call_title"
+            android:summary="@string/volume_answer_call_summary"
+            android:defaultValue="false" />
+
+        <lineageos.preference.LineageSystemSettingSwitchPreference
+            android:key="volbtn_music_controls"
+            android:title="@string/volbtn_music_controls_title"
+            android:summary="@string/volbtn_music_controls_summary"
+            android:defaultValue="true" />
 
 
 </PreferenceScreen>
