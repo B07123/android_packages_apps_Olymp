@@ -1193,4 +1193,7 @@
     <string name="smart_pulldown_ongoing">no ongoing</string>
     <string name="statusbar_gestures_cat_title">Gestures</string>
 
+    <string name="qs_panel_bg">Background</string>
+    <string name="qs_panel_bg_summary">opacity, background images</string>
+
 </resources>

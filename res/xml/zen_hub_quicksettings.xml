@@ -28,37 +28,13 @@
             android:summary="@string/qs_column_row_summary"
 	         android:title="@string/qs_column_row" />
 
-        <com.zenx.support.preferences.CustomSeekBarPreference
-            android:key="qs_panel_alpha"
-            android:title="@string/qs_panel_alpha_title"
-            android:summary="@string/qs_panel_alpha_summary"
-            android:max="100"
-            settings:min="0"
-            android:defaultValue="100"
-            android:persistent="false" />
+         <Preference
+            android:key="qs_panel_bg"
+            android:fragment="com.zen.hub.fragments.subs.QsPanelBg"
+            android:summary="@string/qs_panel_bg_summary"
+	         android:title="@string/qs_panel_bg" />
 
-         <com.zenx.support.preferences.SystemSettingSwitchPreference
-           android:key="qs_panel_type_background"
-           android:title="@string/qs_bg_type_title"
-           android:summary="@string/qs_bg_type_summary"
-           android:defaultValue="false" />
-
-       <Preference
-           android:key="file_qspanel_select"
-           android:title="@string/file_header_select_title"
-           android:summary="@string/file_header_select_summary"
-           android:dependency="qs_panel_type_background"
-           android:persistent="false" >
-       </Preference>
-
-       <com.zenx.support.preferences.SystemSettingSwitchPreference
-           android:key="qs_panel_custom_image_blur"
-           android:title="@string/qs_bg_blur_image_title"
-           android:summary="@string/qs_bg_blur_image_summary"
-           android:dependency="qs_panel_type_background"
-           android:defaultValue="false" />
-
-              <!-- Custom header -->
+            <!-- Custom header -->
         <Preference
             android:key="custom_header"
             android:fragment="com.zen.hub.fragments.subs.CustomHeader"
@@ -78,14 +54,14 @@
             android:entryValues="@array/qs_tile_style_selector_values"
             android:persistent="false" />
 
-         <com.zenx.support.preferences.SystemSettingListPreference
+         <!-- <com.zenx.support.preferences.SystemSettingListPreference
             android:key="qs_panel_bg_use_new_tint"
             android:title="@string/qs_bg_use_new_tint"
             android:dialogTitle="@string/qs_bg_use_new_tint"
             android:entries="@array/qs_tint_entries"
             android:entryValues="@array/qs_tint_values"
             android:summary="%s"
-            android:defaultValue="1" />
+            android:defaultValue="1" /> -->
 
      </PreferenceCategory>
 
@@ -93,18 +69,18 @@
         android:key="qs_brightness_slider_category_key"
         android:title="@string/qs_brightness_slider_category_title">
 
-          <PreferenceScreen
-            android:key="brightness_slider_cat"
-            android:title="@string/brightness_slider_cat_title"
-            android:summary="@string/brightness_slider_cat_summary"
-            android:fragment="com.zen.hub.fragments.subs.BrightnessSlider" />
-
       <ListPreference
          android:key="brightness_slider_style"
          android:title="@string/brightness_slider_style_title"
          android:entries="@array/brightness_slider_style_selector_entries"
          android:entryValues="@array/brightness_slider_style_selector_values"
          android:persistent="false" />
+
+         <PreferenceScreen
+            android:key="brightness_slider_cat"
+            android:title="@string/brightness_slider_cat_title"
+            android:summary="@string/brightness_slider_cat_summary"
+            android:fragment="com.zen.hub.fragments.subs.BrightnessSlider" />
 
      </PreferenceCategory>
 
@@ -139,18 +115,18 @@
             android:summary="@string/qs_clock_summary"
             android:defaultValue="true" />
 
+     <com.zenx.support.preferences.SystemSettingListPreference
+        android:key="qs_datausage"
+        android:title="@string/qs_datausage_title"
+        android:entries="@array/qs_datausage_entries"
+        android:entryValues="@array/qs_datausage_values"
+        android:defaultValue="0" />
+
      <PreferenceScreen
         android:key="qs_battery"
         android:title="@string/qs_battery_title"
         android:summary="@string/qs_battery_summary"
         android:fragment="com.zen.hub.fragments.subs.QsBatteryModes" />
-
-     <com.zenx.support.preferences.SystemSettingListPreference
-        android:key="qs_datausage"
-        android:title="@string/qs_datausage_title" 
-        android:entries="@array/qs_datausage_entries"
-        android:entryValues="@array/qs_datausage_values"
-        android:defaultValue="0" />
 
      <PreferenceScreen
         android:key="qs_footer_items"

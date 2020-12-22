@@ -17,7 +17,8 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/custom_header_title" >
+    xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
+    android:title="@string/brightness_slider_cat_title" >
 
 <lineageos.preference.LineageSecureSettingListPreference
             android:key="qs_show_brightness_slider"
@@ -32,10 +33,11 @@
             android:summary="@string/qs_brightness_position_bottom_summary"
             android:defaultValue="false" />
 
-        <com.zenx.support.preferences.SystemSettingSwitchPreference
+        <lineageos.preference.LineageSecureSettingSwitchPreference
             android:key="qs_show_auto_brightness"
             android:title="@string/qs_show_auto_brightness_title"
             android:summary="@string/qs_show_auto_brightness_summary"
+            lineage:requiresConfig="@*android:bool/config_automatic_brightness_available"
             android:defaultValue="true" />
 
         <com.zenx.support.preferences.SystemSettingSwitchPreference
