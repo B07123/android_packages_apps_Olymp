@@ -47,7 +47,7 @@
             android:title="@string/ambient_notification_light_timeout_title"
             android:entries="@array/ambient_notification_light_timeout_entries"
             android:entryValues="@array/ambient_notification_light_timeout_values"
-            android:defaultValue="0"
+            android:defaultValue="1"
             android:dependency="ambient_notification_light_enabled"
             android:summary="%s" />
 
@@ -70,7 +70,7 @@
             android:title="@string/pulse_ambient_light_duration_title"
             android:summary="@string/pulse_ambient_light_duration_summary"
             android:persistent="false"
-            android:defaultValue="2"
+            android:defaultValue="3"
             android:max="10"
             settings:min="1"
             settings:units="sec"
@@ -82,7 +82,7 @@
             android:title="@string/pulse_ambient_light_repeat_count_title"
             android:summary="@string/pulse_ambient_light_repeat_count_summary"
             android:persistent="false"
-            android:defaultValue="0"
+            android:defaultValue="6"
             android:max="10"
             settings:min="0"
             settings:interval="1"

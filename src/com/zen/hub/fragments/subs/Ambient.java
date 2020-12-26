@@ -70,32 +70,14 @@ public class Ambient extends SettingsPreferenceFragment implements
         mEdgeLightRepeatCountPreference = (SystemSettingSeekBarPreference) findPreference(AMBIENT_LIGHT_REPEAT_COUNT);
         mEdgeLightRepeatCountPreference.setOnPreferenceChangeListener(this);
         int rCount = Settings.System.getInt(getContentResolver(),
-                Settings.System.AMBIENT_LIGHT_REPEAT_COUNT, 0);
+                Settings.System.AMBIENT_LIGHT_REPEAT_COUNT, 6);
         mEdgeLightRepeatCountPreference.setValue(rCount);
 
         mEdgeLightDurationPreference = (SystemSettingSeekBarPreference) findPreference(AMBIENT_LIGHT_DURATION);
         mEdgeLightDurationPreference.setOnPreferenceChangeListener(this);
         int duration = Settings.System.getInt(getContentResolver(),
-                Settings.System.AMBIENT_LIGHT_DURATION, 2);
+                Settings.System.AMBIENT_LIGHT_DURATION, 3);
         mEdgeLightDurationPreference.setValue(duration);
-
-        mColorMode = (ListPreference) findPreference(PULSE_COLOR_MODE_PREF);
-        int value;
-        boolean colorModeAutomatic = Settings.System.getInt(getContentResolver(),
-                Settings.System.NOTIFICATION_PULSE_COLOR_AUTOMATIC, 0) != 0;
-        boolean colorModeAccent = Settings.System.getInt(getContentResolver(),
-                Settings.System.NOTIFICATION_PULSE_ACCENT, 0) != 0;
-        if (colorModeAutomatic) {
-            value = 0;
-        } else if (colorModeAccent) {
-            value = 1;
-        } else {
-            value = 2;
-        }
-
-        mColorMode.setValue(Integer.toString(value));
-        mColorMode.setSummary(mColorMode.getEntry());
-        mColorMode.setOnPreferenceChangeListener(this);
 
         mEdgeLightColorPreference = (ColorPickerPreference) findPreference(NOTIFICATION_PULSE_COLOR);
         int edgeLightColor = Settings.System.getInt(getContentResolver(),
@@ -109,6 +91,26 @@ public class Ambient extends SettingsPreferenceFragment implements
             mEdgeLightColorPreference.setSummary(edgeLightColorHex);
         }
         mEdgeLightColorPreference.setOnPreferenceChangeListener(this);
+
+        mColorMode = (ListPreference) findPreference(PULSE_COLOR_MODE_PREF);
+        int value;
+        boolean colorModeAutomatic = Settings.System.getInt(getContentResolver(),
+                Settings.System.NOTIFICATION_PULSE_COLOR_AUTOMATIC, 0) != 0;
+        boolean colorModeAccent = Settings.System.getInt(getContentResolver(),
+                Settings.System.NOTIFICATION_PULSE_ACCENT, 0) != 0;
+        mEdgeLightColorPreference.setVisible(false);
+        if (colorModeAutomatic) {
+            value = 0;
+        } else if (colorModeAccent) {
+            value = 1;
+        } else {
+            value = 2;
+            mEdgeLightColorPreference.setVisible(true);
+        }
+
+        mColorMode.setValue(Integer.toString(value));
+        mColorMode.setSummary(mColorMode.getEntry());
+        mColorMode.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -139,6 +141,7 @@ public class Ambient extends SettingsPreferenceFragment implements
              int value = Integer.valueOf((String) newValue);
             int index = mColorMode.findIndexOfValue((String) newValue);
             mColorMode.setSummary(mColorMode.getEntries()[index]);
+            mEdgeLightColorPreference.setVisible(false);
             if (value == 0) {
                 Settings.System.putInt(getContentResolver(),
                         Settings.System.NOTIFICATION_PULSE_COLOR_AUTOMATIC, 1);
@@ -150,6 +153,7 @@ public class Ambient extends SettingsPreferenceFragment implements
                 Settings.System.putInt(getContentResolver(),
                         Settings.System.NOTIFICATION_PULSE_ACCENT, 1);
             } else {
+                mEdgeLightColorPreference.setVisible(true);
                 Settings.System.putInt(getContentResolver(),
                         Settings.System.NOTIFICATION_PULSE_COLOR_AUTOMATIC, 0);
                 Settings.System.putInt(getContentResolver(),
