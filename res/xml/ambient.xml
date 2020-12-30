@@ -41,15 +41,16 @@
             android:defaultValue="false"
             android:dependency="ambient_notification_light_enabled"/>
 
-        <com.zenx.support.preferences.SystemSettingListPreference
+        <com.zenx.support.preferences.SystemSettingSeekBarPreference
             android:key="ambient_notification_light_timeout"
-            android:dialogTitle="@string/ambient_notification_light_timeout_title"
             android:title="@string/ambient_notification_light_timeout_title"
-            android:entries="@array/ambient_notification_light_timeout_entries"
-            android:entryValues="@array/ambient_notification_light_timeout_values"
-            android:defaultValue="1"
-            android:dependency="ambient_notification_light_enabled"
-            android:summary="%s" />
+            android:persistent="false"
+            android:defaultValue="6"
+            android:max="120"
+            settings:min="0"
+            settings:units="sec"
+            settings:interval="1"
+            android:dependency="ambient_notification_light_enabled" />
 
         <ListPreference
             android:key="ambient_notification_light_color_mode"

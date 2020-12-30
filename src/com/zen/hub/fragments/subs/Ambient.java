@@ -52,11 +52,13 @@ public class Ambient extends SettingsPreferenceFragment implements
     private SystemSettingSeekBarPreference mEdgeLightDurationPreference;
     private SystemSettingSeekBarPreference mEdgeLightRepeatCountPreference;
     private ListPreference mColorMode;
+    private SystemSettingSeekBarPreference mEdgeLightTimeoutPreference;
 
     private static final String NOTIFICATION_PULSE_COLOR = "ambient_notification_light_color";
     private static final String AMBIENT_LIGHT_DURATION = "ambient_light_duration";
     private static final String AMBIENT_LIGHT_REPEAT_COUNT = "ambient_light_repeat_count";
     private static final String PULSE_COLOR_MODE_PREF = "ambient_notification_light_color_mode";
+    private static final String AOD_NOTIFICATION_PULSE_TIMEOUT = "ambient_notification_light_timeout";
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -78,6 +80,12 @@ public class Ambient extends SettingsPreferenceFragment implements
         int duration = Settings.System.getInt(getContentResolver(),
                 Settings.System.AMBIENT_LIGHT_DURATION, 3);
         mEdgeLightDurationPreference.setValue(duration);
+
+        mEdgeLightTimeoutPreference = (SystemSettingSeekBarPreference) findPreference(AOD_NOTIFICATION_PULSE_TIMEOUT);
+        mEdgeLightTimeoutPreference.setOnPreferenceChangeListener(this);
+        int timeout = Settings.System.getInt(getContentResolver(),
+                Settings.System.AOD_NOTIFICATION_PULSE_TIMEOUT, 6);
+        mEdgeLightTimeoutPreference.setValue(timeout);
 
         mEdgeLightColorPreference = (ColorPickerPreference) findPreference(NOTIFICATION_PULSE_COLOR);
         int edgeLightColor = Settings.System.getInt(getContentResolver(),
@@ -136,6 +144,11 @@ public class Ambient extends SettingsPreferenceFragment implements
             int value = (Integer) newValue;
                 Settings.System.putInt(getContentResolver(),
                     Settings.System.AMBIENT_LIGHT_DURATION, value);
+            return true;
+        } else if (preference == mEdgeLightTimeoutPreference) {
+            int value = (Integer) newValue;
+                Settings.System.putInt(getContentResolver(),
+                    Settings.System.AOD_NOTIFICATION_PULSE_TIMEOUT, value);
             return true;
         } else if (preference == mColorMode) {
              int value = Integer.valueOf((String) newValue);
