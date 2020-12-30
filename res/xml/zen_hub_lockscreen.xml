@@ -34,11 +34,12 @@
         android:key="media_key"
         android:title="@string/media_title">
 
-         <lineageos.preference.LineageSecureSettingSwitchPreference
-            android:key="lockscreen_visualizer"
-            android:title="@string/lockscreen_visualizer_title"
-            android:summary="@string/lockscreen_visualizer_summary"
-            android:defaultValue="true" />
+         <!-- Pulse -->
+         <Preference
+            android:key="pulse_settings"
+            android:title="@string/pulse_settings"
+            android:summary="@string/pulse_settings_summary"
+            android:fragment="com.zen.hub.fragments.subs.PulseSettings" />
 
          <Preference
             android:key="ls_media_art"
