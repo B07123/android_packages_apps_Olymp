@@ -61,11 +61,13 @@ public class QsColumnRows extends SettingsPreferenceFragment implements
     private static final String KEY_ROW_PORTRAIT = "qs_rows_portrait";
     private static final String KEY_COL_LANDSCAPE = "qs_columns_landscape";
     private static final String KEY_ROW_LANDSCAPE = "qs_rows_landscape";
+    private static final String PREF_COLUMNS_QUICKBAR = "qs_quickbar_columns";
 
     CustomSeekBarPreference mColPortrait;
     CustomSeekBarPreference mRowPortrait;
     CustomSeekBarPreference mColLandscape;
     CustomSeekBarPreference mRowLandscape;
+    CustomSeekBarPreference mQsColumnsQuickbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,7 +75,7 @@ public class QsColumnRows extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.qs_column_rows);
 
-             mColPortrait = (CustomSeekBarPreference) findPreference(KEY_COL_PORTRAIT);
+        mColPortrait = (CustomSeekBarPreference) findPreference(KEY_COL_PORTRAIT);
         mRowPortrait = (CustomSeekBarPreference) findPreference(KEY_ROW_PORTRAIT);
         mColLandscape = (CustomSeekBarPreference) findPreference(KEY_COL_LANDSCAPE);
         mRowLandscape = (CustomSeekBarPreference) findPreference(KEY_ROW_LANDSCAPE);
@@ -110,6 +112,12 @@ public class QsColumnRows extends SettingsPreferenceFragment implements
         int mRowLandscapeVal = Settings.System.getIntForUser(ctx.getContentResolver(),
                 Settings.System.QS_ROWS_LANDSCAPE, row_landscape, UserHandle.USER_CURRENT);
 
+        mQsColumnsQuickbar = (CustomSeekBarPreference) findPreference(PREF_COLUMNS_QUICKBAR);
+        int columnsQuickbar = Settings.System.getInt(ctx.getContentResolver(),
+                Settings.System.QS_QUICKBAR_COLUMNS, 6);
+        mQsColumnsQuickbar.setValue(columnsQuickbar);
+        mQsColumnsQuickbar.setOnPreferenceChangeListener(this);
+
         mColPortrait.setValue(mColPortraitVal);
         mRowPortrait.setValue(mRowPortraitVal);
         mColLandscape.setValue(mColLandscapeVal);
@@ -118,6 +126,12 @@ public class QsColumnRows extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mQsColumnsQuickbar) {
+            int value = (Integer) newValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.QS_QUICKBAR_COLUMNS, value, UserHandle.USER_CURRENT);
+            return true;
+        }
         return false;
     }
 

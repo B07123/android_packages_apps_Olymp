@@ -50,4 +50,11 @@
             settings:min="1"
             settings:units="" />
 
+        <com.zenx.support.preferences.CustomSeekBarPreference
+            android:key="qs_quickbar_columns"
+            android:title="@string/sysui_qqs_count_title"
+            android:max="8"
+            settings:min="6"
+            android:defaultValue="6"
+            android:persistent="false" />
 </PreferenceScreen>
