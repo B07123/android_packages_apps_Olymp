@@ -1510,4 +1510,12 @@
     <string name="pulse_blacklist_add_apps_title">Add app</string>
     <string name="pulse_blacklist_add_apps_summary">Tap here to add, tap on added app to remove it</string>
 
+    <string name="qs_media_divider_title">Show Media divider</string>
+    <string name="qs_media_divider_summary">Show/Hide media divider in qs panel</string>
+    <string name="qs_media_divider_color_mode_title">Color mode</string>
+    <string name="qs_media_divider_default">Default (Grey)</string>
+    <string name="qs_media_divider_accent">Accent</string>
+    <string name="qs_media_divider_random">Random</string>
+    <string name="qs_media_divider_random_color_intervall">Interval</string>
+
 </resources>

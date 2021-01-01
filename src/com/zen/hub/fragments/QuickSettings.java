@@ -64,10 +64,16 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     private static final String BRIGHTNESS_SLIDER_STYLE = "brightness_slider_style";
     private static final String PREF_TILE_STYLE = "qs_tile_style";
+    private static final String QS_MEDIA_DIVIDER = "qs_media_divider";
+    private static final String QS_MEDIA_DIVIDER_COLOR_MODE = "qs_media_divider_color_mode";
+    private static final String QS_MEDIA_DIVIDER_RANDOM_COLOR_INTERVAL = "qs_media_divider_random_color_interval";
 
     private IOverlayManager mOverlayManager;
     private ListPreference mBrightnessSliderStyle;
     private ListPreference mQsTileStyle;
+    private SystemSettingListPreference mQsColorMode;
+    private SystemSettingSwitchPreference mQsColorDivider;
+    private CustomSeekBarPreference mMediaDividerRandomColorInterval;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -139,6 +145,21 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 return false;
             }
        });
+
+        mQsColorDivider = (SystemSettingSwitchPreference) findPreference(QS_MEDIA_DIVIDER);
+        mQsColorDivider.setOnPreferenceChangeListener(this);
+
+        mQsColorMode = (SystemSettingListPreference) findPreference(QS_MEDIA_DIVIDER_COLOR_MODE);
+        mQsColorMode.setOnPreferenceChangeListener(this);
+
+        mMediaDividerRandomColorInterval = (CustomSeekBarPreference) findPreference(QS_MEDIA_DIVIDER_RANDOM_COLOR_INTERVAL);
+        int time = Settings.System.getInt(getContentResolver(),
+                Settings.System.QS_MEDIA_DIVIDER_RANDOM_COLOR_INTERVAL, 3);
+        mMediaDividerRandomColorInterval.setValue(time);
+        mMediaDividerRandomColorInterval.setOnPreferenceChangeListener(this);
+
+        handleMediaDividerVisibilty();
+
     }
 
     private String getOverlayName(String[] overlays) {
@@ -165,7 +186,56 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mQsColorMode) {
+                int val = Integer.parseInt((String) newValue);
+                int index = mQsColorMode.findIndexOfValue((String) newValue);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.QS_MEDIA_DIVIDER_COLOR_MODE, val);
+                mQsColorMode.setSummary(mQsColorMode.getEntries()[index]);
+                handleMediaDividerVisibilty();
+                return true;
+        } else if (preference == mMediaDividerRandomColorInterval) {
+            int time = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.QS_MEDIA_DIVIDER_RANDOM_COLOR_INTERVAL, time);
+            return true;
+       } else if (preference == mQsColorDivider) {
+            Boolean value = (Boolean) newValue;
+            mQsColorDivider.setChecked(value);
+            handleMediaDividerVisibilty();
+            return true;
+        }
         return false;
+    }
+
+    private int getMediaDividerColorMode() {
+        return Settings.System.getInt(getContentResolver(),
+                Settings.System.QS_MEDIA_DIVIDER_COLOR_MODE, 4);
+    }
+
+    private boolean getMediaDivider() {
+         return Settings.System.getInt(getContentResolver(),
+                Settings.System.QS_MEDIA_DIVIDER, 1) == 1;
+    }
+
+    private void handleMediaDividerVisibilty() {
+        if(!getMediaDivider()) {
+            mMediaDividerRandomColorInterval.setVisible(false);
+            mQsColorMode.setVisible(false);
+        } else {
+            mQsColorMode.setVisible(true);
+            switch (getMediaDividerColorMode()) {
+                case 0:
+                    mMediaDividerRandomColorInterval.setVisible(false);
+                    break;
+                case 1:
+                    mMediaDividerRandomColorInterval.setVisible(false);
+                    break;
+                case 2:
+                    mMediaDividerRandomColorInterval.setVisible(true);
+                    break;
+            }
+        }
     }
 
     @Override

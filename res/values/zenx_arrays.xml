@@ -1597,4 +1597,16 @@
       <item>2</item>
       <item>3</item>
     </string-array>
+
+    <string-array name="qs_media_divider_entries" translatable="false">
+        <item>@string/qs_media_divider_default</item>
+        <item>@string/qs_media_divider_accent</item>
+        <item>@string/qs_media_divider_random</item>
+    </string-array>
+    <string-array name="qs_media_divider_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>

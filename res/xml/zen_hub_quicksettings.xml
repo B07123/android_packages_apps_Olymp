@@ -41,6 +41,28 @@
             android:title="@string/custom_header_title"
             android:summary="@string/custom_header_summary" />
 
+      <com.zenx.support.preferences.SystemSettingSwitchPreference
+         android:key="qs_media_divider"
+         android:title="@string/qs_media_divider_title"
+         android:summary="@string/qs_media_divider_summary"
+         android:defaultValue="true" />
+
+         <com.zenx.support.preferences.SystemSettingListPreference
+            android:key="qs_media_divider_color_mode"
+            android:title="@string/qs_media_divider_color_mode_title"
+            android:dialogTitle="@string/qs_media_divider_color_mode_title"
+            android:entries="@array/qs_media_divider_entries"
+            android:entryValues="@array/qs_media_divider_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
+    <com.zenx.support.preferences.CustomSeekBarPreference
+        android:key="qs_media_divider_random_color_interval"
+        android:title="@string/qs_media_divider_random_color_intervall"
+        android:max="60"
+        settings:min="1"
+        android:persistent="false" />
+
      </PreferenceCategory>
 
      <PreferenceCategory
