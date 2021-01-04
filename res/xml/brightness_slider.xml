@@ -20,7 +20,12 @@
     xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     android:title="@string/brightness_slider_cat_title" >
 
-<lineageos.preference.LineageSecureSettingListPreference
+    <PreferenceCategory
+        android:key="qqs_slider_category"
+        android:title="@string/qqs_slider_category_title">
+
+        <!-- QS Brightness Slider position -->
+        <lineageos.preference.LineageSecureSettingListPreference
             android:key="qs_show_brightness_slider"
             android:title="@string/qs_brightness_slider_title"
             android:entries="@array/qs_brightness_slider_show_entries"
@@ -28,21 +33,48 @@
             android:defaultValue="1" />
 
         <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_quick_brightness_slider_side_buttons"
+            android:title="@string/qqs_brightness_buttons_icon_title"
+            android:summary="@string/qqs_brightness_buttons_icon_summary"
+            android:defaultValue="true" />
+
+    <com.android.settingslib.widget.FooterPreference
+        android:key="system_ui_restart_needed"
+        android:selectable="false"
+        settings:searchable="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="qs_slider_category"
+        android:title="@string/qs_slider_category_title">
+
+        <com.zenx.support.preferences.SecureSettingSwitchPreference
+            android:key="qs_show_brightness"
+            android:title="@string/qs_brightness_slider_title"
+            android:summary="@string/qs_brightness_slider_summary"
+            android:defaultValue="true"/>
+
+        <com.zenx.support.preferences.SecureSettingSwitchPreference
+            android:key="qs_show_auto_brightness_button"
+            android:title="@string/brightness_icon_title"
+            android:summary="@string/brightness_icon_summary"
+            android:dependency="qs_show_brightness"
+            android:defaultValue="true" />
+
+        <com.zenx.support.preferences.SecureSettingSwitchPreference
+            android:key="qs_show_brightness_side_buttons"
+            android:title="@string/brightness_side_buttons_title"
+            android:summary="@string/brightness_side_buttons_summary"
+            android:dependency="qs_show_brightness"
+            android:defaultValue="false" />
+
+        <com.zenx.support.preferences.SecureSettingSwitchPreference
             android:key="qs_brightness_position_bottom"
             android:title="@string/qs_brightness_position_bottom_title"
             android:summary="@string/qs_brightness_position_bottom_summary"
+            android:dependency="qs_show_brightness"
             android:defaultValue="false" />
 
-        <lineageos.preference.LineageSecureSettingSwitchPreference
-            android:key="qs_show_auto_brightness"
-            android:title="@string/qs_show_auto_brightness_title"
-            android:summary="@string/qs_show_auto_brightness_summary"
-            lineage:requiresConfig="@*android:bool/config_automatic_brightness_available"
-            android:defaultValue="true" />
-
-        <com.zenx.support.preferences.SystemSettingSwitchPreference
-            android:key="qs_show_brightness_above_footer"
-            android:title="@string/qs_show_brightness_above_footer_title"
-            android:summary="@string/qs_show_brightness_above_footer_summary"
-            android:defaultValue="false" />
+    </PreferenceCategory>
 </PreferenceScreen>

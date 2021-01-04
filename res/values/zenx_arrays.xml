@@ -1102,32 +1102,6 @@
         <item>8</item>
     </string-array>
 
-    <!-- QS Brightness Slider -->
-    <string-array name="qs_brightness_slider_show_entries" translatable="false">
-        <item>@string/qs_brightness_slider_show_never</item>
-        <item>@string/qs_brightness_slider_show_expanded</item>
-        <item>@string/qs_brightness_slider_show_always</item>
-    </string-array>
-
-    <string-array name="qs_brightness_slider_show_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-        <!-- QS Brightness Slider position -->
-    <string-array name="qs_brightness_slider_position_entries" translatable="false">
-        <item>@string/qs_brightness_slider_hide</item>
-        <item>@string/qs_brightness_slider_top</item>
-        <item>@string/qs_brightness_slider_bottom</item>
-    </string-array>
-
-    <string-array name="qs_brightness_slider_position_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
  <string-array name="accent_presets_entries" translatable="false">
         <item>@string/default_string</item>
         <item>@string/accent_preset_0</item>
@@ -1608,6 +1582,30 @@
         <item>@string/qs_media_divider_random</item>
     </string-array>
     <string-array name="qs_media_divider_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- QS Brightness Slider -->
+    <string-array name="qs_brightness_slider_show_entries" translatable="false">
+        <item>@string/qs_brightness_slider_show_never</item>
+        <item>@string/qs_brightness_slider_show_always</item>
+    </string-array>
+
+    <string-array name="qs_brightness_slider_show_values" translatable="false">
+        <item>0</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- QS Brightness Slider position -->
+    <string-array name="qs_brightness_slider_position_entries" translatable="false">
+        <item>@string/qs_brightness_slider_hide</item>
+        <item>@string/qs_brightness_slider_top</item>
+        <item>@string/qs_brightness_slider_bottom</item>
+    </string-array>
+
+    <string-array name="qs_brightness_slider_position_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>

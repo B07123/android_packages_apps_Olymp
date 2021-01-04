@@ -44,11 +44,18 @@ import com.zenx.support.preferences.CustomSeekBarPreference;
 public class BrightnessSlider extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String SYS_UI_RESTART = "system_ui_restart_needed";
+
+    private Preference mFooterPref;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.brightness_slider);
+
+        mFooterPref = findPreference(SYS_UI_RESTART);
+        mFooterPref.setTitle(R.string.system_ui_restart_needed);
 
     }
 
