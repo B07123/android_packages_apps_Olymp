@@ -20,12 +20,18 @@
 
      <PreferenceCategory
         android:key="network_traffic"
-        android:title="@string/network_traffic">
+        android:title="@string/network_carrier_title">
 
           <Preference
                android:key="traffic"
                android:fragment="com.zen.hub.fragments.subs.Traffic"
 	          android:title="@string/traffic_title" />
+
+          <Preference
+               android:key="carrier_label"
+               android:fragment="com.zen.hub.fragments.subs.CarrierLabel"
+               android:summary="@string/carrier_label_settings_summary"
+	          android:title="@string/carrier_label_settings_title" />
 
      </PreferenceCategory>
 
