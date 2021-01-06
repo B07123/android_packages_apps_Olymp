@@ -25,7 +25,8 @@
           <Preference
                android:key="traffic"
                android:fragment="com.zen.hub.fragments.subs.Traffic"
-	          android:title="@string/traffic_title" />
+               android:summary="@string/carrier_label_settings_summary"
+	          android:title="@string/traffic_summary" />
 
           <Preference
                android:key="carrier_label"

@@ -431,6 +431,7 @@
         <!-- Statusbar net monitor -->
     <string name="network_traffic">Network Traffic</string>
     <string name="traffic_title">Traffic indicators</string>
+    <string name="traffic_summary"> Statusbar traffic indicator options</string>
     <string name="network_traffic_state_title">Network traffic</string>
     <string name="network_traffic_autohide_threshold_title">Net activity autohide threshold (KB/s)</string>
     <string name="network_traffic_location">Traffic indicator placement</string>
@@ -1192,8 +1193,10 @@
     <string name="smart_pulldown_ongoing">no ongoing</string>
     <string name="statusbar_gestures_cat_title">Gestures</string>
 
-    <string name="qs_panel_bg">Background</string>
+    <string name="qs_panel_bg">Panel Background</string>
     <string name="qs_panel_bg_summary">opacity, background images</string>
+
+    <string name="qs_media_title">Divider</string>
 
     <string name="ls_media_art_summary">Filter, blur radius and more</string>
 
