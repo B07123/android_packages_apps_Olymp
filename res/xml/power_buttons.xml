@@ -66,16 +66,10 @@
             android:persistent="false" />
 
         <Preference
-            android:key="gesture_global_actions_panel_summary"
-            android:title="@string/cards_passes_sentence"
-            android:fragment="com.android.settings.gestures.GlobalActionsPanelSettings"
-            settings:controller="com.android.settings.gestures.GlobalActionsPanelPreferenceController" />
-
-        <Preference
-            android:key="gesture_device_controls_summary"
-            android:title="@string/device_controls_sentence"
-            android:fragment="com.android.settings.gestures.DeviceControlsSettings"
-            settings:controller="com.android.settings.gestures.DeviceControlsPreferenceController" />
+            android:key="gesture_power_menu_summary"
+            android:title="@string/power_menu_setting_name"
+            android:fragment="com.android.settings.gestures.PowerMenuSettings"
+            settings:controller="com.android.settings.gestures.PowerMenuPreferenceController" />
 
       <PreferenceCategory
         android:key="power_panel_key"
