@@ -1555,4 +1555,7 @@
         <!-- Custom statusbar hight -->
     <string name="statusbar_height_category">Statusbar height</string>
     <string name="custom_statusbar_height_title">Custom statusbar height</string>
+
+    <string name="status_bar_force_battery_icon_qs_header_title">Force battery in QS header</string>
+    <string name="status_bar_force_battery_icon_qs_header_summary">Force to show battery icon in qs header</string>
 </resources>
