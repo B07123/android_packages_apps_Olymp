@@ -1558,4 +1558,5 @@
 
     <string name="status_bar_force_battery_icon_qs_header_title">Force battery in QS header</string>
     <string name="status_bar_force_battery_icon_qs_header_summary">Force to show battery icon in qs header</string>
+
 </resources>
