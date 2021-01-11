@@ -96,10 +96,10 @@
         android:min="3"
         android:defaultValue="3"/>
 
-    <com.zenx.support.preferences.SecureSettingSwitchPreference
+    <!-- <com.zenx.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_screenshot"
         android:title="@string/global_actions_screenshot"
-        android:defaultValue="false" />
+        android:defaultValue="false" /> -->
 
     <com.zenx.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_screenrecord"
