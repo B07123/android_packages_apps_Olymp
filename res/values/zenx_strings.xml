@@ -572,6 +572,9 @@
     <string name="file_header_select_title">Select local image</string>
     <string name="file_header_select_summary">Select image from storage</string>
     <string name="ambient_notification_light_color_mode_random">Random color</string>
+    <string name="random_color_attention_summary">Attention! Frequently random color change may interfere with daily usage.</string>
+    <string name="change_accent_color_on_screen_off_title">Screen Off Change</string>
+    <string name="change_accent_color_on_screen_off_summary">Changed color only when screen is off, so it wont interfere on daily usage.</string>
 
     <string name="media_title">Media</string>
     <string name="media_art_title">Media artwork</string>
@@ -685,8 +688,8 @@
     <string name="audio_panel_view_bt_sco_title">Bluetooth</string>
 
     <!-- Volume Panel on Left -->
-    <string name="volume_panel_on_left_title">Volume Panel on Right</string>
-    <string name="volume_panel_on_left_summary">Change volume panel from left side to right side</string>
+    <string name="volume_panel_on_left_title">Volume Panel on left</string>
+    <string name="volume_panel_on_left_summary">Change volume panel from left side to left side</string>
 
         <!-- Volume dialog timeout -->
     <string name="volume_dialog_timeout_title">Volume dialog timeout</string>
@@ -1041,6 +1044,13 @@
     <string name="default_string">Default</string>
     <string name="rgb_accent_picker_title">RGB accent picker</string>
     <string name="rgb_accent_picker_summary">Choose the accent color yourself</string>
+    <string name="random_string">Random</string>
+    <string name="accent_random_color_title">Random Color</string>
+    <string name="accent_random_color_summary">Changes accent color randomly</string>
+    <string name="random_color_time">Change color interval</string>
+    <string name="random_color_unit">Unit</string>
+    <string name="random_color_hour">Hour</string>
+    <string name="random_color_minute">Minute</string>
 
      <!-- Accent presets -->
     <string name="custom_string">Custom</string>
