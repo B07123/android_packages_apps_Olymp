@@ -59,7 +59,7 @@ public class LsOwner extends SettingsPreferenceFragment implements
         // Lockscren OwnerInfo Fonts
         mLockOwnerInfoFonts = (ListPreference) findPreference(LOCK_OWNERINFO_FONTS);
         mLockOwnerInfoFonts.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.LOCK_OWNERINFO_FONTS, 0)));
+                getContentResolver(), Settings.System.LOCK_OWNERINFO_FONTS, 28)));
         mLockOwnerInfoFonts.setSummary(mLockOwnerInfoFonts.getEntry());
         mLockOwnerInfoFonts.setOnPreferenceChangeListener(this);
 

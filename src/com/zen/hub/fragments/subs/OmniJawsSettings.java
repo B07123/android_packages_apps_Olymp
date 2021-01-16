@@ -103,14 +103,14 @@ public class OmniJawsSettings extends SettingsPreferenceFragment implements
                 // Lockscren Weather Temp Fonts
         mLockTempFonts = (ListPreference) findPreference(LOCK_WEATHER_TEMP_FONTS);
         mLockTempFonts.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.LOCK_WEATHER_TEMP_FONTS, 27)));
+                getContentResolver(), Settings.System.LOCK_WEATHER_TEMP_FONTS, 28)));
         mLockTempFonts.setSummary(mLockTempFonts.getEntry());
         mLockTempFonts.setOnPreferenceChangeListener(this);
 
         // Lockscren Weather City Fonts
         mLockCityFonts = (ListPreference) findPreference(LOCK_WEATHER_CITY_FONTS);
         mLockCityFonts.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.LOCK_WEATHER_CITY_FONTS, 27)));
+                getContentResolver(), Settings.System.LOCK_WEATHER_CITY_FONTS, 28)));
         mLockCityFonts.setSummary(mLockCityFonts.getEntry());
         mLockCityFonts.setOnPreferenceChangeListener(this);
     }

@@ -59,14 +59,14 @@
             android:summaryOn="@string/lock_screen_weather_style_summaryOn"
             android:summaryOff="@string/lock_screen_weather_style_summaryOff"
             android:disableDependentsState="true"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
 
         <com.zenx.support.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_weather_enabled"
             android:title="@string/lockscreen_weather_title"
             android:summary="@string/lockscreen_weather_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
 
         <com.zenx.support.preferences.SecureSettingListPreference
