@@ -26,7 +26,7 @@
     <string name="userinterface_title">Userinterface</string>
     <string name="userinterface_summary">Theming, dual statusbar, animations, notch.. </string>
     <string name="navigation_title">Navigation/ Buttons </string>
-    <string name="navigation_summary">Gestures, Power menu and volume button options..</string>
+    <string name="navigation_summary">Gestures, Power, volume, button options..</string>
     <string name="misc_title">Miscellaneous</string>
     <string name="misc_summary">Gaming mode, screenshot type, settings..</string>
     <string name="theming_title">Theming</string>
@@ -684,8 +684,8 @@
     <string name="audio_panel_view_bt_sco_title">Bluetooth</string>
 
     <!-- Volume Panel on Left -->
-    <string name="volume_panel_on_left_title">Volume Panel on left</string>
-    <string name="volume_panel_on_left_summary">Change volume panel from left side to left side</string>
+    <string name="volume_panel_on_left_title">Volume Panel on right</string>
+    <string name="volume_panel_on_left_summary">Change volume panel from right side to left side</string>
 
         <!-- Volume dialog timeout -->
     <string name="volume_dialog_timeout_title">Volume dialog timeout</string>
