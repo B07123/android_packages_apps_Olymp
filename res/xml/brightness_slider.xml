@@ -39,10 +39,11 @@
             android:summary="@string/qqs_brightness_buttons_icon_summary"
             android:defaultValue="true" />
 
-    <com.android.settingslib.widget.FooterPreference
-        android:key="system_ui_restart_needed"
-        android:selectable="false"
-        settings:searchable="false" />
+        <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_quick_brightness_auto_buttons"
+            android:title="@string/qs_quick_brightness_auto_buttons_title"
+            android:summary="@string/qs_quick_brightness_auto_buttons_summary"
+            android:defaultValue="true" />
 
     </PreferenceCategory>
 

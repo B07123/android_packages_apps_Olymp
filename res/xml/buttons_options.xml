@@ -24,7 +24,7 @@
         android:title="@string/hwkeys_disabled_title"
         android:summary="@string/hwkeys_disabled_summary" />
 
-    <com.zen.hub.preferences.ButtonBacklightBrightness
+    <com.zen.hub.fragments.subs.light.ButtonBacklightBrightness
         android:key="button_backlight"
         android:title="@string/button_backlight_title"
         android:summary="@string/button_backlight_summary"

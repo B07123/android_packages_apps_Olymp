@@ -1630,4 +1630,7 @@
      <string name="show_qs_status_clock_title">Clock in QS status </string>
      <string name="show_qs_status_clock_summary">Display clock in quick status bar next to date</string>
 
+     <string name="qs_quick_brightness_auto_buttons_title">Auto brightness</string>
+     <string name="qs_quick_brightness_auto_buttons_summary">Weather to show Auto brightness in quick status bar</string>
+
 </resources>
