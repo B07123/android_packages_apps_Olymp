@@ -106,6 +106,12 @@
         android:key="statusbar_icons"
         android:title="@string/statusbar_icon_cat_title">
 
+          <Preference
+               android:key="sb_logo"
+               android:fragment="com.zen.hub.fragments.subs.SbLogo"
+               android:summary="@string/sb_logo_summary"
+	          android:title="@string/sb_logo_title" />
+
           <com.zenx.support.preferences.SystemSettingSwitchPreference
             android:key="bluetooth_show_battery"
             android:title="@string/bluetooth_battery_title"
@@ -117,6 +123,24 @@
                android:title="@string/status_bar_notif_count_title"
                android:summary="@string/status_bar_notif_count_summary"
                android:defaultValue="false" />
+
+          <com.zenx.support.preferences.SystemSettingSwitchPreference
+               android:key="use_old_mobiletype"
+               android:title="@string/use_old_mobiletype_title"
+               android:summary="@string/use_old_mobiletype_summary"
+               android:defaultValue="true" />
+
+          <com.zenx.support.preferences.SystemSettingSwitchPreference
+               android:key="show_fourg_icon"
+               android:title="@string/show_fourg_icon_title"
+               android:summary="@string/show_fourg_icon_summary"
+               android:defaultValue="false"/>
+
+          <com.zenx.support.preferences.SystemSettingSwitchPreference
+               android:key="data_disabled_icon"
+               android:title="@string/data_disabled_icon_title"
+               android:summary="@string/data_disabled_icon_summary"
+               android:defaultValue="true"/>
 
             <com.zenx.support.preferences.SystemSettingSwitchPreference
                android:key="volte_icon"
@@ -147,24 +171,6 @@
                android:entryValues="@array/vowifi_icon_style_values"
                android:summary="%s"
                android:defaultValue="0"/>
-
-          <com.zenx.support.preferences.SystemSettingSwitchPreference
-               android:key="use_old_mobiletype"
-               android:title="@string/use_old_mobiletype_title"
-               android:summary="@string/use_old_mobiletype_summary"
-               android:defaultValue="true" />
-
-          <com.zenx.support.preferences.SystemSettingSwitchPreference
-               android:key="show_fourg_icon"
-               android:title="@string/show_fourg_icon_title"
-               android:summary="@string/show_fourg_icon_summary"
-               android:defaultValue="false"/>
-
-          <com.zenx.support.preferences.SystemSettingSwitchPreference
-               android:key="data_disabled_icon"
-               android:title="@string/data_disabled_icon_title"
-               android:summary="@string/data_disabled_icon_summary"
-               android:defaultValue="true"/>
 
      </PreferenceCategory>
 
