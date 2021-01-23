@@ -1633,4 +1633,9 @@
      <string name="qs_quick_brightness_auto_buttons_title">Auto brightness</string>
      <string name="qs_quick_brightness_auto_buttons_summary">Weather to show Auto brightness in quick status bar</string>
 
+     <string name="qs_clock_options_title">Clock options</string>
+     <string name="qs_clock_options_summary">Advanced clock settings for qs</string>
+     <string name="qs_header_clock_font_size_title">QS header Font size</string>
+     <string name="status_bar_clock_font_size_title">Status bar font size</string>
+
 </resources>

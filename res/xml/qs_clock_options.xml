@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 AospExtended
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	android:title="@string/qs_clock_options_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+        <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="show_qs_clock"
+            android:title="@string/qs_clock_title"
+            android:summary="@string/qs_clock_summary"
+            android:defaultValue="true" />
+
+        <com.zenx.support.preferences.CustomSeekBarPreference
+            android:key="qs_header_clock_size"
+            android:title="@string/qs_header_clock_font_size_title"
+            android:max="32"
+            settings:min="4"
+            android:defaultValue="14"
+            android:dependency="show_qs_clock"
+            settings:units="sp" />
+
+        <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="show_qs_status_clock"
+            android:title="@string/show_qs_status_clock_title"
+            android:summary="@string/show_qs_status_clock_summary"
+            android:defaultValue="false" />
+
+</PreferenceScreen>

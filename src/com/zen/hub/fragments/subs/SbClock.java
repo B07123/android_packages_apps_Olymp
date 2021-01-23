@@ -61,6 +61,7 @@ public class SbClock extends SettingsPreferenceFragment implements
     private static final String CLOCK_DATE_FORMAT = "status_bar_clock_date_format";
     private static final String CLOCK_DATE_AUTO_HIDE_HDUR = "status_bar_clock_auto_hide_hduration";
     private static final String CLOCK_DATE_AUTO_HIDE_SDUR = "status_bar_clock_auto_hide_sduration";
+    private static final String STATUS_BAR_CLOCK_SIZE   = "status_bar_clock_size";
 
     private static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     private static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
@@ -72,6 +73,7 @@ public class SbClock extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mClockDatePosition;
     private SystemSettingListPreference mClockDateStyle;
     private ListPreference mClockDateFormat;
+    private CustomSeekBarPreference mClockSize;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -122,6 +124,12 @@ public class SbClock extends SettingsPreferenceFragment implements
         parseClockDateFormats();
         mClockDateFormat.setEnabled(dateDisplay > 0);
         mClockDateFormat.setOnPreferenceChangeListener(this);
+
+        mClockSize = (CustomSeekBarPreference) findPreference(STATUS_BAR_CLOCK_SIZE);
+        int clockSize = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_CLOCK_SIZE, 14);
+                mClockSize.setValue(clockSize / 1);
+        mClockSize.setOnPreferenceChangeListener(this);
 
     }
 
@@ -201,7 +209,12 @@ public class SbClock extends SettingsPreferenceFragment implements
               }
           }
           return true;
-      }
+       } else if (preference == mClockSize) {
+                int width = ((Integer)newValue).intValue();
+                Settings.System.putInt(resolver,
+                        Settings.System.STATUS_BAR_CLOCK_SIZE , width);
+                return true;
+        }
       return false;
     }
 
