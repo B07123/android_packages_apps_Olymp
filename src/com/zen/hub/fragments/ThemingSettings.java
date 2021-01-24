@@ -80,7 +80,6 @@ public class ThemingSettings extends DashboardFragment implements OnPreferenceCh
     private static final String ACCENT_RANDOM_COLOR = "accent_random_color";
     private static final String CHANGE_ACCENT_COLOR_ON_SCREEN_OFF = "change_accent_color_on_screen_off";
     private static final String ACCENT_RANDOM_UNIT = "accent_random_unit";
-    private static final String RANDOM_COLOR_FOOTER = "random_color_footer";
 
     private ColorPickerPreference rgbAccentPicker;
     private ListPreference mAccentPreset;
@@ -89,7 +88,6 @@ public class ThemingSettings extends DashboardFragment implements OnPreferenceCh
     private CustomSeekBarPreference mAccentRandomColorDurationScreenOff;
     private SystemSettingListPreference mAccentRandomColorUnit;
     private SystemSettingSwitchPreference mAccentRandomColorOnScreenOff;
-    private Preference mFooterPref;
 
     private IOverlayManager mOverlayManager;
     private UiModeManager mUiModeManager;
@@ -201,14 +199,6 @@ public class ThemingSettings extends DashboardFragment implements OnPreferenceCh
         mAccentRandomColorUnit = (SystemSettingListPreference) findPreference(ACCENT_RANDOM_UNIT);
         mAccentRandomColorUnit.setOnPreferenceChangeListener(this);
 
-        mFooterPref = findPreference(RANDOM_COLOR_FOOTER);
-        mFooterPref.setTitle(R.string.random_color_attention_summary);
-
-        mFooterPref.setVisible(false);
-
-        if(getRandomAccentColorUnit() == 2) {
-            mFooterPref.setVisible(true);
-        }
         handleSeekbarValues(getRandomAccentColorUnit());
         randomColorPreferenceHandler();
         checkColorPreset(colorVal);
@@ -314,7 +304,6 @@ public class ThemingSettings extends DashboardFragment implements OnPreferenceCh
             mAccentRandomColorUnit.setVisible(false);
             mAccentRandomColorOnScreenOff.setVisible(false);
             mAccentRandomColorDurationScreenOff.setVisible(false);
-            mFooterPref.setVisible(false);
             mAccentPreset.setVisible(true);
             rgbAccentPicker.setVisible(true);
         } else {
@@ -322,12 +311,10 @@ public class ThemingSettings extends DashboardFragment implements OnPreferenceCh
                 mAccentRandomColorDurationScreenOff.setVisible(true);
                 mAccentRandomColorDuration.setVisible(false);
                 mAccentRandomColorUnit.setVisible(false);
-                mFooterPref.setVisible(false);
             } else {
                 mAccentRandomColorDurationScreenOff.setVisible(false);
                 mAccentRandomColorDuration.setVisible(true);
                 mAccentRandomColorUnit.setVisible(true);
-                mFooterPref.setVisible(true);
             }
              mAccentRandomColorOnScreenOff.setVisible(true);
              mAccentPreset.setVisible(false);

@@ -57,11 +57,6 @@
         android:defaultValue="30"
         android:persistent="false" />
 
-    <com.android.settingslib.widget.FooterPreference
-        android:key="random_color_footer"
-        android:selectable="false"
-        settings:searchable="false" />
-
     <ListPreference
             android:key="accent_preset"
             android:title="@string/accent_preset_title"
