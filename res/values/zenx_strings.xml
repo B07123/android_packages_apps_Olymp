@@ -309,8 +309,8 @@
      <string name="volume_rocker_wake_summary">Pressing the volume keys will wake your device</string>
 
      <string name="items_style_title">Widgets and theming</string>
-     <string name="default_clock_style_title">Default clock style</string>
-     <string name="default_clock_style_summary">Font, size etc.</string>
+     <string name="default_clock_style_title">Clock style</string>
+     <string name="default_clock_style_summary">Clock plugin options, font, size etc.</string>
      <string name="lock_clock_font_title">Clock font options</string>
      <string name="lock_clock_font_summary">Change the default font of the lockscreen clock widget</string>
      <string name="lock_clock_font_dialog_title">Select lock clock font</string>
@@ -1637,5 +1637,14 @@
      <string name="qs_clock_options_summary">Advanced clock settings for qs</string>
      <string name="qs_header_clock_font_size_title">QS header Font size</string>
      <string name="status_bar_clock_font_size_title">Status bar font size</string>
+
+     <string name="ls_clock_title">Default clock</string>
+     <string name="ls_clock_plugin_title">Clockplugins</string>
+     <string name="use_accent_color_hour_title">Hour Accent color</string>
+     <string name="use_accent_color_hour_summary">Weather to color hour with accent color</string>
+     <string name="use_accent_color_minute_title">Minute Accent color</string>
+     <string name="use_accent_color_minute_summary">Weather to color minute with accent color</string>
+     <string name="use_accent_color_custom_title">Accent color (custom clock)</string>
+     <string name="use_accent_color_custom_summary">Weather to color custom clocks with accent color</string>
 
 </resources>

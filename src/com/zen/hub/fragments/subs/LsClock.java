@@ -38,10 +38,10 @@ import android.provider.Settings;
 import android.view.View;
 import android.widget.Toast;
 
-import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.dashboard.DashboardFragment;
 import com.zenx.support.preferences.CustomSeekBarPreference;
 
-public class LsClock extends SettingsPreferenceFragment implements
+public class LsClock extends DashboardFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
@@ -52,8 +52,6 @@ public class LsClock extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        addPreferencesFromResource(R.xml.ls_clock);
 
         // Lockscren Clock Fonts
         mLockClockFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
@@ -69,6 +67,17 @@ public class LsClock extends SettingsPreferenceFragment implements
         mClockFontSize.setOnPreferenceChangeListener(this);
     }
 
+    @Override
+    protected String getLogTag() {
+        return "LsClock";
+    }
+
+    @Override
+    protected int getPreferenceScreenResId() {
+        return R.xml.ls_clock;
+    }
+
+    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mLockClockFonts) {

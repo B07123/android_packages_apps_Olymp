@@ -18,24 +18,52 @@
     android:title="@string/default_clock_style_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <ListPreference
-        android:key="lock_clock_fonts"
-        android:title="@string/lock_clock_font_title"
-        android:dialogTitle="@string/lock_clock_font_dialog_title"
-        android:entries="@array/lock_clock_fonts_entries"
-        android:entryValues="@array/lock_clock_fonts_values"
-        android:summary="%s"
-        android:defaultValue="0"
-        android:persistent="false" />
+    <PreferenceCategory
+        android:title="@string/ls_clock_title"
+        android:key="ls_clocke">
 
-     <com.zenx.support.preferences.CustomSeekBarPreference
-        android:key="lockclock_font_size"
-        android:title="@string/lockclock_font_size_title"
-        android:max="101"
-        settings:min="65"
-        settings:units="dp"
-        android:persistent="false"
-        android:defaultValue="78" />
+          <com.zenx.support.preferences.CustomSeekBarPreference
+               android:key="lockclock_font_size"
+               android:title="@string/lockclock_font_size_title"
+               android:max="101"
+               settings:min="65"
+               settings:units="dp"
+               android:persistent="false"
+               android:defaultValue="78" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/ls_clock_plugin_title"
+        android:key="ls_clock_plugin">
+
+          <ListPreference
+               android:key="lock_clock_fonts"
+               android:title="@string/lock_clock_font_title"
+               android:dialogTitle="@string/lock_clock_font_dialog_title"
+               android:entries="@array/lock_clock_fonts_entries"
+               android:entryValues="@array/lock_clock_fonts_values"
+               android:summary="%s"
+               android:defaultValue="0"
+               android:persistent="false" />
+
+          <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_accent_color_hour"
+            android:title="@string/use_accent_color_hour_title"
+            android:summary="@string/use_accent_color_hour_summary"
+            android:defaultValue="false" />
+
+          <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_accent_color_minute"
+            android:title="@string/use_accent_color_minute_title"
+            android:summary="@string/use_accent_color_minute_summary"
+            android:defaultValue="false" />
+
+          <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_accent_color_custom"
+            android:title="@string/use_accent_color_custom_title"
+            android:summary="@string/use_accent_color_custom_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
