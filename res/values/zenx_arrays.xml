@@ -1740,4 +1740,17 @@
         <item>2</item>
     </string-array>
 
+    <!-- Status bar clock color mode -->
+    <string-array name="statusb_bar_clock_color_mode_entries" translatable="false">
+        <item>@string/status_bar_clock_color_mode_default</item>
+        <item>@string/status_bar_clock_color_mode_accent</item>
+        <item>@string/status_bar_clock_color_mode_random</item>
+    </string-array>
+
+    <string-array name="statusb_bar_clock_color_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>

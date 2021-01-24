@@ -1647,4 +1647,8 @@
      <string name="use_accent_color_custom_title">Accent color (custom clock)</string>
      <string name="use_accent_color_custom_summary">Weather to color custom clocks with accent color</string>
 
+     <string name="status_bar_clock_color_mode_default">Default</string>
+     <string name="status_bar_clock_color_mode_accent">Accent</string>
+     <string name="status_bar_clock_color_mode_random">Random</string>
+     <string name="statusbar_clock_random_color_interval">Interval</string>
 </resources>

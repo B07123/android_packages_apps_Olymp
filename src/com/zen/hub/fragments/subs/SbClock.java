@@ -62,6 +62,8 @@ public class SbClock extends SettingsPreferenceFragment implements
     private static final String CLOCK_DATE_AUTO_HIDE_HDUR = "status_bar_clock_auto_hide_hduration";
     private static final String CLOCK_DATE_AUTO_HIDE_SDUR = "status_bar_clock_auto_hide_sduration";
     private static final String STATUS_BAR_CLOCK_SIZE   = "status_bar_clock_size";
+    private static final String STATUS_BAR_CLOCK_COLOR_MODE = "status_bar_clock_color_mode";
+    private static final String STATUS_BAR_CLOCK_RANDOM_COLOR_INTERVAL = "status_bar_clock_random_color_interval";
 
     private static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     private static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
@@ -74,6 +76,8 @@ public class SbClock extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mClockDateStyle;
     private ListPreference mClockDateFormat;
     private CustomSeekBarPreference mClockSize;
+    private SystemSettingListPreference mColorMode;
+    private CustomSeekBarPreference mColorInterval;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -131,6 +135,19 @@ public class SbClock extends SettingsPreferenceFragment implements
                 mClockSize.setValue(clockSize / 1);
         mClockSize.setOnPreferenceChangeListener(this);
 
+        mColorMode = (SystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_COLOR_MODE);
+        int mode = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_CLOCK_COLOR_MODE, 0, UserHandle.USER_CURRENT);
+        mColorMode.setValue(String.valueOf(mode));
+        mColorMode.setSummary(mColorMode.getEntry());
+        mColorMode.setOnPreferenceChangeListener(this);
+
+        mColorInterval = (CustomSeekBarPreference) findPreference(STATUS_BAR_CLOCK_RANDOM_COLOR_INTERVAL);
+        int time = Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_CLOCK_RANDOM_COLOR_INTERVAL, 10);
+        mColorInterval.setValue(time);
+        mColorInterval.setOnPreferenceChangeListener(this);
+        handlePreferenceVisibilty(mode);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -214,9 +231,36 @@ public class SbClock extends SettingsPreferenceFragment implements
                 Settings.System.putInt(resolver,
                         Settings.System.STATUS_BAR_CLOCK_SIZE , width);
                 return true;
+        } else  if (preference == mColorMode) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mColorMode.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_CLOCK_COLOR_MODE, val);
+            mColorMode.setSummary(mColorMode.getEntries()[index]);
+            handlePreferenceVisibilty(val);
+            return true;
+        } else if (preference == mColorInterval) {
+            int time = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_CLOCK_RANDOM_COLOR_INTERVAL, time);
+            return true;
         }
       return false;
     }
+
+    private void handlePreferenceVisibilty(int mode) {
+        switch (mode) {
+            case 0:
+                mColorInterval.setVisible(false);
+            case 1:
+                mColorInterval.setVisible(false);
+                break;
+            case 2:
+                mColorInterval.setVisible(true);
+                break;
+        }
+    }
+
 
       private void parseClockDateFormats() {
         String[] dateEntries = getResources().getStringArray(
