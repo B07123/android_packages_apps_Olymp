@@ -123,6 +123,12 @@ public class CustomHeader extends SettingsPreferenceFragment implements
         mHeaderProvider.setOnPreferenceChangeListener(this);
         mDaylightHeaderPack.setEnabled(providerName.equals(mDaylightHeaderProvider));
 
+        mQsHeaderStyle = (ListPreference) findPreference(CUSTOM_HEADER_PROVIDER);
+        int value = mQsHeaderStyle.findIndexOfValue(providerName);
+        mQsHeaderStyle.setValueIndex(value >= 0 ? value : 2);
+        mQsHeaderStyle.setSummary(mQsHeaderStyle.getEntry());
+        mQsHeaderStyle.setOnPreferenceChangeListener(this);
+
         mFileHeader = findPreference(FILE_HEADER_SELECT);
         mFileHeader.setEnabled(providerName.equals(mFileHeaderProvider));
 
