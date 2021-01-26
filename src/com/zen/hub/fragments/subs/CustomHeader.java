@@ -213,7 +213,7 @@ public class CustomHeader extends SettingsPreferenceFragment implements
     private void getQsHeaderStylePref() {
         mQsHeaderStyle = (ListPreference) findPreference(QS_HEADER_STYLE);
         int qsHeaderStyle = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.QS_HEADER_STYLE, 0);
+                Settings.System.QS_HEADER_STYLE, 2);
         int valueIndex = mQsHeaderStyle.findIndexOfValue(String.valueOf(qsHeaderStyle));
         mQsHeaderStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
         mQsHeaderStyle.setSummary(mQsHeaderStyle.getEntry());

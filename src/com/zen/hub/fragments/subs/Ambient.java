@@ -103,7 +103,7 @@ public class Ambient extends SettingsPreferenceFragment implements
         mColorMode = (ListPreference) findPreference(PULSE_COLOR_MODE_PREF);
         int value;
         boolean colorModeAutomatic = Settings.System.getInt(getContentResolver(),
-                Settings.System.NOTIFICATION_PULSE_COLOR_AUTOMATIC, 0) != 0;
+                Settings.System.NOTIFICATION_PULSE_COLOR_AUTOMATIC, 1) != 0;
         boolean colorModeAccent = Settings.System.getInt(getContentResolver(),
                 Settings.System.NOTIFICATION_PULSE_ACCENT, 0) != 0;
         mEdgeLightColorPreference.setVisible(false);

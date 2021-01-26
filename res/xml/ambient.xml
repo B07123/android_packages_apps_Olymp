@@ -26,7 +26,7 @@
             android:key="pulse_ambient_light"
             android:title="@string/pulse_ambient_light_title"
             android:summary="@string/pulse_ambient_light_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <com.zenx.support.preferences.SystemSettingSwitchPreference
             android:key="ambient_notification_light_enabled"
@@ -58,7 +58,7 @@
             android:persistent="false"
             android:entries="@array/ambient_notification_light_color_mode_entries"
             android:entryValues="@array/ambient_notification_light_color_mode_values"
-            android:defaultValue="2" />
+            android:defaultValue="0" />
 
         <com.zenx.support.colorpicker.ColorPickerPreference
             android:key="ambient_notification_light_color"
