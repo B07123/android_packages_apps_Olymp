@@ -188,8 +188,8 @@
         android:key="qs_misc_key"
         android:title="@string/qs_misc">
 
-      <com.zenx.support.preferences.SystemSettingSwitchPreference
-         android:key="quick_settings_vibrate"
+      <com.zenx.support.preferences.SecureSettingSwitchPreference
+         android:key="quick_settings_tiles_vibrate"
          android:title="@string/quick_settings_vibrate_title"
          android:summary="@string/quick_settings_vibrate_summary"
          android:defaultValue="false"/>
