@@ -24,37 +24,17 @@
         android:title="@string/qs_tint_accent">
 
     <com.zenx.support.preferences.SystemSettingSwitchPreference
-        android:key="accent_random_color"
-        android:title="@string/accent_random_color_title"
-        android:summary="@string/accent_random_color_summary"
-        android:defaultValue="false"/>
-
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
-        android:key="change_accent_color_on_screen_off"
+        android:key="random_accent_color_on_screen_off"
         android:title="@string/change_accent_color_on_screen_off_title"
         android:summary="@string/change_accent_color_on_screen_off_summary"
-        android:defaultValue="true"/>
-
-    <com.zenx.support.preferences.SystemSettingListPreference
-        android:key="accent_random_unit"
-        android:title="@string/random_color_unit"
-        android:entries="@array/random_color_entries"
-        android:entryValues="@array/random_color_values"
-        android:defaultValue="0" />
+        android:defaultValue="false"/>
 
     <com.zenx.support.preferences.CustomSeekBarPreference
-        android:key="accent_random_color_duration"
-        android:title="@string/random_color_time"
-        android:max="60"
-        settings:min="1"
-        android:persistent="false" />
-
-    <com.zenx.support.preferences.CustomSeekBarPreference
-        android:key="accent_random_color_duration_screenoff"
+        android:key="random_accent_color_screenoff_duration"
         android:title="@string/random_color_time"
         android:max="120"
-        settings:min="20"
-        android:defaultValue="30"
+        settings:min="3"
+        android:defaultValue="10"
         android:persistent="false" />
 
     <ListPreference

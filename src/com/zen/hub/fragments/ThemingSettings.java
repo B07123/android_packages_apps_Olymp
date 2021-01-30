@@ -60,7 +60,6 @@ import com.android.settings.development.OverlayCategoryPreferenceController;
 import com.android.settings.development.EnableBlursPreferenceController;
 import com.zenx.support.preferences.CustomSeekBarPreference;
 import com.zenx.support.preferences.SystemSettingSwitchPreference;
-import com.zen.hub.fragments.subs.service.RandomColorUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,18 +74,12 @@ public class ThemingSettings extends DashboardFragment implements OnPreferenceCh
     private static final String ACCENT_COLOR_PROP = "persist.sys.theme.accentcolor";
     private static final String PREF_THEME_ACCENT_COLOR = "theme_accent_color";
     private static final String ACCENT_PRESET = "accent_preset";
-    private static final String ACCENT_RANDOM_COLOR_DURATION = "accent_random_color_duration";
-    private static final String ACCENT_RANDOM_COLOR_DURATION_SCREENOFF = "accent_random_color_duration_screenoff";
-    private static final String ACCENT_RANDOM_COLOR = "accent_random_color";
-    private static final String CHANGE_ACCENT_COLOR_ON_SCREEN_OFF = "change_accent_color_on_screen_off";
-    private static final String ACCENT_RANDOM_UNIT = "accent_random_unit";
+    private static final String RANDOM_ACCENT_COLOR_SCREENOFF_DURATION = "random_accent_color_screenoff_duration";
+    private static final String RANDOM_ACCENT_COLOR_ON_SCREEN_OFF = "random_accent_color_on_screen_off";
 
     private ColorPickerPreference rgbAccentPicker;
     private ListPreference mAccentPreset;
-    private SystemSettingSwitchPreference mAccentRandomColor;
-    private CustomSeekBarPreference mAccentRandomColorDuration;
     private CustomSeekBarPreference mAccentRandomColorDurationScreenOff;
-    private SystemSettingListPreference mAccentRandomColorUnit;
     private SystemSettingSwitchPreference mAccentRandomColorOnScreenOff;
 
     private IOverlayManager mOverlayManager;
@@ -162,44 +155,27 @@ public class ThemingSettings extends DashboardFragment implements OnPreferenceCh
             }
        });
 
-
         rgbAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_ACCENT_PICKER);
         String colorVal = SystemProperties.get(ACCENT_COLOR_PROP, "-1");
         int color = "-1".equals(colorVal)
                 ? Color.WHITE
-                : isRandomAccentColorIsActive() ? Color.WHITE : Color.parseColor("#" + colorVal);
+                : isRandomAccentColorScreenOffIsActive() ? Color.WHITE : Color.parseColor("#" + colorVal);
         rgbAccentPicker.setNewPreviewColor(color);
         rgbAccentPicker.setOnPreferenceChangeListener(this);
 
         mAccentPreset = (ListPreference) findPreference(ACCENT_PRESET);
         mAccentPreset.setOnPreferenceChangeListener(this);
 
-        mAccentRandomColor = (SystemSettingSwitchPreference) findPreference(ACCENT_RANDOM_COLOR);
-        mAccentRandomColor.setChecked(Settings.System.getInt(getContentResolver(),
-            Settings.System.ACCENT_RANDOM_COLOR, 0) == 1);
-        mAccentRandomColor.setOnPreferenceChangeListener(this);
-
-        mAccentRandomColorOnScreenOff = (SystemSettingSwitchPreference) findPreference(CHANGE_ACCENT_COLOR_ON_SCREEN_OFF);
-        mAccentRandomColorOnScreenOff.setChecked(Settings.System.getInt(getContentResolver(),
-            Settings.System.CHANGE_ACCENT_COLOR_ON_SCREEN_OFF, 1) == 1);
+        mAccentRandomColorOnScreenOff = (SystemSettingSwitchPreference) findPreference(
+                RANDOM_ACCENT_COLOR_ON_SCREEN_OFF);
         mAccentRandomColorOnScreenOff.setOnPreferenceChangeListener(this);
 
-        mAccentRandomColorDuration = (CustomSeekBarPreference) findPreference(ACCENT_RANDOM_COLOR_DURATION);
-        int time = Settings.System.getInt(getContentResolver(),
-                Settings.System.ACCENT_RANDOM_COLOR_DURATION, 1);
-        mAccentRandomColorDuration.setValue(time);
-        mAccentRandomColorDuration.setOnPreferenceChangeListener(this);
-
-        mAccentRandomColorDurationScreenOff = (CustomSeekBarPreference) findPreference(ACCENT_RANDOM_COLOR_DURATION_SCREENOFF);
-        int timeScreenOff = Settings.System.getInt(getContentResolver(),
-                Settings.System.ACCENT_RANDOM_COLOR_DURATION_SCREENOFF, 30);
-        mAccentRandomColorDurationScreenOff.setValue(timeScreenOff);
+        mAccentRandomColorDurationScreenOff = (CustomSeekBarPreference) findPreference(RANDOM_ACCENT_COLOR_SCREENOFF_DURATION);
+        int offd = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.RANDOM_ACCENT_COLOR_SCREENOFF_DURATION, 10, UserHandle.USER_CURRENT);
+        mAccentRandomColorDurationScreenOff.setValue(offd);
         mAccentRandomColorDurationScreenOff.setOnPreferenceChangeListener(this);
 
-        mAccentRandomColorUnit = (SystemSettingListPreference) findPreference(ACCENT_RANDOM_UNIT);
-        mAccentRandomColorUnit.setOnPreferenceChangeListener(this);
-
-        handleSeekbarValues(getRandomAccentColorUnit());
         randomColorPreferenceHandler();
         checkColorPreset(colorVal);
 
@@ -228,97 +204,38 @@ public class ThemingSettings extends DashboardFragment implements OnPreferenceCh
                 mOverlayManager.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
                 mOverlayManager.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) { }
-        } else if (preference == mAccentRandomColorDuration) {
-            int time = (Integer) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.ACCENT_RANDOM_COLOR_DURATION, time);
-            randomColorPreferenceHandler();
-            RandomColorUtils.restartService(getContext());
-            return true;
         } else if (preference == mAccentRandomColorDurationScreenOff) {
-            int time = (Integer) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.ACCENT_RANDOM_COLOR_DURATION_SCREENOFF, time);
+            int delay = (Integer) newValue;
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.RANDOM_ACCENT_COLOR_SCREENOFF_DURATION, delay, UserHandle.USER_CURRENT);
             randomColorPreferenceHandler();
-            RandomColorUtils.restartService(getContext());
-            return true;
-        } else if (preference == mAccentRandomColor) {
-            int val = ((Boolean) newValue) ? 1 : 0;
-            Settings.System.putInt(getContentResolver(), Settings.System.ACCENT_RANDOM_COLOR, val);
-            randomColorPreferenceHandler();
-            RandomColorUtils.enableService(getContext());
             return true;
         } else if (preference == mAccentRandomColorOnScreenOff) {
-            int val = ((Boolean) newValue) ? 1 : 0;
-            Settings.System.putInt(getContentResolver(), Settings.System.CHANGE_ACCENT_COLOR_ON_SCREEN_OFF, val);
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.RANDOM_ACCENT_COLOR_ON_SCREEN_OFF, value ? 1 : 0, UserHandle.USER_CURRENT);
+            Intent intent = new Intent("android.intent.action.RANDOM_COLOR_SERVICE_UPDATE");
+            getContext().sendBroadcast(intent);
             randomColorPreferenceHandler();
-            RandomColorUtils.restartService(getContext());
-            return true;
-        } else if (preference == mAccentRandomColorUnit) {
-            int val = Integer.parseInt((String) newValue);
-            int index = mAccentRandomColorUnit.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.ACCENT_RANDOM_UNIT, val);
-            mAccentRandomColorUnit.setSummary(mAccentRandomColorUnit.getEntries()[index]);
-            handleSeekbarValues(index);
-            randomColorPreferenceHandler();
-            RandomColorUtils.restartService(getContext());
             return true;
         }
         return false;
     }
 
-    private boolean isRandomAccentColorIsActive() {
-        return Settings.System.getInt(getContentResolver(),
-                Settings.System.ACCENT_RANDOM_COLOR, 0) == 1;
-    }
-
     private boolean isRandomAccentColorScreenOffIsActive() {
         return Settings.System.getInt(getContentResolver(),
-                Settings.System.CHANGE_ACCENT_COLOR_ON_SCREEN_OFF, 0) == 1;
-    }
-
-    private int getRandomAccentColorUnit() {
-        return Settings.System.getInt(getContentResolver(),
-                Settings.System.ACCENT_RANDOM_UNIT, 0);
-    }
-
-    private void handleSeekbarValues(int index) {
-        switch (index) {
-            case 0:
-                mAccentRandomColorDuration.setMin(1);
-                mAccentRandomColorDuration.setMax(48);
-                mAccentRandomColorDuration.setDefaultValue(2);
-                break;
-            case 1:
-                mAccentRandomColorDuration.setMin(1);
-                mAccentRandomColorDuration.setMax(60);
-                mAccentRandomColorDuration.setDefaultValue(30);
-                break;
-        }
+                Settings.System.RANDOM_ACCENT_COLOR_ON_SCREEN_OFF, 0) == 1;
     }
 
     private void randomColorPreferenceHandler() {
-        if(!isRandomAccentColorIsActive()) {
-            mAccentRandomColorDuration.setVisible(false);
-            mAccentRandomColorUnit.setVisible(false);
-            mAccentRandomColorOnScreenOff.setVisible(false);
+        if(isRandomAccentColorScreenOffIsActive()) {
+            mAccentRandomColorDurationScreenOff.setVisible(true);
+            mAccentPreset.setVisible(false);
+            rgbAccentPicker.setVisible(false);
+        } else {
             mAccentRandomColorDurationScreenOff.setVisible(false);
             mAccentPreset.setVisible(true);
             rgbAccentPicker.setVisible(true);
-        } else {
-            if(isRandomAccentColorScreenOffIsActive()) {
-                mAccentRandomColorDurationScreenOff.setVisible(true);
-                mAccentRandomColorDuration.setVisible(false);
-                mAccentRandomColorUnit.setVisible(false);
-            } else {
-                mAccentRandomColorDurationScreenOff.setVisible(false);
-                mAccentRandomColorDuration.setVisible(true);
-                mAccentRandomColorUnit.setVisible(true);
-            }
-             mAccentRandomColorOnScreenOff.setVisible(true);
-             mAccentPreset.setVisible(false);
-             rgbAccentPicker.setVisible(false);
         }
     }
 

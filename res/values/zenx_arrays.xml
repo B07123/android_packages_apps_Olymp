@@ -1538,9 +1538,9 @@
     </string-array>
 
     <!-- Settings dashboard icon style -->
-    <string-array name="random_color_entries" translatable="false">
-        <item>@string/random_color_hour</item>
+<string-array name="random_color_entries" translatable="false">
         <item>@string/random_color_minute</item>
+        <item>@string/random_color_seconds</item>
     </string-array>
 
     <string-array name="random_color_values" translatable="false">

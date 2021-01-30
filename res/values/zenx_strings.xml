@@ -569,8 +569,8 @@
      <string name="file_header_select_summary">Select image from storage</string>
      <string name="ambient_notification_light_color_mode_random">Random color</string>
      <string name="random_color_attention_summary">Attention! Frequently random color change may interfere with daily usage.</string>
-     <string name="change_accent_color_on_screen_off_title">Screen Off Change</string>
-     <string name="change_accent_color_on_screen_off_summary">Changed color only when screen is off, so it wont interfere on daily usage.</string>
+     <string name="change_accent_color_on_screen_off_title">Random Color </string>
+     <string name="change_accent_color_on_screen_off_summary">Changed color when screen is off.</string>
 
      <string name="media_title">Media</string>
      <string name="media_art_title">Media artwork</string>
@@ -1038,7 +1038,7 @@
      <string name="accent_random_color_summary">Changes accent color randomly</string>
      <string name="random_color_time">Change color interval</string>
      <string name="random_color_unit">Unit</string>
-     <string name="random_color_hour">Hour</string>
+     <string name="random_color_seconds">Seconds</string>
      <string name="random_color_minute">Minute</string>
 
      <!-- Accent presets -->
