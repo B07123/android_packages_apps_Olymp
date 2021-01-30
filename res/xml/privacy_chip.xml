@@ -38,12 +38,12 @@
         android:dependency="show_privacy_chip"
         android:defaultValue="true" />
 
-     <com.zenx.support.preferences.SystemSettingSwitchPreference
+<!-- <com.zenx.support.preferences.SystemSettingSwitchPreference
         android:key="hide_system_info_on_active_privacy_chip"
         android:summary="@string/qs_systeminfo_privacy_chip_summary"
         android:title="@string/qs_systeminfo_privacy_chip_title"
         android:dependency="show_privacy_chip"
-        android:defaultValue="false" />
+android:defaultValue="false" /> -->
 
      <com.zenx.support.preferences.SystemSettingSwitchPreference
         android:key="hide_battery_icon_on_active_privacy_chip"

@@ -39,10 +39,14 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.android.settings.SettingsPreferenceFragment;
-import com.zenx.support.preferences.CustomSeekBarPreference;
+import com.zenx.support.preferences.SystemSettingSeekBarPreference;
 
 public class Volume extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+
+    private static final String VOLUME_DIALOG_TIMEOUT = "volume_dialog_timeout";
+
+    private SystemSettingSeekBarPreference mVolumeDialogTimeout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,9 +54,21 @@ public class Volume extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.volume);
 
+        mVolumeDialogTimeout = (SystemSettingSeekBarPreference) findPreference(VOLUME_DIALOG_TIMEOUT);
+        mVolumeDialogTimeout.setOnPreferenceChangeListener(this);
+        int duration = Settings.System.getInt(getContentResolver(),
+                Settings.System.VOLUME_DIALOG_TIMEOUT, 3000);
+        mVolumeDialogTimeout.setValue(duration);
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mVolumeDialogTimeout) {
+            int value = (Integer) newValue;
+                Settings.System.putInt(getContentResolver(),
+                    Settings.System.VOLUME_DIALOG_TIMEOUT, value);
+            return true;
+        }
         return false;
     }
 
