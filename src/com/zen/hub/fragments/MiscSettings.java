@@ -39,6 +39,8 @@ import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.android.settings.development.OverlayCategoryPreferenceController;
 import com.android.settings.development.DefaultLaunchPreferenceController;
+import com.android.settings.development.FreeformWindowsPreferenceController;
+import com.android.settings.development.SizeCompatFreeformPreferenceController;
 import com.android.settings.dashboard.DashboardFragment;
 
 import java.util.ArrayList;
@@ -83,6 +85,8 @@ public class MiscSettings extends DashboardFragment implements
         final List<AbstractPreferenceController> controllers = new ArrayList<>();
         controllers.add(
             new DefaultLaunchPreferenceController(context, "default_usb_configuration"));
+        controllers.add(new FreeformWindowsPreferenceController(context));
+        controllers.add(new SizeCompatFreeformPreferenceController(context));
         return controllers;
     }
 

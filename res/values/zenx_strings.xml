@@ -1651,4 +1651,5 @@
      <string name="status_bar_clock_color_mode_accent">Accent</string>
      <string name="status_bar_clock_color_mode_random">Random</string>
      <string name="statusbar_clock_random_color_interval">Interval</string>
+<string name="dev_misc_category">Dev-options</string>
 </resources>
