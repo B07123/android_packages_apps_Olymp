@@ -94,6 +94,12 @@
     <PreferenceCategory
         android:title="@string/ambient_display">
 
+        <Preference
+            android:key="ambient_info"
+            android:title="@string/ambient_info_title"
+            android:summary="@string/ambient_info_summary"
+            android:fragment="com.zen.hub.fragments.subs.AmbientInfo" />
+
          <com.zenx.support.preferences.SystemSettingSwitchPreference
             android:key="ambient_battery_percent"
             android:title="@string/ambient_battery_percent_title" 
