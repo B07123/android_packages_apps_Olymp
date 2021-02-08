@@ -50,6 +50,29 @@
      </PreferenceCategory>
 
      <PreferenceCategory
+        android:key="ls_wallpaper_key"
+        android:title="@string/ls_wallpaper_title">
+
+         <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="blur_lockscreen_wallpaper"
+            android:title="@string/blur_lockscreen_wallpaper_title"
+            android:summary="@string/blur_lockscreen_wallpaper_summary"
+            android:defaultValue="true" />
+
+         <com.zenx.support.preferences.SystemSettingSeekBarPreference
+            android:key="lockscreen_wallpaper_blur"
+            android:title="@string/lockscreen_wallpaper_blur_title"
+            android:max="80"
+            settings:min="1"
+            settings:units=""
+            settings:interval="1"
+            android:defaultValue="25"
+            android:dependency="blur_lockscreen_wallpaper" />
+     </PreferenceCategory>
+
+
+
+     <PreferenceCategory
         android:key="items_style"
         android:title="@string/items_style_title">
 

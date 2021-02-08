@@ -1661,4 +1661,9 @@
      <string name="ambient_battery_temperature_summary">Show or hide battery temperature on ambient</string>
      <string name="ambient_cpu_temperature_title">CPU temperature</string>
      <string name="ambient_cpu_temperature_summary">Show or hide cpu temperature on ambient</string>
+
+     <string name="ls_wallpaper_title">Wallpaper</string>
+     <string name="lockscreen_wallpaper_blur_title">Wallpaper blur level</string>
+     <string name="blur_lockscreen_wallpaper_title">Blur Wallpaper</string>
+     <string name="blur_lockscreen_wallpaper_summary">Use blur lockscreen wallpaper instead of transparent\nAttention: Lockscreen wallpaper needs to be set. Not for Launcher wallpaper</string>
 </resources>
