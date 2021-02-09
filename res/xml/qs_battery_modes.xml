@@ -48,14 +48,14 @@
             android:key="status_bar_force_battery_icon_qs_header"
             android:title="@string/status_bar_force_battery_icon_qs_header_title"
             android:summary="@string/status_bar_force_battery_icon_qs_header_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <!-- Battery estimate -->
         <com.zenx.support.preferences.SystemSettingSwitchPreference
             android:key="qs_show_battery_estimate"
             android:title="@string/battery_estimate_title"
             android:summary="@string/battery_estimate_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <com.zenx.support.preferences.SystemSettingSwitchPreference
             android:key="hide_percentage_next_to_estimate"

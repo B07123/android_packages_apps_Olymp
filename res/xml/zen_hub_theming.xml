@@ -94,6 +94,7 @@
         android:title="@string/ui_style_title"
         android:entries="@array/ui_style_selector_entries"
         android:entryValues="@array/ui_style_selector_values"
+        android:summary="%s"
         android:persistent="false" />
 
     <com.zenx.support.preferences.SystemSettingListPreference

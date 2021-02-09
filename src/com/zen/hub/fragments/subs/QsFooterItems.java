@@ -65,9 +65,13 @@ public class QsFooterItems extends SettingsPreferenceFragment implements
         }
 
         mFooterInfo = (SystemSettingListPreference) findPreference(QS_FOOTER_INFO);
+        Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.QS_FOOTER_INFO, 3);
         mFooterInfo.setOnPreferenceChangeListener(this);
 
-        mFooterInfoRight = (SystemSettingListPreference) findPreference(QS_FOOTER_INFO);
+        mFooterInfoRight = (SystemSettingListPreference) findPreference(QS_FOOTER_INFO_RIGHT);
+        Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.QS_FOOTER_INFO_RIGHT, 2);
         mFooterInfoRight.setOnPreferenceChangeListener(this);
 
         mFooterDataUsage = (SystemSettingListPreference) findPreference(QS_FOOTER_DATAUSAGE);
@@ -77,9 +81,9 @@ public class QsFooterItems extends SettingsPreferenceFragment implements
 
     private void updateQsFooterInfo() {
         int mode = Settings.System.getInt(getActivity().getContentResolver(),
-            Settings.System.QS_FOOTER_INFO, 0);
+            Settings.System.QS_FOOTER_INFO, 3);
         int modeRight = Settings.System.getInt(getActivity().getContentResolver(),
-            Settings.System.QS_FOOTER_INFO_RIGHT, 0);
+            Settings.System.QS_FOOTER_INFO_RIGHT, 2);
 
         if(mode == 1 || modeRight == 1) {
             mFooterDataUsage.setVisible(true);

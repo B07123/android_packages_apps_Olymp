@@ -71,7 +71,7 @@
             android:title="@string/pulse_ambient_light_duration_title"
             android:summary="@string/pulse_ambient_light_duration_summary"
             android:persistent="false"
-            android:defaultValue="3"
+            android:defaultValue="2"
             android:max="10"
             settings:min="1"
             settings:units="sec"
@@ -99,12 +99,6 @@
             android:title="@string/ambient_info_title"
             android:summary="@string/ambient_info_summary"
             android:fragment="com.zen.hub.fragments.subs.AmbientInfo" />
-
-         <com.zenx.support.preferences.SystemSettingSwitchPreference
-            android:key="ambient_battery_percent"
-            android:title="@string/ambient_battery_percent_title" 
-            android:summary="@string/ambient_battery_percent_summary"
-            android:defaultValue="true" />
 
         <Preference
             android:key="ambient_customization"

@@ -18,7 +18,7 @@
     android:title="@string/volume_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-        <com.zenx.support.preferences.SystemSettingSeekBarPreference
+        <com.zenx.support.preferences.CustomSeekBarPreference
             android:key="volume_dialog_timeout"
             android:title="@string/volume_dialog_timeout_title"
             android:min="500"

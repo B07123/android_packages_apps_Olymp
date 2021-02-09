@@ -78,7 +78,7 @@ public class Ambient extends SettingsPreferenceFragment implements
         mEdgeLightDurationPreference = (SystemSettingSeekBarPreference) findPreference(AMBIENT_LIGHT_DURATION);
         mEdgeLightDurationPreference.setOnPreferenceChangeListener(this);
         int duration = Settings.System.getInt(getContentResolver(),
-                Settings.System.AMBIENT_LIGHT_DURATION, 3);
+                Settings.System.AMBIENT_LIGHT_DURATION, 2);
         mEdgeLightDurationPreference.setValue(duration);
 
         mEdgeLightTimeoutPreference = (SystemSettingSeekBarPreference) findPreference(AOD_NOTIFICATION_PULSE_TIMEOUT);

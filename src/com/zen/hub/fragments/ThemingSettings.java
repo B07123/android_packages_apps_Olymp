@@ -145,7 +145,7 @@ public class ThemingSettings extends DashboardFragment implements OnPreferenceCh
                     if (overlayName != null) {
                     handleOverlays(overlayName, false, mOverlayManager);
                     }
-                    if (valueIndex > 0) {
+                    if (valueIndex != 3) {
                         handleOverlays(ThemesUtils.UI_THEMES[valueIndex],
                                 true, mOverlayManager);
                     }

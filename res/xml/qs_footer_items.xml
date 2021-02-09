@@ -53,14 +53,14 @@
         android:title="@string/qs_footer_info_left"
         android:entries="@array/qs_footer_info_entrires"
         android:entryValues="@array/qs_footer_info_values"
-        android:defaultValue="0" />
+        android:defaultValue="3" />
 
     <com.zenx.support.preferences.SystemSettingListPreference
         android:key="qs_footer_info_right"
         android:title="@string/qs_footer_info_right"
         android:entries="@array/qs_footer_info_entrires"
         android:entryValues="@array/qs_footer_info_values"
-        android:defaultValue="0" />
+        android:defaultValue="2" />
 
     <com.zenx.support.preferences.SystemSettingListPreference
         android:key="qs_footer_datausage"

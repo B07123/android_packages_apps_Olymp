@@ -62,15 +62,13 @@
          <com.zenx.support.preferences.SystemSettingSeekBarPreference
             android:key="lockscreen_wallpaper_blur"
             android:title="@string/lockscreen_wallpaper_blur_title"
-            android:max="80"
+            android:max="100"
             settings:min="1"
             settings:units=""
             settings:interval="1"
-            android:defaultValue="25"
+            android:defaultValue="50"
             android:dependency="blur_lockscreen_wallpaper" />
      </PreferenceCategory>
-
-
 
      <PreferenceCategory
         android:key="items_style"

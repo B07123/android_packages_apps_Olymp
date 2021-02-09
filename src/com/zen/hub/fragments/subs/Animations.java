@@ -75,7 +75,7 @@ public class Animations extends SettingsPreferenceFragment implements
 
         mTileAnimationStyle = (ListPreference) findPreference(PREF_TILE_ANIM_STYLE);
         int tileAnimationStyle = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.ANIM_TILE_STYLE, 0, UserHandle.USER_CURRENT);
+                Settings.System.ANIM_TILE_STYLE, 1, UserHandle.USER_CURRENT);
         mTileAnimationStyle.setValue(String.valueOf(tileAnimationStyle));
         updateTileAnimationStyleSummary(tileAnimationStyle);
         updateAnimTileStyle(tileAnimationStyle);
@@ -83,7 +83,7 @@ public class Animations extends SettingsPreferenceFragment implements
         mTileAnimationStyle.setOnPreferenceChangeListener(this);
         mTileAnimationDuration = (ListPreference) findPreference(PREF_TILE_ANIM_DURATION);
         int tileAnimationDuration = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.ANIM_TILE_DURATION, 2000, UserHandle.USER_CURRENT);
+                Settings.System.ANIM_TILE_DURATION, 1500, UserHandle.USER_CURRENT);
         mTileAnimationDuration.setValue(String.valueOf(tileAnimationDuration));
         updateTileAnimationDurationSummary(tileAnimationDuration);
         mTileAnimationDuration.setOnPreferenceChangeListener(this);

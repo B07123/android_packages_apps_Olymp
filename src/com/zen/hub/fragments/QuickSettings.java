@@ -210,7 +210,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     private int getMediaDividerColorMode() {
         return Settings.System.getInt(getContentResolver(),
-                Settings.System.QS_MEDIA_DIVIDER_COLOR_MODE, 4);
+                Settings.System.QS_MEDIA_DIVIDER_COLOR_MODE, 2);
     }
 
     private boolean getMediaDivider() {
