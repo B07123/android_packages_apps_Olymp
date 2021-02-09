@@ -542,6 +542,8 @@
      <string name="pulse_ambient_light_duration_summary">Sets the ambient light animation duration</string>
      <string name="pulse_ambient_light_repeat_count_title">Edge Light Repeat count</string>
      <string name="pulse_ambient_light_repeat_count_summary">Set max repeat count. 0 for infinite</string>
+     <string name="pulse_ambient_light_show_always_title">Show for all doze events</string>
+     <string name="pulse_ambient_light_show_always_summary">Show lights for all doze events and not just notifications</string>
 
      <!-- Ambient Customization -->
      <string name="ambient_text_category_title">Ambient-AOD Customization</string>
