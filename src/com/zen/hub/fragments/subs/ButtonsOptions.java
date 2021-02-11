@@ -77,6 +77,7 @@ public class ButtonsOptions extends SettingsPreferenceFragment implements
     private static final String KEY_APP_SWITCH_WAKE_SCREEN = "app_switch_wake_screen";
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
     private static final String KEY_ADDITIONAL_BUTTONS = "additional_buttons";
+    private static final String KEY_SWAP_CAPACITIVE_KEYS = "swap_capacitive_keys";
 
     private static final String CATEGORY_HOME = "home_key";
     private static final String CATEGORY_BACK = "back_key";
@@ -103,12 +104,17 @@ public class ButtonsOptions extends SettingsPreferenceFragment implements
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
     private ButtonBacklightBrightness backlight;
+    private SwitchPreference mSwapCapacitiveKeys;
+
+    private LineageHardwareManager mHardware;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.buttons_options);
+
+        mHardware = LineageHardwareManager.getInstance(getActivity());
 
         final Resources res = getResources();
         final ContentResolver resolver = getActivity().getContentResolver();
@@ -137,6 +143,7 @@ public class ButtonsOptions extends SettingsPreferenceFragment implements
         final PreferenceCategory cameraCategory = prefScreen.findPreference(CATEGORY_CAMERA);
 
         mHardwareKeysDisable = (SwitchPreference) findPreference(HWKEYS_DISABLED);
+        mSwapCapacitiveKeys = findPreference(KEY_SWAP_CAPACITIVE_KEYS);
         mAnbi = (SwitchPreference) findPreference(KEY_ANBI);
 
         // Home button answers calls.
@@ -167,6 +174,12 @@ public class ButtonsOptions extends SettingsPreferenceFragment implements
             mHardwareKeysDisable.setOnPreferenceChangeListener(this);
         } else {
             prefScreen.removePreference(mHardwareKeysDisable);
+        }
+
+        if (mSwapCapacitiveKeys != null && !isKeySwapperSupported(getActivity())) {
+            prefScreen.removePreference(mSwapCapacitiveKeys);
+        } else {
+            mSwapCapacitiveKeys.setOnPreferenceChangeListener(this);
         }
 
         if (!hasHomeKey && !hasBackKey && !hasMenuKey && !hasAssistKey && !hasAppSwitchKey) {
@@ -383,8 +396,16 @@ public class ButtonsOptions extends SettingsPreferenceFragment implements
             handleListChange((ListPreference) preference, newValue,
                     LineageSettings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION);
             return true;
+        } else if (preference == mSwapCapacitiveKeys) {
+            mHardware.set(LineageHardwareManager.FEATURE_KEY_SWAP, (Boolean) newValue);
+            return true;
         }
         return false;
+    }
+
+    private static boolean isKeySwapperSupported(Context context) {
+        final LineageHardwareManager hardware = LineageHardwareManager.getInstance(context);
+        return hardware.isSupported(LineageHardwareManager.FEATURE_KEY_SWAP);
     }
 
     private static boolean isKeyDisablerSupported(Context context) {

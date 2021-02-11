@@ -24,6 +24,12 @@
         android:title="@string/hwkeys_disabled_title"
         android:summary="@string/hwkeys_disabled_summary" />
 
+    <SwitchPreference
+        android:key="swap_capacitive_keys"
+        android:title="@string/swap_capacitive_keys_title"
+        android:summary="@string/swap_capacitive_keys_summary"
+        android:defaultValue="false" />
+
     <com.zen.hub.fragments.subs.light.ButtonBacklightBrightness
         android:key="button_backlight"
         android:title="@string/button_backlight_title"

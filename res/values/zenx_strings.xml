@@ -1666,4 +1666,8 @@
      <string name="lockscreen_wallpaper_blur_title">Wallpaper blur level</string>
      <string name="blur_lockscreen_wallpaper_title">Blur Wallpaper</string>
      <string name="blur_lockscreen_wallpaper_summary">Use blur lockscreen wallpaper instead of transparent\nAttention: Lockscreen wallpaper needs to be set. Not for Launcher wallpaper</string>
+
+    <!-- Buttons - Swap capacitive keys -->
+    <string name="swap_capacitive_keys_title">Swap capacitive buttons</string>
+    <string name="swap_capacitive_keys_summary">Swap the order of recents and back buttons</string>
 </resources>
