@@ -88,6 +88,11 @@
         android:summary="@string/hide_smart_replies_summary"
         android:defaultValue="false"/>
 
+     <com.zenx.support.preferences.SystemSettingSwitchPreference
+            android:key="notification_material_dismiss"
+            android:title="@string/notification_material_dismiss_button_title"
+            android:summary="@string/notification_material_dismiss_button_summary"
+            android:defaultValue="false" />
 
      <com.zenx.support.preferences.SystemSettingSwitchPreference
         android:key="disable_fc_notifications" 
