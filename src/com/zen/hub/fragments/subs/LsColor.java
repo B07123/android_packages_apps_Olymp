@@ -91,7 +91,7 @@ public class LsColor extends SettingsPreferenceFragment implements
         mLockscreenPhoneColorPicker.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_PHONE_ICON_COLOR, TRANSPARENT);
-        hexColor = String.format("#%08x", (0x99FFFFFF & intColor));
+        hexColor = String.format("#%08x", (0xffFFFFFF & intColor));
         mLockscreenPhoneColorPicker.setSummary(hexColor);
         mLockscreenPhoneColorPicker.setNewPreviewColor(intColor);
 
@@ -99,7 +99,7 @@ public class LsColor extends SettingsPreferenceFragment implements
         mLockscreenCameraColorPicker.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_CAMERA_ICON_COLOR, TRANSPARENT);
-        hexColor = String.format("#%08x", (0x99FFFFFF & intColor));
+        hexColor = String.format("#%08x", (0xffFFFFFF & intColor));
         mLockscreenCameraColorPicker.setSummary(hexColor);
         mLockscreenCameraColorPicker.setNewPreviewColor(intColor);
 
@@ -272,12 +272,12 @@ public class LsColor extends SettingsPreferenceFragment implements
     private void resetValues() {
 	    ContentResolver resolver = getActivity().getContentResolver();
         Settings.System.putInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_PHONE_ICON_COLOR, TRANSPARENT);
-        mLockscreenPhoneColorPicker.setNewPreviewColor(TRANSPARENT);
+                Settings.System.LOCKSCREEN_PHONE_ICON_COLOR, DEFAULT);
+        mLockscreenPhoneColorPicker.setNewPreviewColor(DEFAULT);
         mLockscreenPhoneColorPicker.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
-                Settings.System.LOCKSCREEN_CAMERA_ICON_COLOR, TRANSPARENT);
-        mLockscreenCameraColorPicker.setNewPreviewColor(TRANSPARENT);
+                Settings.System.LOCKSCREEN_CAMERA_ICON_COLOR, DEFAULT);
+        mLockscreenCameraColorPicker.setNewPreviewColor(DEFAULT);
         mLockscreenCameraColorPicker.setSummary(R.string.default_string);
         Settings.System.putInt(getContentResolver(),
                 Settings.System.LOCKSCREEN_INDICATION_TEXT_COLOR, DEFAULT);
