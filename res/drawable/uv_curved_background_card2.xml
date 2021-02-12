@@ -20,7 +20,7 @@
   
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/uv_background2" />
+            <solid android:color="@*android:color/card_2_color" />
         </shape>
     </item>
       <!-- 
@@ -67,7 +67,7 @@
     
     <item android:left="0.0dip" android:top="0.0dip" android:right="0.0dip" android:bottom="0.65dip">
         <shape android:shape="rectangle">
-            <solid android:color="@color/card_2_color" />
+            <solid android:color="@*android:color/card_2_color" />
             <corners android:topLeftRadius="0.0dip" android:topRightRadius="0.0dip" android:bottomLeftRadius="25.0dip" android:bottomRightRadius="0.0dip" />
         </shape>
     </item>

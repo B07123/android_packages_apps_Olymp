@@ -9,7 +9,7 @@
 	android:foreground="?android:selectableItemBackground"
 	card_view:cardCornerRadius="0.0dip"
 	card_view:cardElevation="0.0dip"
-	cardBackgroundColor="@color/uv_background4"
+	cardBackgroundColor="@*android:color/card_4_color"
 	xmlns:card_view="http://schemas.android.com/apk/res-auto">
 	
 	<!-- Copyright (C) 2020 ZenX-OS
