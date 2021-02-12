@@ -1673,4 +1673,9 @@
 
      <string name="show_ambient_pulse_title">Ambient Pulse</string>
     <string name="show_ambient_pulse_summary">Audio graphic equalizer on the ambient screen</string>
+
+     <!-- Ambient Ticker -->
+    <string name="pulse_on_new_tracks_title">Music ticker</string>
+    <string name="pulse_on_new_tracks_summary">Show Ambient Display when a new music track is played</string>
+
 </resources>

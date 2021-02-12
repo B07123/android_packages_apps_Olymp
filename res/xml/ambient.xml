@@ -94,6 +94,12 @@
     <PreferenceCategory
         android:title="@string/ambient_display">
 
+    <com.zenx.support.preferences.SecureSettingSwitchPreference
+        android:key="pulse_on_new_tracks"
+        android:title="@string/pulse_on_new_tracks_title"
+        android:defaultValue="false"
+        android:summary="@string/pulse_on_new_tracks_summary" />
+
         <Preference
             android:key="ambient_info"
             android:title="@string/ambient_info_title"
