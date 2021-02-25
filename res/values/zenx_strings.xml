@@ -637,17 +637,18 @@
      <string name="audio_panel_view_theme_title">Volume Panel Options</string>
      <string name="audio_panel_view_theme_summary">Choose which volume panel you want</string>
      <string name="audio_panel_theme_default">Default</string>
-     <string name="volume_panel_aosp">AOSP</string>
-     <string name="volume_panel_compat">Compat</string>
+     <string name="volume_panel_stock">Stock AOSP Panel</string>
+     <string name="volume_panel_aosp">AOSP Expanded</string>
+     <string name="volume_panel_compact">Compact</string>
      <string name="volume_panel_oreo">Oreo</string>
      <string name="volume_panel_tiled">Tiled</string>
 
      <!--  Volume Panel Plugin Values   -->
-     <string name="volume_panel_aosp_val">co.potatoproject.plugin.volume.aosp</string>
-     <string name="volume_panel_compat_val">co.potatoproject.plugin.volume.compact</string>
-     <string name="volume_panel_oreo_val">co.potatoproject.plugin.volume.oreo</string>
-     <string name="volume_panel_tiled_val">co.potatoproject.plugin.volume.tiled</string>
-     <string name="volume_panel_stock_val">com.android.systemui.volume</string>
+    <string name="volume_panel_stock_val" translatable="false">com.android.systemui.volume</string>
+    <string name="volume_panel_aosp_val" translatable="false">co.potatoproject.plugin.volume.aosp</string>
+    <string name="volume_panel_compact_val" translatable="false">co.potatoproject.plugin.volume.compact</string>
+    <string name="volume_panel_oreo_val" translatable="false">co.potatoproject.plugin.volume.oreo</string>
+    <string name="volume_panel_tiled_val" translatable="false">co.potatoproject.plugin.volume.tiled</string>
 
      <string name="system_wide_category">System wide</string>
 
@@ -1683,5 +1684,8 @@
         <!-- OOS style material dismiss all button for notifications -->
     <string name="notification_material_dismiss_button_title">Material dimiss button</string>
     <string name="notification_material_dismiss_button_summary">Replace clear all notification text with floating button</string>
+    
+    <string name="volume_ui_title">UI Elements</string>
+    <string name="volume_btn_title">Buttons</string>
 
 </resources>

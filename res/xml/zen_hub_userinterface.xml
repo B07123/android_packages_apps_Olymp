@@ -59,11 +59,6 @@
         android:key="system_wide_category"
         android:title="@string/system_wide_category">
 
-     <Preference
-         android:key="volume_category"
-         android:title="@string/volume_title"
-         android:summary="@string/volume_summary"
-         android:fragment="com.zen.hub.fragments.subs.Volume" />
 
         <!-- Smart Pixels -->
         <PreferenceScreen

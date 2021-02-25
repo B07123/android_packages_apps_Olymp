@@ -101,8 +101,8 @@
         android:key="systemui_plugin_volume"
         android:title="@string/audio_panel_view_theme_title"
         android:dialogTitle="@string/audio_panel_view_theme_title"
-        android:entries="@array/audio_panel_view_theme_entries"
-        android:entryValues="@array/audio_panel_view_theme_values"
+        android:entries="@array/volume_panel_entries"
+        android:entryValues="@array/volume_panel_values"
         android:summary="%s"
         android:defaultValue="@string/volume_panel_stock_val"/>
 
