@@ -217,7 +217,7 @@
      <string name="ui_style_title">UI Style</string>
      <string name="ui_style_default">Default</string>
      <string name="ui_style_no_corner_radius">No Corner Radius</string>
-     <string name="ui_style_rectangle">Rectangle</string>
+     <string name="ui_style_rectangle">Round Large</string>
      <string name="ui_style_aosp">Aosp</string>
      <string name="ui_style_round_medium">Round Medium</string>
 
@@ -1559,6 +1559,12 @@
      <!-- Custom statusbar hight -->
      <string name="statusbar_height_category">Statusbar height</string>
      <string name="custom_statusbar_height_title">Custom statusbar height</string>
+     <string name="statusbar_height_default">Default</string>
+     <string name="statusbar_height_small">Small</string>
+     <string name="statusbar_height_medium">Medium</string>
+     <string name="statusbar_height_large">Large</string>
+     <string name="statusbar_height_extralarge">Extra Large</string>
+     <string name="statusbar_height_dualstatusbar">Dual Statusbar</string>
 
      <string name="hide_percentage_next_to_estimate_title">Hide Percentage</string>
      <string name="hide_percentage_next_to_estimate_summary">Hides percentage next to estimate</string>

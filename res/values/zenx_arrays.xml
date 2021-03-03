@@ -1747,4 +1747,23 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <!-- Statusbar height -->
+    <string-array name="status_bar_height_entries">
+        <item>@string/statusbar_height_default</item>
+        <item>@string/statusbar_height_small</item>
+        <item>@string/statusbar_height_medium</item>
+        <item>@string/statusbar_height_large</item>
+        <item>@string/statusbar_height_extralarge</item>
+        <item>@string/statusbar_height_dualstatusbar</item>
+    </string-array>
+
+    <string-array name="status_bar_height_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
 </resources>

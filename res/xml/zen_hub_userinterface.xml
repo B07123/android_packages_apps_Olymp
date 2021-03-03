@@ -45,13 +45,13 @@
         android:key="statusbar_height_category"
         android:title="@string/statusbar_height_category">
 
-        <com.zenx.support.preferences.CustomSeekBarPreference
-            android:key="custom_statusbar_height"
-            android:title="@string/custom_statusbar_height_title"
-            android:max="135"
-            settings:min="20"
-            settings:units="dp"
-            settings:interval="1" />
+     <ListPreference
+        android:key="status_bar_height"
+        android:title="@string/custom_statusbar_height_title"
+        android:entries="@array/status_bar_height_entries"
+        android:entryValues="@array/status_bar_height_values"
+        android:summary="%s"
+        android:persistent="false" /> 
 
     </PreferenceCategory>
 

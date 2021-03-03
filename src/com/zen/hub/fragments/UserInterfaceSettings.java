@@ -62,13 +62,13 @@ public class UserInterfaceSettings extends SettingsPreferenceFragment implements
 
     private static final String DUAL_STATUSBAR_ROW_MODE = "dual_statusbar_row_mode";
     private static final String DUAL_ROW_DATAUSAGE = "dual_row_datausage";
-    private static final String CUSTOM_STATUSBAR_HEIGHT = "custom_statusbar_height";
+    private static final String STATUS_BAR_HEIGHT = "status_bar_height";
 
     private IOverlayManager mOverlayManager;
     private SharedPreferences mSharedPreferences;
     private SystemSettingListPreference mStatusbarDualRowMode;
     private SystemSettingListPreference mDualRowDataUsageMode;
-    private CustomSeekBarPreference mCustomStatusbarHeight;
+    private ListPreference mStatusbarHeight;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -84,11 +84,36 @@ public class UserInterfaceSettings extends SettingsPreferenceFragment implements
         mStatusbarDualRowMode.setSummary(mStatusbarDualRowMode.getEntry());
         mStatusbarDualRowMode.setOnPreferenceChangeListener(this);
 
-        mCustomStatusbarHeight = (CustomSeekBarPreference) findPreference(CUSTOM_STATUSBAR_HEIGHT);
-        int customStatusbarHeight = Settings.System.getIntForUser(getActivity().getContentResolver(),
-                Settings.System.CUSTOM_STATUSBAR_HEIGHT, getResources().getDimensionPixelSize(com.android.internal.R.dimen.status_bar_height), UserHandle.USER_CURRENT);
-        mCustomStatusbarHeight.setValue(customStatusbarHeight);
-        mCustomStatusbarHeight.setOnPreferenceChangeListener(this);
+        mStatusbarHeight = (ListPreference) findPreference(STATUS_BAR_HEIGHT);
+        int StatusbarHeight = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_HEIGHT, 0);
+        int StatusbarHeightValue = getOverlayPosition(ThemesUtils.STATUSBAR_HEIGHT);
+        if (StatusbarHeightValue != 0) {
+            mStatusbarHeight.setValue(String.valueOf(StatusbarHeight));
+        }
+        mStatusbarHeight.setValue(String.valueOf(StatusbarHeight));
+        mStatusbarHeight.setSummary(mStatusbarHeight.getEntry());
+        mStatusbarHeight.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                if (preference == mStatusbarHeight) {
+                    String value = (String) newValue;
+                    Settings.System.putInt(getActivity().getContentResolver(), Settings.System.STATUS_BAR_HEIGHT, Integer.valueOf(value));
+                    int valueIndex = mStatusbarHeight.findIndexOfValue(value);
+                    mStatusbarHeight.setSummary(mStatusbarHeight.getEntries()[valueIndex]);
+                    String overlayName = getOverlayName(ThemesUtils.STATUSBAR_HEIGHT);
+                    if (overlayName != null) {
+                        handleOverlays(overlayName, false, mOverlayManager);
+                    }
+                    if (valueIndex != 0) {
+                        handleOverlays(ThemesUtils.STATUSBAR_HEIGHT[valueIndex],
+                                true, mOverlayManager);
+                    }
+                    return true;
+                }
+                return false;
+            }
+       });
 
         handleDataUsePreferences();
 
@@ -134,12 +159,7 @@ public class UserInterfaceSettings extends SettingsPreferenceFragment implements
                     Settings.System.DUAL_ROW_DATAUSAGE, dualRowDataUsageMode);
             mDualRowDataUsageMode.setSummary(mDualRowDataUsageMode.getEntries()[dualRowDataUsageModeIndex]);
             return true;
-        } else if (preference == mCustomStatusbarHeight) {
-            int value = (Integer) newValue;
-            Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.CUSTOM_STATUSBAR_HEIGHT, value, UserHandle.USER_CURRENT);
-            return true;
-        }
+        } 
         return false;
     }
 
