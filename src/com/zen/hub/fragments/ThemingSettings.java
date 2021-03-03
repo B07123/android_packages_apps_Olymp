@@ -129,9 +129,7 @@ public class ThemingSettings extends DashboardFragment implements OnPreferenceCh
         int UIStyle = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.UI_STYLE, 0);
         int UIStyleValue = getOverlayPosition(ThemesUtils.UI_THEMES);
-        if (UIStyleValue != 0) {
-            mUIStyle.setValue(String.valueOf(UIStyle));
-        }
+        mUIStyle.setValue(String.valueOf(UIStyle));
         mUIStyle.setSummary(mUIStyle.getEntry());
         mUIStyle.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
@@ -145,10 +143,8 @@ public class ThemingSettings extends DashboardFragment implements OnPreferenceCh
                     if (overlayName != null) {
                     handleOverlays(overlayName, false, mOverlayManager);
                     }
-                    if (valueIndex != 3) {
                         handleOverlays(ThemesUtils.UI_THEMES[valueIndex],
                                 true, mOverlayManager);
-                    }
                     return true;
                 }
                 return false;
