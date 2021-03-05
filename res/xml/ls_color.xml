@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2020 ZenX-OS
+<!-- Copyright (C) 2020 Zeus-OS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -18,47 +18,47 @@
     android:title="@string/lockscreen_colors"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
     
-     <com.zenx.support.colorpicker.ColorPickerPreference
+     <com.zeus.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_clock_color"
         android:title="@string/lockscreen_clock_color"
         android:defaultValue="0xffffffff" />
 
-    <com.zenx.support.colorpicker.ColorPickerPreference
+    <com.zeus.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_clock_date_color"
         android:title="@string/lockscreen_clock_date_color"
         android:defaultValue="0xffffffff" />
 
-   <com.zenx.support.colorpicker.ColorPickerPreference
+   <com.zeus.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_owner_info_color"
         android:title="@string/lockscreen_owner_info_color"
         android:defaultValue="0xffffffff" />
 
-    <com.zenx.support.colorpicker.ColorPickerPreference
+    <com.zeus.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_phone_icon_color"
         android:title="@string/lockscreen_phone_icon_color"
         android:defaultValue="0xffffffff" />
 
-    <com.zenx.support.colorpicker.ColorPickerPreference
+    <com.zeus.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_camera_icon_color"
         android:title="@string/lockscreen_camera_icon_color"
         android:defaultValue="0xffffffff" />
 
-    <com.zenx.support.colorpicker.ColorPickerPreference
+    <com.zeus.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_indication_text_color"
         android:title="@string/lockscreen_indication_text_color"
         android:defaultValue="0xffffffff" />
 
-    <com.zenx.support.colorpicker.ColorPickerPreference
+    <com.zeus.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_weather_temp_color"
         android:title="@string/lockscreen_weather_temp_color"
         android:defaultValue="0xffffffff" />
 		
-    <com.zenx.support.colorpicker.ColorPickerPreference
+    <com.zeus.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_weather_city_color"
         android:title="@string/lockscreen_weather_city_color"
         android:defaultValue="0xffffffff" />
 
-   <com.zenx.support.colorpicker.ColorPickerPreference
+   <com.zeus.support.colorpicker.ColorPickerPreference
         android:key="lockscreen_weather_icon_color"
         android:title="@string/lockscreen_weather_icon_color"
         android:defaultValue="0x99FFFFFF" />

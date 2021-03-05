@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2020 ZenX-OS
+     Copyright (C) 2020 Zeus-OS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -33,13 +33,13 @@
             android:summary="%s"
             android:defaultValue="0" />
 
-        <com.zenx.support.preferences.SystemSettingSwitchPreference
+        <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="qs_quick_brightness_slider_side_buttons"
             android:title="@string/qqs_brightness_buttons_icon_title"
             android:summary="@string/qqs_brightness_buttons_icon_summary"
             android:defaultValue="true" />
 
-        <com.zenx.support.preferences.SystemSettingSwitchPreference
+        <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="qs_quick_brightness_auto_buttons"
             android:title="@string/qs_quick_brightness_auto_buttons_title"
             android:summary="@string/qs_quick_brightness_auto_buttons_summary"
@@ -51,27 +51,27 @@
         android:key="qs_slider_category"
         android:title="@string/qs_slider_category_title">
 
-        <com.zenx.support.preferences.SecureSettingSwitchPreference
+        <com.zeus.support.preferences.SecureSettingSwitchPreference
             android:key="qs_show_brightness"
             android:title="@string/qs_brightness_slider_title"
             android:summary="@string/qs_brightness_slider_summary"
             android:defaultValue="true"/>
 
-        <com.zenx.support.preferences.SecureSettingSwitchPreference
+        <com.zeus.support.preferences.SecureSettingSwitchPreference
             android:key="qs_show_auto_brightness_button"
             android:title="@string/brightness_icon_title"
             android:summary="@string/brightness_icon_summary"
             android:dependency="qs_show_brightness"
             android:defaultValue="false" />
 
-        <com.zenx.support.preferences.SecureSettingSwitchPreference
+        <com.zeus.support.preferences.SecureSettingSwitchPreference
             android:key="qs_show_brightness_side_buttons"
             android:title="@string/brightness_side_buttons_title"
             android:summary="@string/brightness_side_buttons_summary"
             android:dependency="qs_show_brightness"
             android:defaultValue="false" />
 
-        <com.zenx.support.preferences.SecureSettingSwitchPreference
+        <com.zeus.support.preferences.SecureSettingSwitchPreference
             android:key="qs_brightness_position_bottom"
             android:title="@string/qs_brightness_position_bottom_title"
             android:summary="@string/qs_brightness_position_bottom_summary"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2020 ZenX-OS
+<!-- Copyright (C) 2020 Zeus-OS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -24,13 +24,13 @@
         android:key="power_panel_key_secure"
         android:title="@string/power_panel_secure_title" />
 
-          <com.zenx.support.preferences.SystemSettingSwitchPreference
+          <com.zeus.support.preferences.SystemSettingSwitchPreference
                android:key="lockscreen_enable_power_menu"
                android:title="@string/lockscreen_enable_power_menu_title"
                android:summary="@string/lockscreen_enable_power_menu_summary"
                android:defaultValue="true" />
 
-            <com.zenx.support.preferences.GlobalSettingSwitchPreference
+            <com.zeus.support.preferences.GlobalSettingSwitchPreference
                android:key="lockscreen_powermenu_secure"
                android:title="@string/lockscreen_secure_power_menu_title"
                android:summary="@string/lockscreen_secure_power_menu_summary"
@@ -88,7 +88,7 @@
         android:summary="@string/advanced_reboot_summary"
         android:defaultValue="true" />
 
-    <com.zenx.support.preferences.SecureSettingSeekBarPreference
+    <com.zeus.support.preferences.SecureSettingSeekBarPreference
         android:key="global_actions_max_columns"
         android:title="@string/global_actions_max_columns_title"
         android:summary="@string/global_actions_max_columns_summary"
@@ -96,52 +96,52 @@
         android:min="3"
         android:defaultValue="3"/>
 
-    <!-- <com.zenx.support.preferences.SecureSettingSwitchPreference
+    <!-- <com.zeus.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_screenshot"
         android:title="@string/global_actions_screenshot"
         android:defaultValue="false" /> -->
 
-    <com.zenx.support.preferences.SecureSettingSwitchPreference
+    <com.zeus.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_screenrecord"
         android:title="@string/global_actions_screenrecord"
         android:defaultValue="false" />
 
-    <com.zenx.support.preferences.SecureSettingSwitchPreference
+    <com.zeus.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_airplane"
         android:title="@string/global_actions_airplane"
         android:defaultValue="false" />
 
-    <com.zenx.support.preferences.SecureSettingSwitchPreference
+    <com.zeus.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_settings"
         android:title="@string/global_actions_settings"
         android:defaultValue="false" />
 
-    <com.zenx.support.preferences.SecureSettingSwitchPreference
+    <com.zeus.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_lockdown"
         android:title="@string/global_actions_lockdown"
         android:defaultValue="false" />
 
-    <com.zenx.support.preferences.SecureSettingSwitchPreference
+    <com.zeus.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_flashlight"
         android:title="@string/global_actions_flashlight"
         android:defaultValue="false" />
 
-    <!-- <com.zenx.support.preferences.SecureSettingSwitchPreference
+    <!-- <com.zeus.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_users"
         android:title="@string/global_actions_users"
         android:defaultValue="false" /> -->
 
-    <com.zenx.support.preferences.SecureSettingSwitchPreference
+    <com.zeus.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_emergency"
         android:title="@string/global_actions_emergency"
         android:defaultValue="false" />
 
-    <!-- <com.zenx.support.preferences.SecureSettingSwitchPreference
+    <!-- <com.zeus.support.preferences.SecureSettingSwitchPreference
         android:key="global_actions_soundpanel"
         android:title="@string/global_actions_soundpanel"
         android:defaultValue="false" /> -->
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zeus.support.preferences.SystemSettingSwitchPreference
         android:key="global_actions_onthego"
         android:title="@string/global_actions_onthego_title"
         android:defaultValue="false" />

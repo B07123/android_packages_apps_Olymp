@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2020 ZenX-OS
+<!-- Copyright (C) 2020 Zeus-OS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
         android:title="@string/ls_clock_title"
         android:key="ls_clocke">
 
-          <com.zenx.support.preferences.CustomSeekBarPreference
+          <com.zeus.support.preferences.CustomSeekBarPreference
                android:key="lockclock_font_size"
                android:title="@string/lockclock_font_size_title"
                android:max="101"
@@ -47,19 +47,19 @@
                android:defaultValue="0"
                android:persistent="false" />
 
-          <com.zenx.support.preferences.SystemSettingSwitchPreference
+          <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_accent_color_hour"
             android:title="@string/use_accent_color_hour_title"
             android:summary="@string/use_accent_color_hour_summary"
             android:defaultValue="false" />
 
-          <com.zenx.support.preferences.SystemSettingSwitchPreference
+          <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_accent_color_minute"
             android:title="@string/use_accent_color_minute_title"
             android:summary="@string/use_accent_color_minute_summary"
             android:defaultValue="false" />
 
-          <com.zenx.support.preferences.SystemSettingSwitchPreference
+          <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_accent_color_custom"
             android:title="@string/use_accent_color_custom_title"
             android:summary="@string/use_accent_color_custom_summary"

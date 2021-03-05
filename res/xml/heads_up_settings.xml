@@ -12,7 +12,7 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zeus.support.preferences.SystemSettingSwitchPreference
         android:key="less_boring_heads_up"
         android:title="@string/less_boring_heads_up_title"
         android:summary="@string/less_boring_heads_up_summary"
@@ -21,7 +21,7 @@
     <PreferenceCategory
            android:title="@string/heads_up_notifications" >
 
-    <com.zenx.support.preferences.GlobalSettingSwitchPreference
+    <com.zeus.support.preferences.GlobalSettingSwitchPreference
             android:key="heads_up_notifications_enabled"
             android:title="@string/heads_up_notifications"
             android:summaryOn="@string/summary_heads_up_enabled"

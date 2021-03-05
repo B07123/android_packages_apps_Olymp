@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2020 ZenX-OS
+<!-- Copyright (C) 2020 Zeus-OS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
     android:title="@string/qs_column_row"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-        <com.zenx.support.preferences.SystemSettingSeekBarPreference
+        <com.zeus.support.preferences.SystemSettingSeekBarPreference
             android:key="qs_columns_portrait"
             android:title="@string/qs_columns_portrait_title"
             android:defaultValue="4"
@@ -26,7 +26,7 @@
             settings:min="1"
             settings:units="" />
 
-        <com.zenx.support.preferences.SystemSettingSeekBarPreference
+        <com.zeus.support.preferences.SystemSettingSeekBarPreference
             android:key="qs_rows_portrait"
             android:title="@string/qs_rows_portrait_title"
             android:defaultValue="2"
@@ -34,7 +34,7 @@
             settings:min="1"
             settings:units="" />
 
-        <com.zenx.support.preferences.SystemSettingSeekBarPreference
+        <com.zeus.support.preferences.SystemSettingSeekBarPreference
             android:key="qs_columns_landscape"
             android:title="@string/qs_columns_landscape_title"
             android:defaultValue="5"
@@ -42,7 +42,7 @@
             settings:min="1"
             settings:units="" />
 
-        <com.zenx.support.preferences.SystemSettingSeekBarPreference
+        <com.zeus.support.preferences.SystemSettingSeekBarPreference
             android:key="qs_rows_landscape"
             android:title="@string/qs_rows_landscape_title"
             android:defaultValue="1"
@@ -50,7 +50,7 @@
             settings:min="1"
             settings:units="" />
 
-        <com.zenx.support.preferences.CustomSeekBarPreference
+        <com.zeus.support.preferences.CustomSeekBarPreference
             android:key="qs_quickbar_columns"
             android:title="@string/sysui_qqs_count_title"
             android:max="8"

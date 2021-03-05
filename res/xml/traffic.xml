@@ -39,20 +39,20 @@
         android:entryValues="@array/network_traffic_layout_values"
         android:persistent="false" />
 
-    <com.zenx.support.preferences.CustomSeekBarPreference
+    <com.zeus.support.preferences.CustomSeekBarPreference
         android:key="network_traffic_autohide_threshold"
         android:title="@string/network_traffic_autohide_threshold_title"
         android:max="10"
         settings:min="0"
         settings:units="" />
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zeus.support.preferences.SystemSettingSwitchPreference
         android:key="network_traffic_arrow"
         android:title="@string/network_traffic_arrow"
         android:summary="@string/network_traffic_arrow_summary"
         android:defaultValue="true" />
 
-    <com.zenx.support.preferences.CustomSeekBarPreference
+    <com.zeus.support.preferences.CustomSeekBarPreference
         android:key="network_traffic_font_size"
         android:title="@string/nettraf_font_size"
         android:max="48"
@@ -60,7 +60,7 @@
         settings:defaultValue="42"
         settings:units="dp" />
 
-    <com.zenx.support.preferences.SystemSettingListPreference
+    <com.zeus.support.preferences.SystemSettingListPreference
         android:key="network_traffic_font_style" 
         android:title="@string/net_traffic_font" 
         android:entries="@array/lock_clock_fonts_entries" 

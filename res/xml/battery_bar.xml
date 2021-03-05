@@ -16,21 +16,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <com.zenx.support.preferences.SystemSettingListPreference
+    <com.zeus.support.preferences.SystemSettingListPreference
         android:key="statusbar_battery_bar_location"
         android:title="@string/battery_bar_location_title"
         android:entries="@array/battery_bar_location_entries"
         android:entryValues="@array/battery_bar_location_values"
         android:defaultValue="1" />
 
-    <com.zenx.support.preferences.SystemSettingListPreference
+    <com.zeus.support.preferences.SystemSettingListPreference
         android:key="statusbar_battery_bar_style"
         android:title="@string/battery_bar_style_title"
         android:entries="@array/battery_bar_style_entries"
         android:entryValues="@array/battery_bar_style_values"
         android:defaultValue="0" />
 
-    <com.zenx.support.preferences.SystemSettingSeekBarPreference
+    <com.zeus.support.preferences.SystemSettingSeekBarPreference
         android:key="statusbar_battery_bar_thickness"
         android:title="@string/battery_bar_thickness_title"
         android:defaultValue="2"
@@ -38,13 +38,13 @@
         settings:min="1"
         settings:units="dp" />
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zeus.support.preferences.SystemSettingSwitchPreference
         android:key="statusbar_battery_bar_animate"
         android:title="@string/battery_bar_animate_title"
         android:summary="@string/battery_bar_animate_summary"
         android:defaultValue="false" />
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zeus.support.preferences.SystemSettingSwitchPreference
         android:key="statusbar_battery_bar_enable_charging_color"
         android:title="@string/battery_bar_use_charging_color_title"
         android:summary="@string/battery_bar_use_charging_color_summary"
@@ -54,7 +54,7 @@
         android:key="light_statusbar"
         android:title="@string/light_statusbar_title">
 
-        <com.zenx.support.colorpicker.SystemSettingColorBlendPreference
+        <com.zeus.support.colorpicker.SystemSettingColorBlendPreference
             android:title="@string/battery_bar_color_title"
             android:summary="@string/battery_bar_color_summary"
             settings:keyColorStart="statusbar_battery_bar_battery_low_color"
@@ -66,7 +66,7 @@
             settings:previewBetweenText="@string/battery_blend_between"
             settings:previewEndText="@string/battery_blend_end" />
 
-        <com.zenx.support.colorpicker.ColorPickerPreference
+        <com.zeus.support.colorpicker.ColorPickerPreference
             android:key="statusbar_battery_bar_charging_color"
             android:title="@string/battery_bar_charging_color_title"
             android:defaultValue="0xffffff00"
@@ -77,7 +77,7 @@
         android:key="dark_statusbar"
         android:title="@string/dark_statusbar_title">
 
-        <com.zenx.support.colorpicker.SystemSettingColorBlendPreference
+        <com.zeus.support.colorpicker.SystemSettingColorBlendPreference
             android:title="@string/battery_bar_color_title"
             android:summary="@string/battery_bar_color_summary"
             settings:keyColorStart="statusbar_battery_bar_battery_low_dark_color"
@@ -89,7 +89,7 @@
             settings:previewBetweenText="@string/battery_blend_between"
             settings:previewEndText="@string/battery_blend_end" />
 
-        <com.zenx.support.colorpicker.ColorPickerPreference
+        <com.zeus.support.colorpicker.ColorPickerPreference
             android:key="statusbar_battery_bar_charging_dark_color"
             android:title="@string/battery_bar_charging_color_title"
             android:defaultValue="0xff0d47a1"

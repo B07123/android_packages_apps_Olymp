@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2020 ZenX-OS
+<!-- Copyright (C) 2020 Zeus-OS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
     xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zeus.support.preferences.SystemSettingSwitchPreference
         android:key="hardware_keys_disable"
         android:title="@string/hwkeys_disabled_title"
         android:summary="@string/hwkeys_disabled_summary" />
@@ -30,14 +30,14 @@
         android:summary="@string/swap_capacitive_keys_summary"
         android:defaultValue="false" />
 
-    <com.zen.hub.fragments.subs.light.ButtonBacklightBrightness
+    <com.settings.olymp.fragments.subs.light.ButtonBacklightBrightness
         android:key="button_backlight"
         android:title="@string/button_backlight_title"
         android:summary="@string/button_backlight_summary"
         android:dialogTitle="@string/button_backlight_title"
         android:persistent="false" />
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zeus.support.preferences.SystemSettingSwitchPreference
         android:key="anbi_enabled"
         android:title="@string/anbi_title"
         android:summary="@string/anbi_summary"

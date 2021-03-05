@@ -21,7 +21,7 @@
         android:key="weather_service"
         android:title="@string/weather_service_title" />
 
-    <!-- <com.zenx.support.preferences.SecureSettingSeekBarPreference
+    <!-- <com.zeus.support.preferences.SecureSettingSeekBarPreference
         android:key="lockscreen_item_padding"
         android:title="@string/lockscreen_item_padding_title"
         android:defaultValue="35"
@@ -53,7 +53,7 @@
         android:key="weather_style"
         android:title="@string/weather_style_title" />
 
-        <com.zenx.support.preferences.SystemSettingSwitchPreference
+        <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_weather_style"
             android:title="@string/lock_screen_weather_style_title"
             android:summaryOn="@string/lock_screen_weather_style_summaryOn"
@@ -62,14 +62,14 @@
             android:defaultValue="true" />
 
 
-        <com.zenx.support.preferences.SystemSettingSwitchPreference
+        <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_weather_enabled"
             android:title="@string/lockscreen_weather_title"
             android:summary="@string/lockscreen_weather_summary"
             android:defaultValue="true" />
 
 
-        <com.zenx.support.preferences.SecureSettingListPreference
+        <com.zeus.support.preferences.SecureSettingListPreference
             android:key="lockscreen_weather_alignment"
             android:title="@string/lockscreen_weather_alignment_title"
             android:dialogTitle="@string/lockscreen_weather_alignment_title"
@@ -80,21 +80,21 @@
             android:defaultValue="1" />
 
 
-        <com.zenx.support.preferences.SystemSettingSwitchPreference
+        <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_weather_show_image"
             android:title="@string/lockscreen_weather_show_image_title"
             android:summary="@string/lockscreen_weather_show_image_summary"
             android:dependency="lockscreen_weather_style"
             android:defaultValue="true" />
 
-        <com.zenx.support.preferences.SystemSettingSwitchPreference
+        <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_weather_show_city"
             android:title="@string/lockscreen_weather_show_city_title"
             android:summary="@string/lockscreen_weather_show_city_summary"
             android:dependency="lockscreen_weather_style"
             android:defaultValue="true" />
 
-        <com.zenx.support.preferences.SecureSettingListPreference
+        <com.zeus.support.preferences.SecureSettingListPreference
             android:key="lockscreen_weather_selection"
             android:title="@string/lockscreen_weather_selection_title"
             android:dialogTitle="@string/lockscreen_weather_selection_title"
@@ -114,7 +114,7 @@
             android:dependency="lockscreen_weather_style"
             android:persistent="false" />
 
-        <com.zenx.support.preferences.SystemSettingSwitchPreference
+        <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_weather_show_temp"
             android:title="@string/lockscreen_weather_show_temp_title"
             android:summary="@string/lockscreen_weather_show_temp_summary"

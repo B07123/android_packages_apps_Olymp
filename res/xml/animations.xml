@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2020 ZenX-OS
+<!-- Copyright (C) 2020 Zeus-OS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@
         android:key="toast_animation_cat" >
 
         <!-- Toast Icon -->
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zeus.support.preferences.SystemSettingSwitchPreference
         android:key="toast_icon"
         android:title="@string/toast_icon_title"
         android:summary="@string/toast_icon_summary"
@@ -105,7 +105,7 @@
             android:key="system_animation_preference"
             android:title="@string/system_animation_title"
             android:summary="@string/system_animation_summary"
-            android:fragment="com.zen.hub.fragments.subs.Systemanimations" />
+            android:fragment="com.settings.olymp.fragments.subs.Systemanimations" />
 
     </PreferenceCategory>
 

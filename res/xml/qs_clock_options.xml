@@ -16,13 +16,13 @@
 	android:title="@string/qs_clock_options_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-        <com.zenx.support.preferences.SystemSettingSwitchPreference
+        <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="show_qs_clock"
             android:title="@string/qs_clock_title"
             android:summary="@string/qs_clock_summary"
             android:defaultValue="true" />
 
-        <com.zenx.support.preferences.CustomSeekBarPreference
+        <com.zeus.support.preferences.CustomSeekBarPreference
             android:key="qs_header_clock_size"
             android:title="@string/qs_header_clock_font_size_title"
             android:max="32"
@@ -31,7 +31,7 @@
             android:dependency="show_qs_clock"
             settings:units="sp" />
 
-        <com.zenx.support.preferences.SystemSettingSwitchPreference
+        <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="show_qs_status_clock"
             android:title="@string/show_qs_status_clock_title"
             android:summary="@string/show_qs_status_clock_summary"

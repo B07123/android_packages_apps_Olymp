@@ -1,4 +1,4 @@
-ZenHub
+The Olymp
 ==============
 
 Introduce a new Configuration App for AOSP.
@@ -7,7 +7,7 @@ This App combines minmal list view with tabbed sub preferences for better overvi
 
 ## License
 
-    Copyright (C) 2020 The ZenX-OS Project by @ZeNiXxX
+    Copyright (C) 2020 The Zeus-OS Project by @ZeNiXxX
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

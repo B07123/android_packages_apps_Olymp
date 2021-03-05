@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2020 ZenX-OS
+<!-- Copyright (C) 2020 Zeus-OS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
           <!-- Battery styles -->
-        <com.zenx.support.preferences.SystemSettingListPreference
+        <com.zeus.support.preferences.SystemSettingListPreference
             android:key="qs_battery_style"
             android:title="@string/status_bar_battery_style_title"
             android:dialogTitle="@string/status_bar_battery_style_title"
@@ -28,7 +28,7 @@
             android:defaultValue="-1" />
 
         <!-- Battery location -->
-        <com.zenx.support.preferences.SystemSettingListPreference
+        <com.zeus.support.preferences.SystemSettingListPreference
             android:key="qs_battery_location"
             android:title="@string/qs_battery_location_title"
             android:dialogTitle="@string/qs_battery_location_title"
@@ -37,27 +37,27 @@
             android:defaultValue="0" />
 
         <!-- Battery percent -->
-        <com.zenx.support.preferences.SystemSettingListPreference
+        <com.zeus.support.preferences.SystemSettingListPreference
             android:key="qs_show_battery_percent"
             android:title="@string/battery_percentage_title"
             android:entries="@array/battery_percentage_entries"
             android:entryValues="@array/battery_percentage_values"
             android:defaultValue="2" />
 
-        <com.zenx.support.preferences.SystemSettingSwitchPreference
+        <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="status_bar_force_battery_icon_qs_header"
             android:title="@string/status_bar_force_battery_icon_qs_header_title"
             android:summary="@string/status_bar_force_battery_icon_qs_header_summary"
             android:defaultValue="true" />
 
         <!-- Battery estimate -->
-        <com.zenx.support.preferences.SystemSettingSwitchPreference
+        <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="qs_show_battery_estimate"
             android:title="@string/battery_estimate_title"
             android:summary="@string/battery_estimate_summary"
             android:defaultValue="true" />
 
-        <com.zenx.support.preferences.SystemSettingSwitchPreference
+        <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="hide_percentage_next_to_estimate"
             android:title="@string/hide_percentage_next_to_estimate_title"
             android:summary="@string/hide_percentage_next_to_estimate_summary"

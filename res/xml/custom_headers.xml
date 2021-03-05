@@ -26,13 +26,13 @@
             android:entries="@array/qs_header_style_entries"
             android:entryValues="@array/qs_header_style_values" />
 
-        <com.zenx.support.colorpicker.ColorPickerPreference
+        <com.zeus.support.colorpicker.ColorPickerPreference
             android:key="qs_header_style_color"
             android:title="@string/qs_header_style_color_title"
             android:summary="@string/qs_header_style_color_summary"
             android:defaultValue="0x00000000" />
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference
+    <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="qs_header_style_gradient"
             android:title="@string/qs_header_style_gradient_title"
             android:summary="@string/qs_header_style_gradient_summary"
@@ -42,7 +42,7 @@
         android:key="cus_header"
         android:title="@string/custom_header_title">
 
-        <com.zenx.support.preferences.SystemSettingSwitchPreference
+        <com.zeus.support.preferences.SystemSettingSwitchPreference
             android:key="status_bar_custom_header"
             android:title="@string/custom_header_title"
             android:summary="@string/custom_header_summary"
@@ -76,7 +76,7 @@
             android:summary="@string/file_header_select_summary"
             android:dependency="status_bar_custom_header" />
 
-        <com.zenx.support.preferences.SystemSettingSeekBarPreference
+        <com.zeus.support.preferences.SystemSettingSeekBarPreference
             android:key="status_bar_custom_header_shadow"
             android:title="@string/status_bar_custom_header_shadow_title"
             android:summary="@string/status_bar_custom_header_shadow_summary"

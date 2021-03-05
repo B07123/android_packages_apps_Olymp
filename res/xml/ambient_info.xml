@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2020 ZenX-OS
+<!-- Copyright (C) 2020 Zeus-OS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,12 +16,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="@string/ambient_info_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference android:key="ambient_info" android:title="@string/ambient_info_title" android:summary="@string/ambient_info_summary" android:defaultValue="true" />
+    <com.zeus.support.preferences.SystemSettingSwitchPreference android:key="ambient_info" android:title="@string/ambient_info_title" android:summary="@string/ambient_info_summary" android:defaultValue="true" />
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference android:key="ambient_battery_percent" android:title="@string/ambient_battery_percent_title" android:summary="@string/ambient_battery_percent_summary" android:dependency="ambient_info" android:defaultValue="true" />
+    <com.zeus.support.preferences.SystemSettingSwitchPreference android:key="ambient_battery_percent" android:title="@string/ambient_battery_percent_title" android:summary="@string/ambient_battery_percent_summary" android:dependency="ambient_info" android:defaultValue="true" />
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference android:key="ambient_battery_temperature" android:title="@string/ambient_battery_temperature_title" android:summary="@string/ambient_battery_temperature_summary" android:dependency="ambient_info" android:defaultValue="true" />
+    <com.zeus.support.preferences.SystemSettingSwitchPreference android:key="ambient_battery_temperature" android:title="@string/ambient_battery_temperature_title" android:summary="@string/ambient_battery_temperature_summary" android:dependency="ambient_info" android:defaultValue="true" />
 
-    <com.zenx.support.preferences.SystemSettingSwitchPreference android:key="ambient_cpu_temperature" android:title="@string/ambient_cpu_temperature_title" android:summary="@string/ambient_cpu_temperature_summary" android:dependency="ambient_info" android:defaultValue="false" />
+    <com.zeus.support.preferences.SystemSettingSwitchPreference android:key="ambient_cpu_temperature" android:title="@string/ambient_cpu_temperature_title" android:summary="@string/ambient_cpu_temperature_summary" android:dependency="ambient_info" android:defaultValue="false" />
 
 </PreferenceScreen>

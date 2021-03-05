@@ -33,43 +33,43 @@
 
     <!--<Preference
         android:key="blacklist_fragment"
-        android:fragment="com.zenx.support.fragments.navigation.smartnav.PulseBlacklist"
+        android:fragment="com.zeus.support.fragments.navigation.smartnav.PulseBlacklist"
         android:title="@string/pulse_blacklist_title"
         android:summary="@string/pulse_blacklist_summary"/>-->
 
-    <com.zenx.support.preferences.SecureSettingListPreference
+    <com.zeus.support.preferences.SecureSettingListPreference
         android:key="pulse_render_style"
         android:title="@string/pulse_render_mode_title"
         android:entries="@array/pulse_render_mode_entries"
         android:entryValues="@array/pulse_render_mode_values"
         android:defaultValue="1"/>
 
-    <com.zenx.support.preferences.SecureSettingSwitchPreference
+    <com.zeus.support.preferences.SecureSettingSwitchPreference
         android:key="pulse_smoothing_enabled"
         android:title="@string/pulse_smoothing_enabled_title"
         android:summary="@string/pulse_smoothing_enabled_summary"
         android:defaultValue="false"/>
 
-    <com.zenx.support.preferences.SecureSettingListPreference
+    <com.zeus.support.preferences.SecureSettingListPreference
         android:key="pulse_color_mode"
         android:title="@string/pulse_color_mode_title"
         android:entries="@array/pulse_color_mode_entries"
         android:entryValues="@array/pulse_color_mode_values"
         android:defaultValue="2"/>
 
-    <com.zenx.support.colorpicker.ColorPickerPreference
+    <com.zeus.support.colorpicker.ColorPickerPreference
         android:key="pulse_color_user"
         android:title="@string/pulse_color_user_title"
         android:defaultValue="0x92FFFFFF"/>
 
-    <!--<com.zenx.support.preferences.SecureSettingSeekBarPreference
+    <!--<com.zeus.support.preferences.SecureSettingSeekBarPreference
         android:key="pulse_custom_buttons_opacity"
         android:title="@string/pulse_custom_buttons_opacity_title"
         android:defaultValue="200"
         android:max="255"
         settings:min="0"/>-->
 
-    <com.zenx.support.preferences.SecureSettingSeekBarPreference
+    <com.zeus.support.preferences.SecureSettingSeekBarPreference
         android:key="pulse_lavalamp_speed"
         android:title="@string/pulse_lavalamp_speed_title"
         android:defaultValue="10000"
@@ -82,7 +82,7 @@
         android:key="pulse_fading_bars_category"
         android:title="@string/pulse_legacy_mode_advanced_category">
 
-        <com.zenx.support.preferences.SecureSettingSeekBarPreference
+        <com.zeus.support.preferences.SecureSettingSeekBarPreference
             android:key="pulse_custom_dimen"
             android:title="@string/pulse_custom_dimen"
             android:defaultValue="14"
@@ -91,7 +91,7 @@
             settings:units="@string/unit_pixels"
             android:dependency="pulse_fading_bars_category"/>
 
-        <com.zenx.support.preferences.SecureSettingSeekBarPreference
+        <com.zeus.support.preferences.SecureSettingSeekBarPreference
             android:key="pulse_custom_div"
             android:title="@string/pulse_custom_div"
             android:defaultValue="16"
@@ -101,7 +101,7 @@
             settings:units="@string/unit_pixels"
             android:dependency="pulse_fading_bars_category"/>
 
-        <com.zenx.support.preferences.SecureSettingSeekBarPreference
+        <com.zeus.support.preferences.SecureSettingSeekBarPreference
             android:key="pulse_filled_block_size"
             android:title="@string/pulse_filled_block_size"
             android:defaultValue="4"
@@ -110,7 +110,7 @@
             settings:units="@string/unit_pixels"
             android:dependency="pulse_fading_bars_category"/>
 
-        <com.zenx.support.preferences.SecureSettingSeekBarPreference
+        <com.zeus.support.preferences.SecureSettingSeekBarPreference
             android:key="pulse_empty_block_size"
             android:title="@string/pulse_empty_block_size"
             android:defaultValue="1"
@@ -119,7 +119,7 @@
             settings:units="@string/unit_pixels"
             android:dependency="pulse_fading_bars_category"/>
 
-        <com.zenx.support.preferences.SecureSettingSeekBarPreference
+        <com.zeus.support.preferences.SecureSettingSeekBarPreference
             android:key="pulse_custom_fudge_factor"
             android:title="@string/pulse_custom_fudge_factor"
             android:defaultValue="4"
@@ -127,11 +127,11 @@
             settings:min="2"
             android:dependency="pulse_fading_bars_category"/>
 
-        <!--<com.zenx.support.colorpicker.ColorPickerPreference
+        <!--<com.zeus.support.colorpicker.ColorPickerPreference
             android:key="fling_lavalamp_color_from"
             android:title="@string/fling_lavalamp_color_from"
             android:defaultValue="0xffff8080"/>
-        <com.zenx.support.colorpicker.ColorPickerPreference
+        <com.zeus.support.colorpicker.ColorPickerPreference
             android:key="fling_lavalamp_color_to"
             android:title="@string/fling_lavalamp_color_to"
             android:defaultValue="0xff8080ff"/>-->
@@ -141,7 +141,7 @@
         android:key="pulse_2"
         android:title="@string/pulse_solid_dimen_category">
 
-        <com.zenx.support.preferences.SecureSettingSeekBarPreference
+        <com.zeus.support.preferences.SecureSettingSeekBarPreference
             android:key="pulse_solid_units_opacity"
             android:title="@string/pulse_solid_units_opacity"
             android:defaultValue="200"
@@ -149,7 +149,7 @@
             settings:min="0"
             android:dependency="pulse_2"/>
 
-        <com.zenx.support.preferences.SecureSettingSeekBarPreference
+        <com.zeus.support.preferences.SecureSettingSeekBarPreference
             android:key="pulse_solid_units_count"
             android:title="@string/pulse_solid_units_count"
             android:defaultValue="32"
@@ -158,7 +158,7 @@
             settings:interval="16"
             android:dependency="pulse_2"/>
 
-        <com.zenx.support.preferences.SecureSettingSeekBarPreference
+        <com.zeus.support.preferences.SecureSettingSeekBarPreference
             android:key="pulse_solid_fudge_factor"
             android:title="@string/pulse_custom_fudge_factor"
             android:defaultValue="4"

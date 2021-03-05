@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2020 ZenX-OS
+<!-- Copyright (C) 2020 Zeus-OS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@
         android:defaultValue="0"
         android:persistent="false" />
 
-     <com.zenx.support.preferences.CustomSeekBarPreference
+     <com.zeus.support.preferences.CustomSeekBarPreference
         android:key="lockdate_font_size"
         android:title="@string/lockdate_font_size_title"
         android:max="25"
@@ -37,7 +37,7 @@
         android:defaultValue="21"
         android:persistent="false" />
 
-     <com.zenx.support.preferences.SecureSettingListPreference
+     <com.zeus.support.preferences.SecureSettingListPreference
         android:key="lockscreen_date_selection"
         android:title="@string/lockscreen_date_selection_title"
         android:dialogTitle="@string/lockscreen_date_dialog_title"
