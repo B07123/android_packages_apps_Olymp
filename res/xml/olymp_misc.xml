@@ -15,8 +15,21 @@
 -->
 <PreferenceScreen
         xmlns:android="http://schemas.android.com/apk/res/android"
-	android:title="@string/misc_title"
+	    android:title="@string/misc_title"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    
+    <PreferenceCategory
+        android:key="settings_sound"
+        android:title="@string/settings_sounds">
+
+        <PreferenceScreen
+            android:key="charging_sounds_settings"
+            android:title="@string/charging_sounds_settings_title"
+            android:summary="@string/charging_sounds_settings_summary"
+            android:fragment="com.settings.olymp.fragments.subs.ChargingSoundsSettings" />
+
+    </PreferenceCategory>
+
 
     <PreferenceCategory
         android:key="system_misc_category"

@@ -1701,5 +1701,20 @@
     <string name="always_on_display_schedule_title">Always on display schedule</string>
     <string name="always_on_display_schedule_sunset">Sunset</string>
     <string name="always_on_display_schedule_sunrise">Sunrise</string>
+    
+    <string name="settings_sounds">Sound</string>
+    <string name="charging_sounds_settings_title">Charging sounds</string>
+    <string name="charging_sounds_settings_summary">Customize sound played when connecting or disconnecting a power source</string>
+    <string name="charging_sounds_enabled_title">Enable</string>
+    <string name="charging_sounds_enabled_summary">Play a sound when connecting or disconnecting a power source</string>
+    <string name="power_notifications_vibrate_title">Vibrate</string>
+    <string name="charging_sounds_ringtone_title">Notification sound</string>
+    <string name="charging_sounds_ringtone_silent">Silent</string>
 
+    <!-- Battery fully charged sound -->
+    <string name="battery_fully_charged_sound_enabled_title">Battery fully charged sound</string>
+    <string name="battery_fully_charged_sound_enabled_summary">Play a sound when battery fully charged</string>
+    <string name="battery_fully_charged_vibrate_title">Vibrate</string>
+    <string name="battery_fully_charged_sound_ringtone_title">Notification sound</string>
+    <string name="battery_fully_charged_sound_ringtone_silent">Silent</string>
 </resources>
