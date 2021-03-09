@@ -67,6 +67,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String QS_MEDIA_DIVIDER = "qs_media_divider";
     private static final String QS_MEDIA_DIVIDER_COLOR_MODE = "qs_media_divider_color_mode";
     private static final String QS_MEDIA_DIVIDER_RANDOM_COLOR_INTERVAL = "qs_media_divider_random_color_interval";
+    private static final String BRIGHTNESS_SLIDER_THUMB = "brightness_slider_thumb";
+    private static final String QS_SYSTEM_INFO_ICON = "qs_system_info_icon";
+    private static final String QS_SYSTEM_INFO = "qs_system_info";
 
     private IOverlayManager mOverlayManager;
     private ListPreference mBrightnessSliderStyle;
@@ -74,6 +77,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mQsColorMode;
     private SystemSettingSwitchPreference mQsColorDivider;
     private CustomSeekBarPreference mMediaDividerRandomColorInterval;
+    private ListPreference mBrightnessThumbStyle;
+    private SystemSettingSwitchPreference mShowSystemInfoIcon;
+    private SystemSettingListPreference mShowSystemInfo;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -116,7 +122,40 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 return false;
             }});
 
-        mQsTileStyle = (ListPreference) findPreference(PREF_TILE_STYLE);
+        mShowSystemInfoIcon = (SystemSettingSwitchPreference) findPreference(QS_SYSTEM_INFO_ICON);
+        mShowSystemInfoIcon.setOnPreferenceChangeListener(this);
+        updateSystemIconView();
+
+        mBrightnessThumbStyle = (ListPreference) findPreference(BRIGHTNESS_SLIDER_THUMB);
+        int BrightnessThumbStyle = Settings.System.getInt(resolver,
+                Settings.System.BRIGHTNESS_SLIDER_THUMB, 0);
+        int BrightnessThumbStyleValue = getOverlayPosition(ThemesUtils.BRIGHTNESS_SLIDER_THUMB);
+        if (BrightnessThumbStyleValue != 0) {
+            mBrightnessThumbStyle.setValue(String.valueOf(BrightnessThumbStyle));
+        }
+        mBrightnessThumbStyle.setSummary(mBrightnessThumbStyle.getEntry());
+        mBrightnessThumbStyle.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                if (preference == mBrightnessThumbStyle) {
+                    String value = (String) newValue;
+                    Settings.System.putInt(resolver, Settings.System.BRIGHTNESS_SLIDER_THUMB, Integer.valueOf(value));
+                    int valueIndex = mBrightnessThumbStyle.findIndexOfValue(value);
+                    mBrightnessThumbStyle.setSummary(mBrightnessThumbStyle.getEntries()[valueIndex]);
+                    String overlayName = getOverlayName(ThemesUtils.BRIGHTNESS_SLIDER_THUMB);
+                    if (overlayName != null) {
+                        handleOverlays(overlayName, false, mOverlayManager);
+                    }               
+                    if (valueIndex > 0) {
+                        handleOverlays(ThemesUtils.BRIGHTNESS_SLIDER_THUMB[valueIndex],
+                                true, mOverlayManager);
+                    }
+                    return true;
+                }
+                return false;
+            }});
+
+            mQsTileStyle = (ListPreference) findPreference(PREF_TILE_STYLE);
         int qsTileStyle = Settings.System.getInt(resolver,
                 Settings.System.QS_TILE_STYLE, 0);
         int qsTileStyleValue = getOverlayPosition(ThemesUtils.QS_TILE_THEMES);
@@ -152,6 +191,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQsColorMode = (SystemSettingListPreference) findPreference(QS_MEDIA_DIVIDER_COLOR_MODE);
         mQsColorMode.setOnPreferenceChangeListener(this);
 
+        mShowSystemInfo = (SystemSettingListPreference) findPreference(QS_SYSTEM_INFO);
+        mShowSystemInfo.setOnPreferenceChangeListener(this);
+
         mMediaDividerRandomColorInterval = (CustomSeekBarPreference) findPreference(QS_MEDIA_DIVIDER_RANDOM_COLOR_INTERVAL);
         int time = Settings.System.getInt(getContentResolver(),
                 Settings.System.QS_MEDIA_DIVIDER_RANDOM_COLOR_INTERVAL, 3);
@@ -160,6 +202,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
         handleMediaDividerVisibilty();
 
+    }
+
+    private int getQsSystemInfoMode() {
+        return Settings.System.getInt(getContext().getContentResolver(),
+                Settings.System.QS_SYSTEM_INFO, 0);
     }
 
     private String getOverlayName(String[] overlays) {
@@ -204,6 +251,14 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             mQsColorDivider.setChecked(value);
             handleMediaDividerVisibilty();
             return true;
+       } else if (preference == mShowSystemInfo) {
+                int val1 = Integer.parseInt((String) newValue);
+                int i = mShowSystemInfo.findIndexOfValue((String) newValue);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.QS_SYSTEM_INFO, val1);
+                    mShowSystemInfo.setSummary(mShowSystemInfo.getEntries()[i]);
+            updateSystemIconView();
+            return true;
         }
         return false;
     }
@@ -214,8 +269,16 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     }
 
     private boolean getMediaDivider() {
-         return Settings.System.getInt(getContentResolver(),
-                Settings.System.QS_MEDIA_DIVIDER, 1) == 1;
+        return Settings.System.getInt(getContentResolver(),
+        Settings.System.QS_MEDIA_DIVIDER, 1) == 1;
+    }
+
+    private void updateSystemIconView() {
+        if(getQsSystemInfoMode() > 0) {
+            mShowSystemInfoIcon.setVisible(true);
+         } else {
+            mShowSystemInfoIcon.setVisible(false);
+         }
     }
 
     private void handleMediaDividerVisibilty() {

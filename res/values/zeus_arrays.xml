@@ -1766,4 +1766,25 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+
+    <!-- Brightness Thumb -->
+    <string-array name="brightness_thumb_entries">
+        <item>@string/brightness_thumb_default</item>
+        <item>@string/brightness_thumb_zeus</item>
+        <item>@string/brightness_thumb_android</item>
+        <item>@string/brightness_thumb_apple</item>
+        <item>@string/brightness_thumb_biowizard</item>
+        <item>@string/brightness_thumb_yingyang</item>
+        <item>@string/brightness_thumb_flower</item>
+    </string-array>
+
+    <string-array name="brightness_thumb_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
 </resources>

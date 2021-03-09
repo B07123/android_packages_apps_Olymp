@@ -110,6 +110,14 @@
             android:summary="@string/brightness_slider_cat_summary"
             android:fragment="com.settings.olymp.fragments.subs.BrightnessSlider" />
 
+         
+      <ListPreference
+         android:key="brightness_slider_thumb"
+         android:title="@string/brightness_thumb_title"
+         android:entries="@array/brightness_thumb_entries"
+         android:entryValues="@array/brightness_thumb_values"
+         android:persistent="false" />
+
      </PreferenceCategory>
 
      <PreferenceCategory
@@ -133,15 +141,9 @@
 
      </PreferenceCategory>
 
-     <PreferenceCategory
-        android:key="qs_items_key"
-        android:title="@string/qs_items">
-
-         <PreferenceScreen
-            android:key="qs_clock_options"
-            android:title="@string/qs_clock_options_title"
-            android:summary="@string/qs_clock_options_summary"
-            android:fragment="com.settings.olymp.fragments.subs.QsClockOptions" />
+   <PreferenceCategory
+        android:key="qs_system_info_key"
+        android:title="@string/qs_system_info_cat_title">
 
       <com.zeus.support.preferences.SystemSettingListPreference
          android:key="qs_system_info"
@@ -156,6 +158,17 @@
             android:title="@string/qs_system_info_icon_title"
             android:summary="@string/qs_system_info_icon_summary"
             android:defaultValue="true" />
+  </PreferenceCategory>
+
+     <PreferenceCategory
+        android:key="qs_items_key"
+        android:title="@string/qs_items">
+
+         <PreferenceScreen
+            android:key="qs_clock_options"
+            android:title="@string/qs_clock_options_title"
+            android:summary="@string/qs_clock_options_summary"
+            android:fragment="com.settings.olymp.fragments.subs.QsClockOptions" />
 
      <com.zeus.support.preferences.SystemSettingListPreference
         android:key="qs_datausage"

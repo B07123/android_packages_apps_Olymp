@@ -39,7 +39,7 @@
      <string name="save">Save</string>
 
      <!-- Brightness Slider style -->
-     <string name="brightness_slider_style_title">Brightness slider style</string>
+     <string name="brightness_slider_style_title">Slider style</string>
      <string name="brightness_slider_style_default">Default</string>
      <string name="brightness_slider_style_daniel">Daniel</string>
      <string name="brightness_slider_style_mememini">Meme mini</string>
@@ -47,7 +47,7 @@
      <string name="brightness_slider_style_memeroundstroke">Meme round stroke</string>
      <string name="brightness_slider_style_memestroke">Meme stroke</string>
 
-     <string name="qs_brightness_slider_category_title">Brightness slider</string>
+     <string name="qs_brightness_slider_category_title">Advanced slider options</string>
      <string name="navbar_themes_title">Navigation bar</string>
 
      <!-- Navbar styles -->
@@ -1431,6 +1431,7 @@
      <string name="qs_header_style_gradient_title">Gradient Header</string>
      <string name="qs_header_style_gradient_summary">Enable or disable gradient QS background</string>
 
+     <string name="qs_system_info_cat_title">Hardware</string>
      <string name="qs_system_info_title">System Info</string>
      <string name="qs_system_info_off">Off</string>
      <string name="qs_system_info_cpu_temp">CPU temperature</string>
@@ -1445,7 +1446,7 @@
      <string name="qs_footer_info_left">Left Footer info</string>
      <string name="qs_footer_info_right">Right Footer info</string>
      <string name="qs_footer_info_off">Off</string>
-     <string name="qs_footer_info_used_data">Used Data</string>
+     <string name="qs_footer_info_used_data">Used Data (Daily)</string>
      <string name="qs_footer_info_network_traffic">Network Traffic</string>
      <string name="qs_footer_info_text">Text</string>
 
@@ -1717,4 +1718,14 @@
     <string name="battery_fully_charged_vibrate_title">Vibrate</string>
     <string name="battery_fully_charged_sound_ringtone_title">Notification sound</string>
     <string name="battery_fully_charged_sound_ringtone_silent">Silent</string>
+
+    <string name="brightness_thumb_title">Thumb style</string>
+    <string name="brightness_thumb_default">Default</string>
+    <string name="brightness_thumb_zeus">Zeus</string>
+    <string name="brightness_thumb_android">Android</string>
+    <string name="brightness_thumb_apple">Apple</string>
+    <string name="brightness_thumb_biowizard">Biowizard</string>
+    <string name="brightness_thumb_yingyang">YingYang</string>
+    <string name="brightness_thumb_flower">Flower</string>
+
 </resources>
