@@ -77,13 +77,25 @@ public class UserInterfaceSettings extends SettingsPreferenceFragment implements
         mOverlayManager = IOverlayManager.Stub.asInterface(
                 ServiceManager.getService(Context.OVERLAY_SERVICE));
 
-        mStatusbarDualRowMode = (SystemSettingListPreference) findPreference(DUAL_STATUSBAR_ROW_MODE);
-        int statusbarDualRowMode = Settings.System.getIntForUser(getActivity().getContentResolver(),
-                Settings.System.DUAL_STATUSBAR_ROW_MODE, 0, UserHandle.USER_CURRENT);
-        mStatusbarDualRowMode.setValue(String.valueOf(statusbarDualRowMode));
-        mStatusbarDualRowMode.setSummary(mStatusbarDualRowMode.getEntry());
-        mStatusbarDualRowMode.setOnPreferenceChangeListener(this);
+        boolean mIsDualStatusbarDefaultEnabled = getContext().getResources().getBoolean(
+            com.android.internal.R.bool.config_default_dual_status_bar);
+        int mDualStatusbarDefaultMode = getContext().getResources().getInteger(
+            com.android.internal.R.integer.config_default_dual_status_bar_mode);
 
+        if(mIsDualStatusbarDefaultEnabled) {
+            mStatusbarDualRowMode = (SystemSettingListPreference) findPreference(DUAL_STATUSBAR_ROW_MODE);
+            mStatusbarDualRowMode.setValue(String.valueOf(mDualStatusbarDefaultMode));
+            mStatusbarDualRowMode.setSummary(mStatusbarDualRowMode.getEntry());
+            mStatusbarDualRowMode.setOnPreferenceChangeListener(this);
+            mIsDualStatusbarDefaultEnabled = false;
+        } else {
+            mStatusbarDualRowMode = (SystemSettingListPreference) findPreference(DUAL_STATUSBAR_ROW_MODE);
+            int statusbarDualRowMode = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                    Settings.System.DUAL_STATUSBAR_ROW_MODE, 0, UserHandle.USER_CURRENT);
+            mStatusbarDualRowMode.setValue(String.valueOf(statusbarDualRowMode));
+            mStatusbarDualRowMode.setSummary(mStatusbarDualRowMode.getEntry());
+            mStatusbarDualRowMode.setOnPreferenceChangeListener(this);
+        }
         mStatusbarHeight = (ListPreference) findPreference(STATUS_BAR_HEIGHT);
         int StatusbarHeight = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.STATUS_BAR_HEIGHT, 0);
