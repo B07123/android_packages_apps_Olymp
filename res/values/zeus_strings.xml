@@ -1728,4 +1728,8 @@
     <string name="brightness_thumb_yingyang">YingYang</string>
     <string name="brightness_thumb_flower">Flower</string>
 
+        <!-- Fingerprint unlock -->
+    <string name="fp_unlock_keystore_title">Force FP authentication</string>
+    <string name="fp_unlock_keystore_summary">Unlock device with fingerprint after reboot or lockdown</string>
+
 </resources>
