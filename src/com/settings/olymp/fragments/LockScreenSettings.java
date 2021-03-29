@@ -30,6 +30,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import androidx.preference.*;
 import androidx.preference.Preference.OnPreferenceChangeListener;
+import com.android.internal.util.crdroid.FodUtils;
 
 import android.provider.Settings;
 import com.android.settings.R;
@@ -41,8 +42,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
+    private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
 
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
+    private PreferenceCategory mFODIconPickerCategory;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -58,6 +61,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
                 Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 3);
         mMaxKeyguardNotifConfig.setValue(kgconf);
         mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
+
+        mFODIconPickerCategory = findPreference(FOD_ICON_PICKER_CATEGORY);
+        if (mFODIconPickerCategory != null && !FodUtils.hasFodSupport(getContext())) {
+            prefScreen.removePreference(mFODIconPickerCategory);
+        }
 
     }
 

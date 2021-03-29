@@ -179,6 +179,19 @@
 
     </PreferenceCategory>
 
+     <PreferenceCategory
+        android:key="fod_icon_picker"
+        android:title="@string/fod_preference_settings">
+
+         <!-- FOD -->
+         <Preference
+            android:key="fod_preference_settings"
+            android:title="@string/fod_preference_settings"
+            android:summary="@string/fod_preference_settings_summary"
+            android:fragment="com.settings.olymp.fragments.subs.FODSettings" />
+
+     </PreferenceCategory>
+
       <PreferenceCategory
         android:key="charging_ls"
         android:title="@string/charging_ls_category">
