@@ -64,11 +64,17 @@ public class UserInterfaceSettings extends SettingsPreferenceFragment implements
     private static final String DUAL_ROW_DATAUSAGE = "dual_row_datausage";
     private static final String STATUS_BAR_HEIGHT = "status_bar_height";
 
+    private static final String DISPLAY_CUTOUT_MODE = "display_cutout_mode";
+    private static final String STOCK_STATUSBAR = "stock_statusbar_in_hide";
+
     private IOverlayManager mOverlayManager;
     private SharedPreferences mSharedPreferences;
     private SystemSettingListPreference mStatusbarDualRowMode;
     private SystemSettingListPreference mDualRowDataUsageMode;
     private ListPreference mStatusbarHeight;
+
+    private Preference mStockStatusbar;
+    private ListPreference mImmersiveMode;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -127,6 +133,17 @@ public class UserInterfaceSettings extends SettingsPreferenceFragment implements
             }
        });
 
+       final PreferenceScreen prefScreen = getPreferenceScreen();
+
+       mImmersiveMode = (ListPreference) prefScreen.findPreference(DISPLAY_CUTOUT_MODE);
+       mImmersiveMode.setOnPreferenceChangeListener(this);
+
+        int immersiveMode = Settings.System.getInt(getContentResolver(),
+                Settings.System.DISPLAY_CUTOUT_MODE, 0);
+
+        mStockStatusbar = (Preference) prefScreen.findPreference(STOCK_STATUSBAR);
+        mStockStatusbar.setEnabled(immersiveMode == 2);
+
         handleDataUsePreferences();
 
     }
@@ -171,7 +188,11 @@ public class UserInterfaceSettings extends SettingsPreferenceFragment implements
                     Settings.System.DUAL_ROW_DATAUSAGE, dualRowDataUsageMode);
             mDualRowDataUsageMode.setSummary(mDualRowDataUsageMode.getEntries()[dualRowDataUsageModeIndex]);
             return true;
-        } 
+        } else if (preference == mImmersiveMode) {
+            int value = Integer.valueOf((String) newValue);
+            mStockStatusbar.setEnabled(value == 2);
+            return true;
+        }
         return false;
     }
 
