@@ -1803,4 +1803,7 @@
     <string name="display_cutout_style_hide">Hide</string>
     <string name="stock_statusbar_in_hide">Stock statusbar height</string>
     <string name="stock_statusbar_in_hide_summary">Use default statusbar height in Hide</string>
+
+        <!-- Notification background opacity -->
+    <string name="notification_alpha_title">Notification background opacity</string>
 </resources>
