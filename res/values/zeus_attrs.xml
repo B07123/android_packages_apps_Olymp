@@ -11,8 +11,5 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
-     <!-- FOD -->
-    <color name="fod_item_background_stroke_color">#d6d6d6</color>
-
+     <attr name="allowEditText" format="boolean" />
 </resources>

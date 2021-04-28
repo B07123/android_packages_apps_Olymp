@@ -1806,4 +1806,11 @@
 
         <!-- Notification background opacity -->
     <string name="notification_alpha_title">Notification background opacity</string>
+
+        <!-- AOD Icons in Lock screen -->
+    <string name="lock_aod_icons_title">AOD icons</string>
+    <string name="ambient_icons_lockscreen_title">AOD icons on lock screen</string>
+    <string name="ambient_icons_lockscreen_summary">Replace notifications with AOD icons</string>
+    <string name="ambient_icons_size_title">AOD icons size</string>
+    <string name="ambient_icons_color_title">AOD icons color</string>
 </resources>
