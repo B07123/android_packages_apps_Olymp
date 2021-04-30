@@ -1813,4 +1813,8 @@
     <string name="ambient_icons_lockscreen_summary">Replace notifications with AOD icons</string>
     <string name="ambient_icons_size_title">AOD icons size</string>
     <string name="ambient_icons_color_title">AOD icons color</string>
+
+        <!-- Charging animation -->
+    <string name="charging_animation_title">Charging animation</string>
+    <string name="charging_animation_summary">Display an animation when the device is plugged in</string>
 </resources>
