@@ -53,22 +53,16 @@
         android:key="ls_wallpaper_key"
         android:title="@string/ls_wallpaper_title">
 
-         <com.zeus.support.preferences.SystemSettingSwitchPreference
-            android:key="blur_lockscreen_wallpaper"
-            android:title="@string/blur_lockscreen_wallpaper_title"
-            android:summary="@string/blur_lockscreen_wallpaper_summary"
-            android:defaultValue="true" />
-
          <com.zeus.support.preferences.SystemSettingSeekBarPreference
-            android:key="lockscreen_wallpaper_blur"
+            android:key="lockscreen_blur"
             android:title="@string/lockscreen_wallpaper_blur_title"
+            android:summary="@string/blur_lockscreen_wallpaper_summary"
+            android:defaultValue="0"
             android:max="100"
-            settings:min="1"
-            settings:units=""
-            settings:interval="1"
-            android:defaultValue="50"
-            android:dependency="blur_lockscreen_wallpaper" />
+            settings:min="0"
+            settings:units="%" />
      </PreferenceCategory>
+     
 
      <PreferenceCategory
         android:key="items_style"

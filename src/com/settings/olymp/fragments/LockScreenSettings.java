@@ -39,6 +39,7 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.zeus.support.preferences.CustomSeekBarPreference;
 import com.zeus.support.colorpicker.ColorPickerPreference;
+import com.settings.olymp.utils.Utils;
 
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -46,10 +47,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
     private static final String AMBIENT_ICONS_COLOR = "ambient_icons_color";
+    private static final String LOCKSCREEN_BLUR = "lockscreen_blur";
 
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
     private PreferenceCategory mFODIconPickerCategory;
     private ColorPickerPreference mAmbientIconsColor;
+    private Preference mLockscreenBlur;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -79,6 +82,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mAmbientIconsColor.setNewPreviewColor(intColor);
         mAmbientIconsColor.setSummary(hexColor);
         mAmbientIconsColor.setOnPreferenceChangeListener(this);
+
+        mLockscreenBlur = (Preference) findPreference(LOCKSCREEN_BLUR);
+        if (!Utils.isBlurSupported()) {
+            prefScreen.removePreference(mLockscreenBlur);
+        }
 
     }
 

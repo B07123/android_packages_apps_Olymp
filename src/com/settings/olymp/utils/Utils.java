@@ -32,7 +32,8 @@ import android.view.Surface;
 import android.view.WindowManager;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
-
+import android.app.ActivityManager;
+import android.os.SystemProperties;
 import com.android.settings.R;
 
 import static org.lineageos.internal.util.DeviceKeysConstants.*;
@@ -100,6 +101,14 @@ public class Utils {
 
     public static boolean isTablet(Context context) {
         return getScreenType(context) == DEVICE_TABLET;
+    }
+
+    public static boolean isBlurSupported() {
+        boolean blurSupportedSysProp = SystemProperties
+            .getBoolean("ro.surface_flinger.supports_background_blur", false);
+        boolean blurDisabledSysProp = SystemProperties
+            .getBoolean("persist.sys.sf.disable_blurs", false);
+        return blurSupportedSysProp && !blurDisabledSysProp && ActivityManager.isHighEndGfx();
     }
 
     /**
