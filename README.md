@@ -4,7 +4,19 @@ The Olymp
 Introduce a new Configuration App for AOSP.
 This App combines minmal list view with tabbed sub preferences for better overview, easier handling and better experience.
 
+!!!! IMPORTANT !!!!
 
+We won't react to any offense or any users who have problems and calling us "Kanger" and so on.
+It's very simple:
+
+IF YOU WANT IT USE AND BUILD IT! 
+IF NOT JUST MOVE TO OTHER ROMS!
+
+PLEASE behave as an adult and if you are so mad of me/us you are free to repick and fix commit author history.
+
+I just dont have time for that.
+
+Thanks for you understanding.
 ## License
 
     Copyright (C) 2020 The Zeus-OS Project by @ZeNiXxX
